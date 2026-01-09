@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8-Week Upper Body Workout</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f4f4f4;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1 {
+  text-align: center;
+  margin: 16px 0;
+  font-size: 24px;
+}
+
+.header {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.week-selector {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.phase {
+  text-align: center;
+  font-weight: 600;
+  color: #666;
+  font-size: 14px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.view-toggle button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: white;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.view-toggle button.active {
+  background: #007bff;
+  color: white;
+}
+
+.day-list {
+  display: grid;
+  gap: 12px;
+}
+
+.day-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.day-card:active {
+  transform: scale(0.98);
+}
+
+.day-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.day-card .progress {
+  font-size: 14px;
+  color: #666;
+}
+
+.workout-view {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.workout-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 8px;
+}
+
+.workout-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.exercise {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.exercise:last-child {
+  border-bottom: none;
+}
+
+.exercise-name {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.weight-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.weight-input-row label {
+  font-size: 14px;
+  color: #666;
+  min-width: 60px;
+}
+
+.weight-input-row input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.sets-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.set-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.set-label {
+  font-size: 14px;
+  color: #666;
+  min-width: 50px;
+}
+
+.set-row input[type="number"] {
+  width: 80px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.set-row input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.reps-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+  
+  h1 {
+    font-size: 20px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <h1>8-Week Upper Body Workout</h1>
+
+  <div class="header">
+    <select class="week-selector" id="weekSelector">
+      <option value="1">Week 1</option>
+      <option value="2">Week 2</option>
+      <option value="3">Week 3</option>
+      <option value="4">Week 4</option>
+      <option value="5">Week 5</option>
+      <option value="6">Week 6</option>
+      <option value="7">Week 7</option>
+      <option value="8">Week 8</option>
+    </select>
+    <div class="phase" id="phaseLabel"></div>
+  </div>
+
+  <div class="view-toggle">
+    <button id="overviewBtn" class="active">Overview</button>
+    <button id="workoutBtn">Active Workout</button>
+  </div>
+
+  <div id="overviewView">
+    <div class="day-list" id="dayList"></div>
+  </div>
+
+  <div id="workoutView" class="hidden">
+    <div class="workout-view">
+      <div class="workout-header">
+        <button class="back-btn" id="backBtn">←</button>
+        <h2 class="workout-title" id="workoutTitle"></h2>
+      </div>
+      <div id="exerciseList"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+let currentWeek = 1;
+let currentDayIndex = null;
+let workoutData = null;
+
+function lift(barbell, dumbbell, week) {
+  return week % 2 === 1 ? dumbbell : barbell;
+}
+
+function phase1(week) {
+  return {
+    label: "Phase 1 – Strength & Base Hypertrophy",
+    days: [
+      {
+        title: "Day 1 – Push (Chest Dominant)",
+        exercises: [
+          [lift("Barbell Bench Press","Dumbbell Bench Press",week),5],
+          [lift("Incline Barbell Press","Incline Dumbbell Press",week),4],
+          ["Cable Fly",3],
+          [lift("Overhead Press","Dumbbell Overhead Press",week),4],
+          ["Dumbbell Front Raise",3],
+          ["Lateral Raises",4]
+        ]
+      },
+      {
+        title: "Day 2 – Pull (Back Strength)",
+        exercises: [
+          ["Weighted Pull-Ups",5],
+          [lift("Barbell Row","Dumbbell Row",week),4],
+          ["Lat Pulldown",3],
+          ["Rear Delt Fly",3],
+          ["Hammer Curl",3]
+        ]
+      },
+      {
+        title: "Day 3 – Push (Shoulders / Hypertrophy)",
+        exercises: [
+          [lift("Seated Barbell Press","Seated Dumbbell Press",week),4],
+          [lift("Incline Barbell Press","Incline Dumbbell Press",week),4],
+          ["Front → Lateral Raise Split",5],
+          ["Diamond Push-Ups",3],
+          ["Cable Fly (Low to High)",3]
+        ]
+      },
+      {
+        title: "Day 4 – Pull (Back Volume)",
+        exercises: [
+          [lift("Deadlift","RDL",week),4],
+          ["Seated Cable Row",4],
+          ["Neutral-Grip Pulldown",3],
+          ["Shoulder Shrugs",4],
+          ["Dumbbell Curl to Press",3],
+          ["Hanging Knee Raises",3]
+        ]
+      }
+    ]
+  };
+}
+
+function phase2(week) {
+  return {
+    label: "Phase 2 – Volume, Intensity & Overload",
+    days: [
+      {
+        title: "Day 1 – Push (Chest Overload)",
+        exercises: [
+          [lift("Barbell Bench Press","Dumbbell Bench Press",week),6],
+          ["Incline Dumbbell Press",4],
+          ["Cable Fly (Slow Tempo)",4],
+          [lift("Overhead Press","Dumbbell Overhead Press",week),4],
+          ["Lateral Raise Drop Set",5],
+          ["Shoulder Rotations",3]
+        ]
+      },
+      {
+        title: "Day 2 – Pull (Back Thickness)",
+        exercises: [
+          ["Weighted Pull-Ups",6],
+          [lift("Barbell Row","Dumbbell Row",week),4],
+          ["Inverted Rows",4],
+          ["Straight-Arm Pulldown",3],
+          ["Rear Delt Fly",4]
+        ]
+      },
+      {
+        title: "Day 3 – Push (Hypertrophy Burn)",
+        exercises: [
+          ["Machine Chest Press",4],
+          ["Incline Dumbbell Press",4],
+          ["Lateral Raise (High Rep)",6],
+          ["Pike Push-Ups",3],
+          ["Cable Fly Burnout",3]
+        ]
+      },
+      {
+        title: "Day 4 – Pull (Volume & Finishers)",
+        exercises: [
+          ["RDL",4],
+          ["Seated Cable Row (Slow)",4],
+          ["Wide-Grip Pulldown",4],
+          ["Shrugs",4],
+          ["Pull-Ups (Max Reps)",3],
+          ["Hanging Knee Raises",3]
+        ]
+      }
+    ]
+  };
+}
+
+// Storage functions
+async function loadData(key) {
+  try {
+    const result = await window.storage.get(key);
+    return result ? JSON.parse(result.value) : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+async function saveData(key, value) {
+  try {
+    await window.storage.set(key, JSON.stringify(value));
+  } catch (e) {
+    console.error('Storage error:', e);
+  }
+}
+
+async function getWorkoutProgress(week, dayIdx) {
+  const phase = week <= 4 ? phase1(week) : phase2(week);
+  const day = phase.days[dayIdx];
+  let completed = 0;
+  let total = 0;
+
+  for (let eIdx = 0; eIdx < day.exercises.length; eIdx++) {
+    const sets = day.exercises[eIdx][1];
+    for (let sIdx = 0; sIdx < sets; sIdx++) {
+      const key = `w${week}-d${dayIdx}-e${eIdx}-s${sIdx}`;
+      const data = await loadData(key);
+      total++;
+      if (data && data.completed) completed++;
+    }
+  }
+
+  return { completed, total };
+}
+
+async function renderOverview() {
+  const phase = currentWeek <= 4 ? phase1(currentWeek) : phase2(currentWeek);
+  document.getElementById('phaseLabel').textContent = phase.label;
+  
+  const dayList = document.getElementById('dayList');
+  dayList.innerHTML = '';
+
+  for (let i = 0; i < phase.days.length; i++) {
+    const day = phase.days[i];
+    const progress = await getWorkoutProgress(currentWeek, i);
+    
+    const card = document.createElement('div');
+    card.className = 'day-card';
+    card.innerHTML = `
+      <h3>${day.title}</h3>
+      <div class="progress">${progress.completed}/${progress.total} sets completed</div>
+    `;
+    card.onclick = () => showWorkout(i);
+    dayList.appendChild(card);
+  }
+}
+
+async function showWorkout(dayIdx) {
+  currentDayIndex = dayIdx;
+  const phase = currentWeek <= 4 ? phase1(currentWeek) : phase2(currentWeek);
+  const day = phase.days[dayIdx];
+
+  document.getElementById('workoutTitle').textContent = day.title;
+  document.getElementById('overviewView').classList.add('hidden');
+  document.getElementById('workoutView').classList.remove('hidden');
+
+  const exerciseList = document.getElementById('exerciseList');
+  exerciseList.innerHTML = '';
+
+  for (let eIdx = 0; eIdx < day.exercises.length; eIdx++) {
+    const [name, sets] = day.exercises[eIdx];
+    
+    const exerciseDiv = document.createElement('div');
+    exerciseDiv.className = 'exercise';
+    
+    const nameDiv = document.createElement('div');
+    nameDiv.className = 'exercise-name';
+    nameDiv.textContent = name;
+    exerciseDiv.appendChild(nameDiv);
+
+    // Weight input
+    const weightKey = `w${currentWeek}-d${dayIdx}-e${eIdx}-weight`;
+    const weightData = await loadData(weightKey);
+    
+    const weightRow = document.createElement('div');
+    weightRow.className = 'weight-input-row';
+    weightRow.innerHTML = `
+      <label>Weight:</label>
+      <input type="number" placeholder="lbs" value="${weightData || ''}" data-key="${weightKey}">
+    `;
+    const weightInput = weightRow.querySelector('input');
+    weightInput.onchange = () => saveData(weightKey, weightInput.value);
+    exerciseDiv.appendChild(weightRow);
+
+    // Sets
+    const setsGrid = document.createElement('div');
+    setsGrid.className = 'sets-grid';
+
+    for (let sIdx = 0; sIdx < sets; sIdx++) {
+      const setKey = `w${currentWeek}-d${dayIdx}-e${eIdx}-s${sIdx}`;
+      const setData = await loadData(setKey);
+
+      const setRow = document.createElement('div');
+      setRow.className = 'set-row';
+      
+      setRow.innerHTML = `
+        <span class="set-label">Set ${sIdx + 1}:</span>
+        <input type="number" placeholder="reps" value="${setData?.reps || ''}" data-key="${setKey}" data-type="reps">
+        <span class="reps-label">reps</span>
+        <input type="checkbox" ${setData?.completed ? 'checked' : ''} data-key="${setKey}" data-type="check">
+      `;
+
+      const repsInput = setRow.querySelector('input[data-type="reps"]');
+      const checkbox = setRow.querySelector('input[data-type="check"]');
+
+      repsInput.onchange = async () => {
+        const current = await loadData(setKey) || {};
+        await saveData(setKey, { ...current, reps: repsInput.value });
+      };
+
+      checkbox.onchange = async () => {
+        const current = await loadData(setKey) || {};
+        await saveData(setKey, { ...current, completed: checkbox.checked });
+      };
+
+      setsGrid.appendChild(setRow);
+    }
+
+    exerciseDiv.appendChild(setsGrid);
+    exerciseList.appendChild(exerciseDiv);
+  }
+}
+
+function showOverview() {
+  document.getElementById('overviewView').classList.remove('hidden');
+  document.getElementById('workoutView').classList.add('hidden');
+  document.getElementById('overviewBtn').classList.add('active');
+  document.getElementById('workoutBtn').classList.remove('active');
+  renderOverview();
+}
+
+document.getElementById('weekSelector').addEventListener('change', (e) => {
+  currentWeek = Number(e.target.value);
+  renderOverview();
+});
+
+document.getElementById('overviewBtn').addEventListener('click', showOverview);
+
+document.getElementById('workoutBtn').addEventListener('click', () => {
+  document.getElementById('overviewBtn').classList.remove('active');
+  document.getElementById('workoutBtn').classList.add('active');
+  if (currentDayIndex !== null) {
+    showWorkout(currentDayIndex);
+  } else {
+    showWorkout(0);
+  }
+});
+
+document.getElementById('backBtn').addEventListener('click', showOverview);
+
+// Initialize
+renderOverview();
+</script>
+
+</body>
+</html>
