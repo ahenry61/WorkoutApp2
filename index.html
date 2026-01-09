@@ -277,43 +277,43 @@ function phase1(week) {
       {
         title: "Day 1 – Push (Chest Dominant)",
         exercises: [
-          [lift("Barbell Bench Press","Dumbbell Bench Press",week),5],
-          [lift("Incline Barbell Press","Incline Dumbbell Press",week),4],
-          ["Cable Fly",3],
-          [lift("Overhead Press","Dumbbell Overhead Press",week),4],
-          ["Dumbbell Front Raise",3],
-          ["Lateral Raises",4]
+          [lift("Barbell Bench Press","Dumbbell Bench Press",week),5,"6-8"],
+          [lift("Incline Barbell Press","Incline Dumbbell Press",week),4,"8-10"],
+          ["Cable Fly",3,"12-15"],
+          [lift("Overhead Press","Dumbbell Overhead Press",week),4,"6-8"],
+          ["Dumbbell Front Raise",3,"10-12"],
+          ["Lateral Raises",4,"12-15"]
         ]
       },
       {
         title: "Day 2 – Pull (Back Strength)",
         exercises: [
-          ["Weighted Pull-Ups",5],
-          [lift("Barbell Row","Dumbbell Row",week),4],
-          ["Lat Pulldown",3],
-          ["Rear Delt Fly",3],
-          ["Hammer Curl",3]
+          ["Weighted Pull-Ups",5,"6-8"],
+          [lift("Barbell Row","Dumbbell Row",week),4,"8-10"],
+          ["Lat Pulldown",3,"10-12"],
+          ["Rear Delt Fly",3,"12-15"],
+          ["Hammer Curl",3,"10-12"]
         ]
       },
       {
         title: "Day 3 – Push (Shoulders / Hypertrophy)",
         exercises: [
-          [lift("Seated Barbell Press","Seated Dumbbell Press",week),4],
-          [lift("Incline Barbell Press","Incline Dumbbell Press",week),4],
-          ["Front → Lateral Raise Split",5],
-          ["Diamond Push-Ups",3],
-          ["Cable Fly (Low to High)",3]
+          [lift("Seated Barbell Press","Seated Dumbbell Press",week),4,"8-10"],
+          [lift("Incline Barbell Press","Incline Dumbbell Press",week),4,"8-10"],
+          ["Front → Lateral Raise Split",5,"12-15"],
+          ["Diamond Push-Ups",3,"10-15"],
+          ["Cable Fly (Low to High)",3,"12-15"]
         ]
       },
       {
         title: "Day 4 – Pull (Back Volume)",
         exercises: [
-          [lift("Deadlift","RDL",week),4],
-          ["Seated Cable Row",4],
-          ["Neutral-Grip Pulldown",3],
-          ["Shoulder Shrugs",4],
-          ["Dumbbell Curl to Press",3],
-          ["Hanging Knee Raises",3]
+          [lift("Deadlift","RDL",week),4,"6-8"],
+          ["Seated Cable Row",4,"10-12"],
+          ["Neutral-Grip Pulldown",3,"10-12"],
+          ["Shoulder Shrugs",4,"12-15"],
+          ["Dumbbell Curl to Press",3,"10-12"],
+          ["Hanging Knee Raises",3,"12-15"]
         ]
       }
     ]
@@ -327,43 +327,43 @@ function phase2(week) {
       {
         title: "Day 1 – Push (Chest Overload)",
         exercises: [
-          [lift("Barbell Bench Press","Dumbbell Bench Press",week),6],
-          ["Incline Dumbbell Press",4],
-          ["Cable Fly (Slow Tempo)",4],
-          [lift("Overhead Press","Dumbbell Overhead Press",week),4],
-          ["Lateral Raise Drop Set",5],
-          ["Shoulder Rotations",3]
+          [lift("Barbell Bench Press","Dumbbell Bench Press",week),6,"5-6"],
+          ["Incline Dumbbell Press",4,"8-10"],
+          ["Cable Fly (Slow Tempo)",4,"12-15"],
+          [lift("Overhead Press","Dumbbell Overhead Press",week),4,"6-8"],
+          ["Lateral Raise Drop Set",5,"12-15"],
+          ["Shoulder Rotations",3,"15-20"]
         ]
       },
       {
         title: "Day 2 – Pull (Back Thickness)",
         exercises: [
-          ["Weighted Pull-Ups",6],
-          [lift("Barbell Row","Dumbbell Row",week),4],
-          ["Inverted Rows",4],
-          ["Straight-Arm Pulldown",3],
-          ["Rear Delt Fly",4]
+          ["Weighted Pull-Ups",6,"5-6"],
+          [lift("Barbell Row","Dumbbell Row",week),4,"8-10"],
+          ["Inverted Rows",4,"10-12"],
+          ["Straight-Arm Pulldown",3,"12-15"],
+          ["Rear Delt Fly",4,"12-15"]
         ]
       },
       {
         title: "Day 3 – Push (Hypertrophy Burn)",
         exercises: [
-          ["Machine Chest Press",4],
-          ["Incline Dumbbell Press",4],
-          ["Lateral Raise (High Rep)",6],
-          ["Pike Push-Ups",3],
-          ["Cable Fly Burnout",3]
+          ["Machine Chest Press",4,"10-12"],
+          ["Incline Dumbbell Press",4,"10-12"],
+          ["Lateral Raise (High Rep)",6,"15-20"],
+          ["Pike Push-Ups",3,"12-15"],
+          ["Cable Fly Burnout",3,"15-20"]
         ]
       },
       {
         title: "Day 4 – Pull (Volume & Finishers)",
         exercises: [
-          ["RDL",4],
-          ["Seated Cable Row (Slow)",4],
-          ["Wide-Grip Pulldown",4],
-          ["Shrugs",4],
-          ["Pull-Ups (Max Reps)",3],
-          ["Hanging Knee Raises",3]
+          ["RDL",4,"8-10"],
+          ["Seated Cable Row (Slow)",4,"10-12"],
+          ["Wide-Grip Pulldown",4,"10-12"],
+          ["Shrugs",4,"12-15"],
+          ["Pull-Ups (Max Reps)",3,"AMRAP"],
+          ["Hanging Knee Raises",3,"12-15"]
         ]
       }
     ]
@@ -442,7 +442,7 @@ async function showWorkout(dayIdx) {
   exerciseList.innerHTML = '';
 
   for (let eIdx = 0; eIdx < day.exercises.length; eIdx++) {
-    const [name, sets] = day.exercises[eIdx];
+    const [name, sets, targetReps] = day.exercises[eIdx];
     
     const exerciseDiv = document.createElement('div');
     exerciseDiv.className = 'exercise';
@@ -479,7 +479,7 @@ async function showWorkout(dayIdx) {
       
       setRow.innerHTML = `
         <span class="set-label">Set ${sIdx + 1}:</span>
-        <input type="number" placeholder="reps" value="${setData?.reps || ''}" data-key="${setKey}" data-type="reps">
+        <input type="number" placeholder="${targetReps}" value="${setData?.reps || ''}" data-key="${setKey}" data-type="reps">
         <span class="reps-label">reps</span>
         <input type="checkbox" ${setData?.completed ? 'checked' : ''} data-key="${setKey}" data-type="check">
       `;
