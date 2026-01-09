@@ -373,18 +373,33 @@ function phase2(week) {
 // Storage functions
 async function loadData(key) {
   try {
-    const result = await window.storage.get(key);
-    return result ? JSON.parse(result.value) : null;
+    // Try persistent storage first
+    if (window.storage) {
+      const result = await window.storage.get(key);
+      return result ? JSON.parse(result.value) : null;
+    }
   } catch (e) {
-    return null;
+    // Fall back to localStorage
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
   }
+  // Fallback to localStorage
+  const item = localStorage.getItem(key);
+  return item ? JSON.parse(item) : null;
 }
 
 async function saveData(key, value) {
   try {
-    await window.storage.set(key, JSON.stringify(value));
+    // Try persistent storage first
+    if (window.storage) {
+      await window.storage.set(key, JSON.stringify(value));
+    } else {
+      // Fall back to localStorage
+      localStorage.setItem(key, JSON.stringify(value));
+    }
   } catch (e) {
-    console.error('Storage error:', e);
+    // Fall back to localStorage on error
+    localStorage.setItem(key, JSON.stringify(value));
   }
 }
 
