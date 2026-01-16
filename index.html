@@ -205,25 +205,6 @@ h1 {
   color: #666;
 }
 
-.notes-section {
-  margin-top: 12px;
-}
-
-.notes-section textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  resize: vertical;
-  min-height: 60px;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-.notes-section textarea::placeholder {
-  color: #999;
-}
-
 .hidden {
   display: none;
 }
@@ -265,7 +246,7 @@ h1 {
     <button id="workoutBtn">Active Workout</button>
   </div>
 
-  <div id="overviewView" class="">
+  <div id="overviewView">
     <div class="day-list" id="dayList"></div>
   </div>
 
@@ -535,55 +516,36 @@ async function showWorkout(dayIdx) {
     }
 
     exerciseDiv.appendChild(setsGrid);
-    
-    // Notes section
-    const notesKey = `w${currentWeek}-d${dayIdx}-e${eIdx}-notes`;
-    const notesData = await loadData(notesKey);
-    
-    const notesSection = document.createElement('div');
-    notesSection.className = 'notes-section';
-    notesSection.innerHTML = `
-      <textarea placeholder="Notes (e.g., form tips, how it felt, adjustments...)" data-key="${notesKey}">${notesData || ''}</textarea>
-
-```
-`;
-
-const notesTextarea = notesSection.querySelector('textarea');
-notesTextarea.onchange = () => saveData(notesKey, notesTextarea.value);
-
-exerciseDiv.appendChild(notesSection);
-exerciseList.appendChild(exerciseDiv);
-```
-
-}
+    exerciseList.appendChild(exerciseDiv);
+  }
 }
 
 function showOverview() {
-document.getElementById(‘overviewView’).classList.remove(‘hidden’);
-document.getElementById(‘workoutView’).classList.add(‘hidden’);
-document.getElementById(‘overviewBtn’).classList.add(‘active’);
-document.getElementById(‘workoutBtn’).classList.remove(‘active’);
-renderOverview();
+  document.getElementById('overviewView').classList.remove('hidden');
+  document.getElementById('workoutView').classList.add('hidden');
+  document.getElementById('overviewBtn').classList.add('active');
+  document.getElementById('workoutBtn').classList.remove('active');
+  renderOverview();
 }
 
-document.getElementById(‘weekSelector’).addEventListener(‘change’, (e) => {
-currentWeek = Number(e.target.value);
-renderOverview();
+document.getElementById('weekSelector').addEventListener('change', (e) => {
+  currentWeek = Number(e.target.value);
+  renderOverview();
 });
 
-document.getElementById(‘overviewBtn’).addEventListener(‘click’, showOverview);
+document.getElementById('overviewBtn').addEventListener('click', showOverview);
 
-document.getElementById(‘workoutBtn’).addEventListener(‘click’, () => {
-document.getElementById(‘overviewBtn’).classList.remove(‘active’);
-document.getElementById(‘workoutBtn’).classList.add(‘active’);
-if (currentDayIndex !== null) {
-showWorkout(currentDayIndex);
-} else {
-showWorkout(0);
-}
+document.getElementById('workoutBtn').addEventListener('click', () => {
+  document.getElementById('overviewBtn').classList.remove('active');
+  document.getElementById('workoutBtn').classList.add('active');
+  if (currentDayIndex !== null) {
+    showWorkout(currentDayIndex);
+  } else {
+    showWorkout(0);
+  }
 });
 
-document.getElementById(‘backBtn’).addEventListener(‘click’, showOverview);
+document.getElementById('backBtn').addEventListener('click', showOverview);
 
 // Initialize
 renderOverview();
