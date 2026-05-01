@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>5-Day Workout Tracker</title>
 <style>
 * { box-sizing: border-box; }
@@ -34,6 +34,8 @@ background: var(–bg);
 color: var(–text);
 margin: 0;
 padding: 0;
+font-size: 16px;
+-webkit-text-size-adjust: 100%;
 transition: all 0.3s;
 }
 
@@ -201,11 +203,17 @@ padding: 16px;
 margin-bottom: 12px;
 }
 
+.exercise:last-child {
+margin-bottom: 0;
+}
+
 .exercise-header {
 display: flex;
 justify-content: space-between;
 align-items: center;
 margin-bottom: 12px;
+padding-bottom: 8px;
+border-bottom: 1px solid var(–accent);
 }
 
 .exercise-name {
@@ -215,12 +223,13 @@ font-size: 16px;
 
 .swap-btn {
 background: none;
-border: 1px solid var(–accent);
+border: 2px solid var(–accent);
 color: var(–accent);
-padding: 4px 8px;
-border-radius: 4px;
+padding: 4px 10px;
+border-radius: 6px;
 cursor: pointer;
 font-size: 12px;
+font-weight: 600;
 }
 
 .weight-row {
@@ -231,7 +240,7 @@ align-items: center;
 }
 
 .weight-row label {
-min-width: 80px;
+min-width: 90px;
 font-size: 14px;
 color: var(–text-secondary);
 }
@@ -239,7 +248,7 @@ color: var(–text-secondary);
 .weight-row input {
 flex: 1;
 padding: 8px;
-border: 1px solid var(–border);
+border: 2px solid var(–accent);
 border-radius: 6px;
 background: var(–bg-card);
 color: var(–text);
@@ -254,33 +263,37 @@ margin-bottom: 12px;
 
 .set-row {
 display: flex;
-gap: 8px;
+gap: 6px;
 align-items: center;
 padding: 8px;
 background: var(–bg-card);
+border: 2px solid var(–accent);
 border-radius: 6px;
 }
 
 .set-row label {
-min-width: 60px;
+min-width: 50px;
 font-size: 14px;
 color: var(–text-secondary);
+font-weight: 600;
 }
 
 .set-row input[type=“number”] {
-width: 70px;
+width: 60px;
 padding: 6px;
-border: 1px solid var(–border);
+border: 1px solid var(–accent);
 border-radius: 4px;
 background: var(–bg);
 color: var(–text);
+font-size: 16px;
 }
 
 .set-row input[type=“checkbox”] {
-width: 20px;
-height: 20px;
+width: 22px;
+height: 22px;
 accent-color: var(–accent);
 cursor: pointer;
+margin-left: auto;
 }
 
 .notes {
@@ -291,11 +304,12 @@ margin-top: 12px;
 width: 100%;
 min-height: 60px;
 padding: 8px;
-border: 1px solid var(–border);
+border: 2px solid var(–accent);
 border-radius: 6px;
 background: var(–bg-card);
 color: var(–text);
 font-family: inherit;
+font-size: 14px;
 resize: vertical;
 }
 
