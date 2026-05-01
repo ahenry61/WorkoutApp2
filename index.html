@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,404 +9,405 @@
 * { box-sizing: border-box; }
 
 :root {
-  --bg: #ffffff;
-  --bg-card: #f8f8f8;
-  --text: #000000;
-  --text-secondary: #666666;
-  --border: #e0e0e0;
-  --accent: #2d5f2e;
-  --shadow: rgba(0,0,0,0.1);
+–bg: #ffffff;
+–bg-card: #f8f8f8;
+–text: #000000;
+–text-secondary: #666666;
+–border: #e0e0e0;
+–accent: #2d5f2e;
+–shadow: rgba(0,0,0,0.1);
 }
 
 body.dark-mode {
-  --bg: #0f0f0f;
-  --bg-card: #1a1a1a;
-  --text: #ffffff;
-  --text-secondary: #b0b0b0;
-  --border: #333333;
-  --accent: #4a9d4d;
-  --shadow: rgba(0,0,0,0.3);
+–bg: #0f0f0f;
+–bg-card: #1a1a1a;
+–text: #ffffff;
+–text-secondary: #b0b0b0;
+–border: #333333;
+–accent: #4a9d4d;
+–shadow: rgba(0,0,0,0.3);
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  margin: 0;
-  padding: 0;
-  transition: all 0.3s;
+font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+background: var(–bg);
+color: var(–text);
+margin: 0;
+padding: 0;
+transition: all 0.3s;
 }
 
 .header {
-  background: var(--bg-card);
-  padding: 16px;
-  border-bottom: 2px solid var(--accent);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+background: var(–bg-card);
+padding: 16px;
+border-bottom: 2px solid var(–accent);
+display: flex;
+align-items: center;
+gap: 12px;
+position: sticky;
+top: 0;
+z-index: 100;
 }
 
 .menu-btn, .dark-toggle {
-  background: none;
-  border: 2px solid var(--accent);
-  color: var(--text);
-  padding: 8px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
+background: none;
+border: 2px solid var(–accent);
+color: var(–text);
+padding: 8px 12px;
+border-radius: 8px;
+cursor: pointer;
+font-size: 16px;
 }
 
 .header h1 {
-  flex: 1;
-  margin: 0;
-  font-size: 20px;
+flex: 1;
+margin: 0;
+font-size: 20px;
 }
 
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: -280px;
-  width: 280px;
-  height: 100vh;
-  background: var(--bg-card);
-  border-right: 2px solid var(--accent);
-  transition: left 0.3s;
-  z-index: 200;
-  overflow-y: auto;
+position: fixed;
+top: 0;
+left: -280px;
+width: 280px;
+height: 100vh;
+background: var(–bg-card);
+border-right: 2px solid var(–accent);
+transition: left 0.3s;
+z-index: 200;
+overflow-y: auto;
 }
 
 .sidebar.open { left: 0; }
 
 .sidebar-header {
-  padding: 20px;
-  border-bottom: 2px solid var(--accent);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+padding: 20px;
+border-bottom: 2px solid var(–accent);
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .sidebar-header h2 { margin: 0; }
 
 .close-btn {
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: var(--text);
+background: none;
+border: none;
+font-size: 28px;
+cursor: pointer;
+color: var(–text);
 }
 
 .menu-items {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+list-style: none;
+padding: 0;
+margin: 0;
 }
 
 .menu-items li {
-  padding: 16px 20px;
-  cursor: pointer;
-  border-bottom: 1px solid var(--border);
+padding: 16px 20px;
+cursor: pointer;
+border-bottom: 1px solid var(–border);
 }
 
-.menu-items li:hover { background: var(--bg); }
+.menu-items li:hover { background: var(–bg); }
 .menu-items li.active {
-  background: var(--accent);
-  color: white;
-  font-weight: 600;
+background: var(–accent);
+color: white;
+font-weight: 600;
 }
 
 .overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  z-index: 150;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(0,0,0,0.5);
+display: none;
+z-index: 150;
 }
 
 .overlay.active { display: block; }
 
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 16px;
+max-width: 800px;
+margin: 0 auto;
+padding: 16px;
 }
 
 .section {
-  display: none;
+display: none;
 }
 
 .section.active { display: block; }
 
 .week-selector, .miles-input {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  border: 2px solid var(--accent);
-  background: var(--bg-card);
-  color: var(--text);
+width: 100%;
+padding: 12px;
+font-size: 16px;
+margin-bottom: 16px;
+border-radius: 8px;
+border: 2px solid var(–accent);
+background: var(–bg-card);
+color: var(–text);
 }
 
 .miles-row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-bottom: 16px;
+display: flex;
+gap: 12px;
+align-items: center;
+margin-bottom: 16px;
 }
 
 .miles-row label {
-  font-weight: 600;
-  min-width: 120px;
+font-weight: 600;
+min-width: 120px;
 }
 
 .day-card {
-  background: var(--bg-card);
-  border: 2px solid var(--accent);
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 12px;
-  cursor: pointer;
+background: var(–bg-card);
+border: 2px solid var(–accent);
+border-radius: 12px;
+padding: 16px;
+margin-bottom: 12px;
+cursor: pointer;
 }
 
 .day-card h3 {
-  margin: 0 0 8px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+margin: 0 0 8px 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .day-card .progress {
-  font-size: 14px;
-  color: var(--text-secondary);
+font-size: 14px;
+color: var(–text-secondary);
 }
 
 .exercises {
-  display: none;
-  margin-top: 16px;
+display: none;
+margin-top: 16px;
 }
 
 .exercises.open { display: block; }
 
 .exercise {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
+background: var(–bg);
+border: 1px solid var(–border);
+border-radius: 8px;
+padding: 16px;
+margin-bottom: 12px;
 }
 
 .exercise-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12px;
 }
 
 .exercise-name {
-  font-weight: 600;
-  font-size: 16px;
+font-weight: 600;
+font-size: 16px;
 }
 
 .swap-btn {
-  background: none;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
+background: none;
+border: 1px solid var(–accent);
+color: var(–accent);
+padding: 4px 8px;
+border-radius: 4px;
+cursor: pointer;
+font-size: 12px;
 }
 
 .weight-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
-  align-items: center;
+display: flex;
+gap: 8px;
+margin-bottom: 12px;
+align-items: center;
 }
 
 .weight-row label {
-  min-width: 80px;
-  font-size: 14px;
-  color: var(--text-secondary);
+min-width: 80px;
+font-size: 14px;
+color: var(–text-secondary);
 }
 
 .weight-row input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--bg-card);
-  color: var(--text);
-  font-size: 16px;
+flex: 1;
+padding: 8px;
+border: 1px solid var(–border);
+border-radius: 6px;
+background: var(–bg-card);
+color: var(–text);
+font-size: 16px;
 }
 
 .sets-grid {
-  display: grid;
-  gap: 8px;
-  margin-bottom: 12px;
+display: grid;
+gap: 8px;
+margin-bottom: 12px;
 }
 
 .set-row {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  padding: 8px;
-  background: var(--bg-card);
-  border-radius: 6px;
+display: flex;
+gap: 8px;
+align-items: center;
+padding: 8px;
+background: var(–bg-card);
+border-radius: 6px;
 }
 
 .set-row label {
-  min-width: 60px;
-  font-size: 14px;
-  color: var(--text-secondary);
+min-width: 60px;
+font-size: 14px;
+color: var(–text-secondary);
 }
 
-.set-row input[type="number"] {
-  width: 70px;
-  padding: 6px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  background: var(--bg);
-  color: var(--text);
+.set-row input[type=“number”] {
+width: 70px;
+padding: 6px;
+border: 1px solid var(–border);
+border-radius: 4px;
+background: var(–bg);
+color: var(–text);
 }
 
-.set-row input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  accent-color: var(--accent);
-  cursor: pointer;
+.set-row input[type=“checkbox”] {
+width: 20px;
+height: 20px;
+accent-color: var(–accent);
+cursor: pointer;
 }
 
 .notes {
-  margin-top: 12px;
+margin-top: 12px;
 }
 
 .notes textarea {
-  width: 100%;
-  min-height: 60px;
-  padding: 8px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--bg-card);
-  color: var(--text);
-  font-family: inherit;
-  resize: vertical;
+width: 100%;
+min-height: 60px;
+padding: 8px;
+border: 1px solid var(–border);
+border-radius: 6px;
+background: var(–bg-card);
+color: var(–text);
+font-family: inherit;
+resize: vertical;
 }
 
 .goals-list, .library-list {
-  display: grid;
-  gap: 12px;
+display: grid;
+gap: 12px;
 }
 
 .goal-item {
-  background: var(--bg-card);
-  border: 2px solid var(--accent);
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  gap: 16px;
-  align-items: center;
+background: var(–bg-card);
+border: 2px solid var(–accent);
+border-radius: 12px;
+padding: 20px;
+display: flex;
+gap: 16px;
+align-items: center;
 }
 
 .goal-item input {
-  width: 28px;
-  height: 28px;
-  accent-color: var(--accent);
-  cursor: pointer;
+width: 28px;
+height: 28px;
+accent-color: var(–accent);
+cursor: pointer;
 }
 
 .goal-item.completed .goal-text {
-  text-decoration: line-through;
-  color: var(--text-secondary);
+text-decoration: line-through;
+color: var(–text-secondary);
 }
 
 .goal-text {
-  font-size: 18px;
-  flex: 1;
+font-size: 18px;
+flex: 1;
 }
 
 .rules-content {
-  background: var(--bg-card);
-  border: 2px solid var(--accent);
-  border-radius: 12px;
-  padding: 24px;
-  line-height: 1.6;
+background: var(–bg-card);
+border: 2px solid var(–accent);
+border-radius: 12px;
+padding: 24px;
+line-height: 1.6;
 }
 
 .rules-content h3 {
-  margin-top: 0;
-  color: var(--accent);
+margin-top: 0;
+color: var(–accent);
 }
 
 .library-categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 8px;
-  margin-bottom: 16px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+gap: 8px;
+margin-bottom: 16px;
 }
 
 .category-btn {
-  padding: 10px;
-  border: 2px solid var(--accent);
-  background: var(--bg-card);
-  color: var(--text);
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
+padding: 10px;
+border: 2px solid var(–accent);
+background: var(–bg-card);
+color: var(–text);
+border-radius: 8px;
+cursor: pointer;
+font-size: 14px;
 }
 
 .category-btn.active {
-  background: var(--accent);
-  color: white;
+background: var(–accent);
+color: white;
 }
 
 .exercise-lib-item {
-  background: var(--bg-card);
-  border: 2px solid var(--accent);
-  border-radius: 8px;
-  padding: 16px;
-  cursor: pointer;
+background: var(–bg-card);
+border: 2px solid var(–accent);
+border-radius: 8px;
+padding: 16px;
+cursor: pointer;
 }
 
 .exercise-lib-item h4 {
-  margin: 0 0 8px 0;
+margin: 0 0 8px 0;
 }
 
 .exercise-lib-item p {
-  margin: 0;
-  font-size: 14px;
-  color: var(--text-secondary);
+margin: 0;
+font-size: 14px;
+color: var(–text-secondary);
 }
 
 .swap-banner {
-  background: var(--accent);
-  color: white;
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-bottom: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+background: var(–accent);
+color: white;
+padding: 12px 16px;
+border-radius: 8px;
+margin-bottom: 16px;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
 .swap-banner button {
-  background: white;
-  color: var(--accent);
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
+background: white;
+color: var(–accent);
+border: none;
+padding: 6px 12px;
+border-radius: 4px;
+cursor: pointer;
+font-weight: 600;
 }
 
 .hidden { display: none; }
 </style>
+
 </head>
 <body>
 
@@ -443,54 +445,66 @@ body {
       <option value="7">Week 7</option>
       <option value="8">Week 8</option>
     </select>
-    
-    <div class="miles-row">
-      <label>Miles this week:</label>
-      <input type="number" class="miles-input" id="milesInput" placeholder="0" step="0.1">
-    </div>
-    
-    <div id="daysList"></div>
+
+```
+<div class="miles-row">
+  <label>Miles this week:</label>
+  <input type="number" class="miles-input" id="milesInput" placeholder="0" step="0.1">
+</div>
+
+<div id="daysList"></div>
+```
+
   </div>
 
   <!-- Goals Section -->
+
   <div id="goals" class="section">
     <div class="goals-list" id="goalsList"></div>
   </div>
 
   <!-- Progression Rules Section -->
+
   <div id="progression" class="section">
     <div class="rules-content">
       <h3>Progression Rules</h3>
       <p><strong>When to increase weight:</strong></p>
       <p>If you hit the top of the rep range on all sets (e.g., 8 reps when prescribed 6-8) → add weight next week</p>
-      
-      <p><strong>Bench/OHP:</strong> +2.5-5 lbs</p>
-      <p><strong>Squat/Deadlift:</strong> +5-10 lbs</p>
-      <p><strong>Accessories:</strong> +2.5 lbs or add 1-2 reps</p>
-      
-      <p><strong>Program Structure:</strong></p>
-      <p>Weeks 1-4: Build phase with foundational exercises</p>
-      <p>Weeks 5-8: Progression phase with advanced variations and heavier weights</p>
-    </div>
+
+```
+  <p><strong>Bench/OHP:</strong> +2.5-5 lbs</p>
+  <p><strong>Squat/Deadlift:</strong> +5-10 lbs</p>
+  <p><strong>Accessories:</strong> +2.5 lbs or add 1-2 reps</p>
+  
+  <p><strong>Program Structure:</strong></p>
+  <p>Weeks 1-4: Build phase with foundational exercises</p>
+  <p>Weeks 5-8: Progression phase with advanced variations and heavier weights</p>
+</div>
+```
+
   </div>
 
   <!-- Exercise Library Section -->
+
   <div id="library" class="section">
     <div id="swapBanner" class="swap-banner hidden">
       <span>Select exercise to replace: <strong id="swapExerciseName"></strong></span>
       <button id="cancelSwapBtn">Cancel</button>
     </div>
-    
-    <div class="library-categories">
-      <button class="category-btn active" data-category="all">All</button>
-      <button class="category-btn" data-category="legs">Legs</button>
-      <button class="category-btn" data-category="shoulders">Shoulders</button>
-      <button class="category-btn" data-category="chest">Chest</button>
-      <button class="category-btn" data-category="back">Back</button>
-      <button class="category-btn" data-category="abs">Abs</button>
-    </div>
-    
-    <div class="library-list" id="libraryList"></div>
+
+```
+<div class="library-categories">
+  <button class="category-btn active" data-category="all">All</button>
+  <button class="category-btn" data-category="legs">Legs</button>
+  <button class="category-btn" data-category="shoulders">Shoulders</button>
+  <button class="category-btn" data-category="chest">Chest</button>
+  <button class="category-btn" data-category="back">Back</button>
+  <button class="category-btn" data-category="abs">Abs</button>
+</div>
+
+<div class="library-list" id="libraryList"></div>
+```
+
   </div>
 </div>
 
@@ -955,13 +969,14 @@ function renderWorkouts() {
       weightRow.className = 'weight-row';
       
       const weightLabel = document.createElement('label');
-      weightLabel.textContent = 'Weight (lbs):';
+      weightLabel.textContent = 'Suggested:';
       
       const weightInput = document.createElement('input');
       weightInput.type = 'number';
-      weightInput.placeholder = ex.suggestedWeight;
-      weightInput.value = savedWeight !== null ? savedWeight : ex.suggestedWeight;
-      weightInput.onchange = () => setData(weightKey, weightInput.value);
+      weightInput.value = ex.suggestedWeight;
+      weightInput.disabled = true;
+      weightInput.style.background = 'var(--bg)';
+      weightInput.style.color = 'var(--text-secondary)';
       
       weightRow.appendChild(weightLabel);
       weightRow.appendChild(weightInput);
@@ -979,6 +994,22 @@ function renderWorkouts() {
         
         const label = document.createElement('label');
         label.textContent = `Set ${s + 1}:`;
+        
+        const weightSetInput = document.createElement('input');
+        weightSetInput.type = 'number';
+        weightSetInput.placeholder = 'lbs';
+        weightSetInput.value = savedSet.weight || '';
+        weightSetInput.style.width = '70px';
+        weightSetInput.onchange = function() {
+          const current = getData(setKey) || {};
+          current.weight = this.value;
+          setData(setKey, current);
+        };
+        
+        const xLabel = document.createElement('span');
+        xLabel.textContent = '×';
+        xLabel.style.fontSize = '14px';
+        xLabel.style.color = 'var(--text-secondary)';
         
         const repsInput = document.createElement('input');
         repsInput.type = 'number';
@@ -1005,6 +1036,8 @@ function renderWorkouts() {
         };
         
         setRow.appendChild(label);
+        setRow.appendChild(weightSetInput);
+        setRow.appendChild(xLabel);
         setRow.appendChild(repsInput);
         setRow.appendChild(repsLabel);
         setRow.appendChild(cb);
@@ -1085,5 +1118,6 @@ loadMiles();
 renderWorkouts();
 renderGoals();
 </script>
+
 </body>
 </html>
