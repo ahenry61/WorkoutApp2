@@ -3,16 +3,27 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Workout Tracker</title>
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-text-size-adjust: 100%; }
+
+html {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+}
 
 body {
 font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 background: #ffffff;
 color: #000000;
 font-size: 14px;
+-webkit-text-size-adjust: 100%;
+}
+
+input, textarea, select, button {
+font-size: 16px !important;
+font-family: inherit;
 }
 
 body.dark { background: #0f0f0f; color: #ffffff; }
