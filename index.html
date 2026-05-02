@@ -4,48 +4,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>5-Day Workout Tracker</title>
+<title>Workout Tracker</title>
 <style>
-* { box-sizing: border-box; }
-
-html {
--webkit-text-size-adjust: 100%;
-}
-
-:root {
-–bg: #ffffff;
-–bg-card: #f8f8f8;
-–text: #000000;
-–text-secondary: #666666;
-–accent: #2d5f2e;
-}
-
-body.dark-mode {
-–bg: #0f0f0f;
-–bg-card: #1a1a1a;
-–text: #ffffff;
-–text-secondary: #b0b0b0;
-–accent: #4a9d4d;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
 font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-background: var(–bg);
-color: var(–text);
-margin: 0;
-padding: 0;
+background: #ffffff;
+color: #000000;
 font-size: 14px;
 }
 
-input, textarea, select, button {
-font-size: 16px;
-font-family: inherit;
-}
+body.dark { background: #0f0f0f; color: #ffffff; }
 
 .header {
-background: var(–bg-card);
+background: #f8f8f8;
 padding: 12px 16px;
-border-bottom: 2px solid var(–accent);
+border-bottom: 3px solid #2d5f2e;
 display: flex;
 align-items: center;
 gap: 12px;
@@ -54,20 +29,21 @@ top: 0;
 z-index: 100;
 }
 
-.menu-btn, .dark-toggle {
+body.dark .header { background: #1a1a1a; border-bottom-color: #4a9d4d; }
+
+.menu-btn, .dark-btn {
 background: none;
-border: 2px solid var(–accent);
-color: var(–text);
+border: 2px solid #2d5f2e;
+color: inherit;
 padding: 6px 10px;
 border-radius: 8px;
 cursor: pointer;
+font-size: 16px;
 }
 
-.header h1 {
-flex: 1;
-margin: 0;
-font-size: 18px;
-}
+body.dark .menu-btn, body.dark .dark-btn { border-color: #4a9d4d; }
+
+.header h1 { flex: 1; font-size: 18px; font-weight: 600; }
 
 .sidebar {
 position: fixed;
@@ -75,51 +51,54 @@ top: 0;
 left: -280px;
 width: 280px;
 height: 100vh;
-background: var(–bg-card);
-border-right: 2px solid var(–accent);
+background: #f8f8f8;
+border-right: 3px solid #2d5f2e;
 transition: left 0.3s;
 z-index: 200;
-overflow-y: auto;
 }
+
+body.dark .sidebar { background: #1a1a1a; border-right-color: #4a9d4d; }
 
 .sidebar.open { left: 0; }
 
 .sidebar-header {
 padding: 16px;
-border-bottom: 2px solid var(–accent);
+border-bottom: 2px solid #2d5f2e;
 display: flex;
 justify-content: space-between;
 align-items: center;
 }
 
-.sidebar-header h2 { margin: 0; font-size: 18px; }
+body.dark .sidebar-header { border-bottom-color: #4a9d4d; }
+
+.sidebar-header h2 { font-size: 18px; }
 
 .close-btn {
 background: none;
 border: none;
 font-size: 24px;
 cursor: pointer;
-color: var(–text);
+color: inherit;
 }
 
-.menu-items {
-list-style: none;
-padding: 0;
-margin: 0;
-}
+.menu-items { list-style: none; }
 
 .menu-items li {
 padding: 14px 16px;
 cursor: pointer;
-border-bottom: 1px solid var(–accent);
+border-bottom: 1px solid #2d5f2e;
 font-size: 15px;
 }
 
+body.dark .menu-items li { border-bottom-color: #4a9d4d; }
+
 .menu-items li.active {
-background: var(–accent);
+background: #2d5f2e;
 color: white;
 font-weight: 600;
 }
+
+body.dark .menu-items li.active { background: #4a9d4d; }
 
 .overlay {
 position: fixed;
@@ -134,11 +113,7 @@ z-index: 150;
 
 .overlay.active { display: block; }
 
-.container {
-max-width: 800px;
-margin: 0 auto;
-padding: 12px;
-}
+.container { max-width: 800px; margin: 0 auto; padding: 12px; }
 
 .section { display: none; }
 .section.active { display: block; }
@@ -148,75 +123,80 @@ width: 100%;
 padding: 10px;
 margin-bottom: 12px;
 border-radius: 8px;
-border: 2px solid var(–accent);
-background: var(–bg-card);
-color: var(–text);
+border: 2px solid #2d5f2e;
+background: #f8f8f8;
+color: inherit;
+font-size: 16px;
 }
+
+body.dark .week-selector { background: #1a1a1a; border-color: #4a9d4d; }
 
 .miles-row {
 display: flex;
 gap: 10px;
 align-items: center;
 margin-bottom: 16px;
-padding: 10px;
-border: 2px solid var(–accent);
+padding: 12px;
+border: 2px solid #2d5f2e;
 border-radius: 8px;
-background: var(–bg-card);
+background: #f8f8f8;
 }
 
-.miles-row label {
-font-weight: 600;
-font-size: 14px;
-}
+body.dark .miles-row { background: #1a1a1a; border-color: #4a9d4d; }
+
+.miles-row label { font-weight: 600; font-size: 14px; }
 
 .miles-input {
 flex: 1;
 padding: 8px;
-border: 2px solid var(–accent);
+border: 2px solid #2d5f2e;
 border-radius: 6px;
-background: var(–bg);
-color: var(–text);
+background: #ffffff;
+color: inherit;
+font-size: 16px;
 }
 
+body.dark .miles-input { background: #0f0f0f; border-color: #4a9d4d; }
+
 .day-card {
-background: var(–bg-card);
-border: 2px solid var(–accent);
+background: #f8f8f8;
+border: 3px solid #2d5f2e;
 border-radius: 12px;
 padding: 14px;
 margin-bottom: 12px;
 }
 
+body.dark .day-card { background: #1a1a1a; border-color: #4a9d4d; }
+
 .day-card h3 {
-margin: 0 0 6px 0;
 font-size: 16px;
 display: flex;
 justify-content: space-between;
 align-items: center;
 cursor: pointer;
+margin-bottom: 6px;
 }
 
 .day-card .progress {
 font-size: 13px;
-color: var(–text-secondary);
+color: #666;
 cursor: pointer;
 }
 
-.exercises {
-display: none;
-margin-top: 14px;
-}
+body.dark .day-card .progress { color: #b0b0b0; }
 
+.exercises { display: none; margin-top: 14px; }
 .exercises.open { display: block; }
 
 .exercise {
-background: var(–bg);
-border: 2px solid var(–accent);
+background: #ffffff;
+border: 2px solid #2d5f2e;
 border-radius: 8px;
 padding: 12px;
 margin-bottom: 10px;
 }
 
-.exercise:last-child { margin-bottom: 0; }
+body.dark .exercise { background: #0f0f0f; border-color: #4a9d4d; }
 
 .exercise-header {
 display: flex;
@@ -224,24 +204,25 @@ justify-content: space-between;
 align-items: center;
 margin-bottom: 10px;
 padding-bottom: 8px;
-border-bottom: 2px solid var(–accent);
+border-bottom: 2px solid #2d5f2e;
 }
 
-.exercise-name {
-font-weight: 600;
-font-size: 15px;
-}
+body.dark .exercise-header { border-bottom-color: #4a9d4d; }
+
+.exercise-name { font-weight: 600; font-size: 15px; }
 
 .swap-btn {
 background: none;
-border: 2px solid var(–accent);
-color: var(–accent);
+border: 2px solid #2d5f2e;
+color: #2d5f2e;
 padding: 4px 10px;
 border-radius: 6px;
 cursor: pointer;
 font-size: 12px;
 font-weight: 600;
 }
+
+body.dark .swap-btn { border-color: #4a9d4d; color: #4a9d4d; }
 
 .weight-row {
 display: flex;
@@ -253,86 +234,93 @@ align-items: center;
 .weight-row label {
 min-width: 90px;
 font-size: 13px;
-color: var(–text-secondary);
+color: #666;
 }
+
+body.dark .weight-row label { color: #b0b0b0; }
 
 .weight-row input {
 flex: 1;
 padding: 6px 8px;
-border: 2px solid var(–accent);
+border: 2px solid #2d5f2e;
 border-radius: 6px;
-background: var(–bg-card);
-color: var(–text);
+background: #f8f8f8;
+color: inherit;
+font-size: 16px;
 }
 
-.sets-grid {
-display: grid;
-gap: 6px;
-margin-bottom: 10px;
-}
+body.dark .weight-row input { background: #1a1a1a; border-color: #4a9d4d; }
+
+.sets-grid { display: grid; gap: 6px; margin-bottom: 10px; }
 
 .set-row {
 display: flex;
 gap: 6px;
 align-items: center;
-padding: 6px 8px;
-background: var(–bg-card);
-border: 2px solid var(–accent);
+padding: 8px;
+background: #f8f8f8;
+border: 2px solid #2d5f2e;
 border-radius: 6px;
 }
+
+body.dark .set-row { background: #1a1a1a; border-color: #4a9d4d; }
 
 .set-row label {
 min-width: 48px;
 font-size: 13px;
-color: var(–text-secondary);
+color: #666;
 font-weight: 600;
 }
+
+body.dark .set-row label { color: #b0b0b0; }
 
 .set-row input[type=“number”] {
 width: 60px;
 padding: 4px 6px;
-border: 1px solid var(–accent);
+border: 2px solid #2d5f2e;
 border-radius: 4px;
-background: var(–bg);
-color: var(–text);
+background: #ffffff;
+color: inherit;
+font-size: 16px;
 }
+
+body.dark .set-row input[type=“number”] { background: #0f0f0f; border-color: #4a9d4d; }
 
 .set-row input[type=“checkbox”] {
 width: 22px;
 height: 22px;
-accent-color: var(–accent);
+accent-color: #2d5f2e;
 margin-left: auto;
 }
 
-.set-row .x {
-color: var(–text-secondary);
-font-size: 13px;
-}
+body.dark .set-row input[type=“checkbox”] { accent-color: #4a9d4d; }
 
-.set-row .reps-text {
-color: var(–text-secondary);
-font-size: 13px;
-}
+.set-row .x { color: #666; font-size: 13px; }
+body.dark .set-row .x { color: #b0b0b0; }
+
+.set-row .reps-text { color: #666; font-size: 13px; }
+body.dark .set-row .reps-text { color: #b0b0b0; }
 
 .notes textarea {
 width: 100%;
 min-height: 50px;
 padding: 8px;
-border: 2px solid var(–accent);
+border: 2px solid #2d5f2e;
 border-radius: 6px;
-background: var(–bg-card);
-color: var(–text);
+background: #f8f8f8;
+color: inherit;
+font-size: 14px;
+font-family: inherit;
 resize: vertical;
 }
 
-.goals-list, .library-list {
-display: grid;
-gap: 10px;
-}
+body.dark .notes textarea { background: #1a1a1a; border-color: #4a9d4d; }
+
+.goals-list, .library-list { display: grid; gap: 10px; }
 
 .goal-item {
-background: var(–bg-card);
-border: 2px solid var(–accent);
+background: #f8f8f8;
+border: 2px solid #2d5f2e;
 border-radius: 12px;
 padding: 16px;
 display: flex;
@@ -340,33 +328,41 @@ gap: 14px;
 align-items: center;
 }
 
+body.dark .goal-item { background: #1a1a1a; border-color: #4a9d4d; }
+
 .goal-item input {
 width: 26px;
 height: 26px;
-accent-color: var(–accent);
+accent-color: #2d5f2e;
 }
 
-.goal-item.completed .goal-text {
-text-decoration: line-through;
-color: var(–text-secondary);
-}
+body.dark .goal-item input { accent-color: #4a9d4d; }
+
+.goal-item.completed .goal-text { text-decoration: line-through; color: #666; }
+body.dark .goal-item.completed .goal-text { color: #b0b0b0; }
 
 .goal-text { font-size: 16px; flex: 1; }
 
 .rules-content {
-background: var(–bg-card);
-border: 2px solid var(–accent);
+background: #f8f8f8;
+border: 2px solid #2d5f2e;
 border-radius: 12px;
 padding: 18px;
 line-height: 1.6;
 font-size: 14px;
 }
 
+body.dark .rules-content { background: #1a1a1a; border-color: #4a9d4d; }
+
 .rules-content h3 {
-margin-top: 0;
-color: var(–accent);
+color: #2d5f2e;
 font-size: 16px;
+margin-bottom: 12px;
 }
+
+body.dark .rules-content h3 { color: #4a9d4d; }
+
+.rules-content p { margin-bottom: 8px; }
 
 .library-categories {
 display: grid;
@@ -377,40 +373,35 @@ margin-bottom: 12px;
 
 .category-btn {
 padding: 8px;
-border: 2px solid var(–accent);
-background: var(–bg-card);
-color: var(–text);
+border: 2px solid #2d5f2e;
+background: #f8f8f8;
+color: inherit;
 border-radius: 8px;
 cursor: pointer;
 font-size: 13px;
 }
 
-.category-btn.active {
-background: var(–accent);
-color: white;
-}
+body.dark .category-btn { background: #1a1a1a; border-color: #4a9d4d; }
+
+.category-btn.active { background: #2d5f2e; color: white; }
+body.dark .category-btn.active { background: #4a9d4d; }
 
 .exercise-lib-item {
-background: var(–bg-card);
-border: 2px solid var(–accent);
+background: #f8f8f8;
+border: 2px solid #2d5f2e;
 border-radius: 8px;
 padding: 12px;
 cursor: pointer;
 }
 
-.exercise-lib-item h4 {
-margin: 0 0 4px 0;
-font-size: 15px;
-}
+body.dark .exercise-lib-item { background: #1a1a1a; border-color: #4a9d4d; }
 
-.exercise-lib-item p {
-margin: 0;
-font-size: 13px;
-color: var(–text-secondary);
-}
+.exercise-lib-item h4 { font-size: 15px; margin-bottom: 4px; }
+.exercise-lib-item p { font-size: 13px; color: #666; }
+body.dark .exercise-lib-item p { color: #b0b0b0; }
 
 .swap-banner {
-background: var(–accent);
+background: #2d5f2e;
 color: white;
 padding: 10px 14px;
 border-radius: 8px;
@@ -421,9 +412,11 @@ align-items: center;
 font-size: 13px;
 }
 
+body.dark .swap-banner { background: #4a9d4d; }
+
 .swap-banner button {
 background: white;
-color: var(–accent);
+color: #2d5f2e;
 border: none;
 padding: 5px 10px;
 border-radius: 4px;
@@ -440,7 +433,7 @@ font-weight: 600;
 <div class="header">
   <button class="menu-btn" id="menuBtn">☰</button>
   <h1 id="headerTitle">Workouts</h1>
-  <button class="dark-toggle" id="darkToggle">🌙</button>
+  <button class="dark-btn" id="darkToggle">🌙</button>
 </div>
 
 <div class="sidebar" id="sidebar">
@@ -470,16 +463,11 @@ font-weight: 600;
       <option value="7">Week 7</option>
       <option value="8">Week 8</option>
     </select>
-
-```
-<div class="miles-row">
-  <label>Miles this week:</label>
-  <input type="number" class="miles-input" id="milesInput" placeholder="0" step="0.1">
-</div>
-
-<div id="daysList"></div>
-```
-
+    <div class="miles-row">
+      <label>Miles this week:</label>
+      <input type="number" class="miles-input" id="milesInput" placeholder="0" step="0.1">
+    </div>
+    <div id="daysList"></div>
   </div>
 
   <div id="goals" class="section">
@@ -490,13 +478,13 @@ font-weight: 600;
     <div class="rules-content">
       <h3>Progression Rules</h3>
       <p><strong>When to increase weight:</strong></p>
-      <p>If you hit the top of the rep range on all sets (e.g., 8 reps when prescribed 6-8), add weight next week.</p>
+      <p>If you hit the top of the rep range on all sets, add weight next week.</p>
       <p><strong>Bench/OHP:</strong> +2.5-5 lbs</p>
       <p><strong>Squat/Deadlift:</strong> +5-10 lbs</p>
       <p><strong>Accessories:</strong> +2.5 lbs or add 1-2 reps</p>
       <p><strong>Program Structure:</strong></p>
-      <p>Weeks 1-4: Build phase with foundational exercises</p>
-      <p>Weeks 5-8: Progression phase with advanced variations and heavier weights</p>
+      <p>Weeks 1-4: Build phase</p>
+      <p>Weeks 5-8: Progression phase with advanced variations</p>
     </div>
   </div>
 
@@ -505,20 +493,15 @@ font-weight: 600;
       <span>Swap: <strong id="swapExerciseName"></strong></span>
       <button id="cancelSwapBtn">Cancel</button>
     </div>
-
-```
-<div class="library-categories">
-  <button class="category-btn active" data-category="all">All</button>
-  <button class="category-btn" data-category="legs">Legs</button>
-  <button class="category-btn" data-category="shoulders">Shoulders</button>
-  <button class="category-btn" data-category="chest">Chest</button>
-  <button class="category-btn" data-category="back">Back</button>
-  <button class="category-btn" data-category="abs">Abs</button>
-</div>
-
-<div class="library-list" id="libraryList"></div>
-```
-
+    <div class="library-categories">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="legs">Legs</button>
+      <button class="category-btn" data-category="shoulders">Shoulders</button>
+      <button class="category-btn" data-category="chest">Chest</button>
+      <button class="category-btn" data-category="back">Back</button>
+      <button class="category-btn" data-category="abs">Abs</button>
+    </div>
+    <div class="library-list" id="libraryList"></div>
   </div>
 </div>
 
@@ -668,8 +651,7 @@ const exerciseLibrary = {
     { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65 },
     { name: "Barbell Upright Row", sets: 3, reps: "8-10", suggestedWeight: 75 },
     { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 60 },
-    { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70 },
-    { name: "Pike Push-Ups", sets: 3, reps: "10-15", suggestedWeight: 0 }
+    { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70 }
   ],
   chest: [
     { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155 },
@@ -679,13 +661,11 @@ const exerciseLibrary = {
     { name: "Decline Bench Press", sets: 3, reps: "8-10", suggestedWeight: 135 },
     { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30 },
     { name: "Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 35 },
-    { name: "Incline Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 30 },
     { name: "Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 90 },
     { name: "Dips", sets: 3, reps: "8-12", suggestedWeight: 0 },
     { name: "Weighted Dips", sets: 3, reps: "6-10", suggestedWeight: 25 },
     { name: "Push-Ups", sets: 3, reps: "15-20", suggestedWeight: 0 },
-    { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 },
-    { name: "Diamond Push-Ups", sets: 3, reps: "10-15", suggestedWeight: 0 }
+    { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 }
   ],
   back: [
     { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25 },
@@ -698,8 +678,6 @@ const exerciseLibrary = {
     { name: "Dumbbell Row", sets: 4, reps: "8-10", suggestedWeight: 65 },
     { name: "T-Bar Row", sets: 3, reps: "8-10", suggestedWeight: 90 },
     { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110 },
-    { name: "Chest Supported Row", sets: 3, reps: "10-12", suggestedWeight: 90 },
-    { name: "Inverted Rows", sets: 3, reps: "10-15", suggestedWeight: 0 },
     { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40 },
     { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40 },
     { name: "Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
@@ -733,19 +711,19 @@ function getData(key) {
 
 function setData(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); }
-  catch (e) { console.error(e); }
+  catch (e) {}
 }
 
 function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-  const isDark = document.body.classList.contains('dark-mode');
+  document.body.classList.toggle('dark');
+  const isDark = document.body.classList.contains('dark');
   localStorage.setItem('darkMode', isDark);
   document.getElementById('darkToggle').textContent = isDark ? '☀️' : '🌙';
 }
 
 function initDarkMode() {
   if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
+    document.body.classList.add('dark');
     document.getElementById('darkToggle').textContent = '☀️';
   }
 }
@@ -873,7 +851,10 @@ function renderWorkouts() {
     card.className = 'day-card';
     
     const h3 = document.createElement('h3');
-    h3.innerHTML = day.name + ' <span>▼</span>';
+    const arrow = document.createElement('span');
+    arrow.textContent = '▼';
+    h3.textContent = day.name + ' ';
+    h3.appendChild(arrow);
     
     const progress = document.createElement('div');
     progress.className = 'progress';
@@ -1001,7 +982,7 @@ function renderWorkouts() {
     
     const toggle = () => {
       exercisesDiv.classList.toggle('open');
-      h3.querySelector('span').textContent = exercisesDiv.classList.contains('open') ? '▲' : '▼';
+      arrow.textContent = exercisesDiv.classList.contains('open') ? '▲' : '▼';
     };
     h3.onclick = toggle;
     progress.onclick = toggle;
