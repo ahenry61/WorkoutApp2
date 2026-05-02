@@ -951,10 +951,6 @@ function renderWorkouts() {
           setData(setKey, c);
         };
         
-        const repsText = document.createElement('span');
-        repsText.className = 'reps-text';
-        repsText.textContent = 'reps';
-        
         const cb = document.createElement('input');
         cb.type = 'checkbox';
         cb.checked = savedSet.completed || false;
@@ -968,7 +964,6 @@ function renderWorkouts() {
         setRow.appendChild(weightInput);
         setRow.appendChild(x);
         setRow.appendChild(repsInput);
-        setRow.appendChild(repsText);
         setRow.appendChild(cb);
         setsGrid.appendChild(setRow);
       }
