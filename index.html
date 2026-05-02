@@ -3,19 +3,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>5-Day Workout Tracker</title>
 <style>
 * { box-sizing: border-box; }
+
+html {
+-webkit-text-size-adjust: 100%;
+}
 
 :root {
 –bg: #ffffff;
 –bg-card: #f8f8f8;
 –text: #000000;
 –text-secondary: #666666;
-–border: #e0e0e0;
 –accent: #2d5f2e;
-–shadow: rgba(0,0,0,0.1);
 }
 
 body.dark-mode {
@@ -23,9 +25,7 @@ body.dark-mode {
 –bg-card: #1a1a1a;
 –text: #ffffff;
 –text-secondary: #b0b0b0;
-–border: #333333;
 –accent: #4a9d4d;
-–shadow: rgba(0,0,0,0.3);
 }
 
 body {
@@ -34,14 +34,17 @@ background: var(–bg);
 color: var(–text);
 margin: 0;
 padding: 0;
+font-size: 14px;
+}
+
+input, textarea, select, button {
 font-size: 16px;
--webkit-text-size-adjust: 100%;
-transition: all 0.3s;
+font-family: inherit;
 }
 
 .header {
 background: var(–bg-card);
-padding: 16px;
+padding: 12px 16px;
 border-bottom: 2px solid var(–accent);
 display: flex;
 align-items: center;
@@ -55,16 +58,15 @@ z-index: 100;
 background: none;
 border: 2px solid var(–accent);
 color: var(–text);
-padding: 8px 12px;
+padding: 6px 10px;
 border-radius: 8px;
 cursor: pointer;
-font-size: 16px;
 }
 
 .header h1 {
 flex: 1;
 margin: 0;
-font-size: 20px;
+font-size: 18px;
 }
 
 .sidebar {
@@ -83,19 +85,19 @@ overflow-y: auto;
 .sidebar.open { left: 0; }
 
 .sidebar-header {
-padding: 20px;
+padding: 16px;
 border-bottom: 2px solid var(–accent);
 display: flex;
 justify-content: space-between;
 align-items: center;
 }
 
-.sidebar-header h2 { margin: 0; }
+.sidebar-header h2 { margin: 0; font-size: 18px; }
 
 .close-btn {
 background: none;
 border: none;
-font-size: 28px;
+font-size: 24px;
 cursor: pointer;
 color: var(–text);
 }
@@ -107,12 +109,12 @@ margin: 0;
 }
 
 .menu-items li {
-padding: 16px 20px;
+padding: 14px 16px;
 cursor: pointer;
-border-bottom: 1px solid var(–border);
+border-bottom: 1px solid var(–accent);
+font-size: 15px;
 }
 
-.menu-items li:hover { background: var(–bg); }
 .menu-items li.active {
 background: var(–accent);
 color: white;
@@ -135,20 +137,16 @@ z-index: 150;
 .container {
 max-width: 800px;
 margin: 0 auto;
-padding: 16px;
+padding: 12px;
 }
 
-.section {
-display: none;
-}
-
+.section { display: none; }
 .section.active { display: block; }
 
-.week-selector, .miles-input {
+.week-selector {
 width: 100%;
-padding: 12px;
-font-size: 16px;
-margin-bottom: 16px;
+padding: 10px;
+margin-bottom: 12px;
 border-radius: 8px;
 border: 2px solid var(–accent);
 background: var(–bg-card);
@@ -157,40 +155,55 @@ color: var(–text);
 
 .miles-row {
 display: flex;
-gap: 12px;
+gap: 10px;
 align-items: center;
 margin-bottom: 16px;
+padding: 10px;
+border: 2px solid var(–accent);
+border-radius: 8px;
+background: var(–bg-card);
 }
 
 .miles-row label {
 font-weight: 600;
-min-width: 120px;
+font-size: 14px;
+}
+
+.miles-input {
+flex: 1;
+padding: 8px;
+border: 2px solid var(–accent);
+border-radius: 6px;
+background: var(–bg);
+color: var(–text);
 }
 
 .day-card {
 background: var(–bg-card);
 border: 2px solid var(–accent);
 border-radius: 12px;
-padding: 16px;
+padding: 14px;
 margin-bottom: 12px;
-cursor: pointer;
 }
 
 .day-card h3 {
-margin: 0 0 8px 0;
+margin: 0 0 6px 0;
+font-size: 16px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+cursor: pointer;
 }
 
 .day-card .progress {
-font-size: 14px;
+font-size: 13px;
 color: var(–text-secondary);
+cursor: pointer;
 }
 
 .exercises {
 display: none;
-margin-top: 16px;
+margin-top: 14px;
 }
 
 .exercises.open { display: block; }
@@ -199,26 +212,24 @@ margin-top: 16px;
 background: var(–bg);
 border: 2px solid var(–accent);
 border-radius: 8px;
-padding: 16px;
-margin-bottom: 12px;
+padding: 12px;
+margin-bottom: 10px;
 }
 
-.exercise:last-child {
-margin-bottom: 0;
-}
+.exercise:last-child { margin-bottom: 0; }
 
 .exercise-header {
 display: flex;
 justify-content: space-between;
 align-items: center;
-margin-bottom: 12px;
+margin-bottom: 10px;
 padding-bottom: 8px;
-border-bottom: 1px solid var(–accent);
+border-bottom: 2px solid var(–accent);
 }
 
 .exercise-name {
 font-weight: 600;
-font-size: 16px;
+font-size: 15px;
 }
 
 .swap-btn {
@@ -235,104 +246,104 @@ font-weight: 600;
 .weight-row {
 display: flex;
 gap: 8px;
-margin-bottom: 12px;
+margin-bottom: 10px;
 align-items: center;
 }
 
 .weight-row label {
 min-width: 90px;
-font-size: 14px;
+font-size: 13px;
 color: var(–text-secondary);
 }
 
 .weight-row input {
 flex: 1;
-padding: 8px;
+padding: 6px 8px;
 border: 2px solid var(–accent);
 border-radius: 6px;
 background: var(–bg-card);
 color: var(–text);
-font-size: 16px;
 }
 
 .sets-grid {
 display: grid;
-gap: 8px;
-margin-bottom: 12px;
+gap: 6px;
+margin-bottom: 10px;
 }
 
 .set-row {
 display: flex;
 gap: 6px;
 align-items: center;
-padding: 8px;
+padding: 6px 8px;
 background: var(–bg-card);
 border: 2px solid var(–accent);
 border-radius: 6px;
 }
 
 .set-row label {
-min-width: 50px;
-font-size: 14px;
+min-width: 48px;
+font-size: 13px;
 color: var(–text-secondary);
 font-weight: 600;
 }
 
 .set-row input[type=“number”] {
 width: 60px;
-padding: 6px;
+padding: 4px 6px;
 border: 1px solid var(–accent);
 border-radius: 4px;
 background: var(–bg);
 color: var(–text);
-font-size: 16px;
 }
 
 .set-row input[type=“checkbox”] {
 width: 22px;
 height: 22px;
 accent-color: var(–accent);
-cursor: pointer;
 margin-left: auto;
 }
 
-.notes {
-margin-top: 12px;
+.set-row .x {
+color: var(–text-secondary);
+font-size: 13px;
+}
+
+.set-row .reps-text {
+color: var(–text-secondary);
+font-size: 13px;
 }
 
 .notes textarea {
 width: 100%;
-min-height: 60px;
+min-height: 50px;
 padding: 8px;
 border: 2px solid var(–accent);
 border-radius: 6px;
 background: var(–bg-card);
 color: var(–text);
-font-family: inherit;
-font-size: 14px;
 resize: vertical;
 }
 
 .goals-list, .library-list {
 display: grid;
-gap: 12px;
+gap: 10px;
 }
 
 .goal-item {
 background: var(–bg-card);
 border: 2px solid var(–accent);
 border-radius: 12px;
-padding: 20px;
+padding: 16px;
 display: flex;
-gap: 16px;
+gap: 14px;
 align-items: center;
 }
 
 .goal-item input {
-width: 28px;
-height: 28px;
+width: 26px;
+height: 26px;
 accent-color: var(–accent);
-cursor: pointer;
 }
 
 .goal-item.completed .goal-text {
@@ -340,39 +351,38 @@ text-decoration: line-through;
 color: var(–text-secondary);
 }
 
-.goal-text {
-font-size: 18px;
-flex: 1;
-}
+.goal-text { font-size: 16px; flex: 1; }
 
 .rules-content {
 background: var(–bg-card);
 border: 2px solid var(–accent);
 border-radius: 12px;
-padding: 24px;
+padding: 18px;
 line-height: 1.6;
+font-size: 14px;
 }
 
 .rules-content h3 {
 margin-top: 0;
 color: var(–accent);
+font-size: 16px;
 }
 
 .library-categories {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-gap: 8px;
-margin-bottom: 16px;
+grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+gap: 6px;
+margin-bottom: 12px;
 }
 
 .category-btn {
-padding: 10px;
+padding: 8px;
 border: 2px solid var(–accent);
 background: var(–bg-card);
 color: var(–text);
 border-radius: 8px;
 cursor: pointer;
-font-size: 14px;
+font-size: 13px;
 }
 
 .category-btn.active {
@@ -384,36 +394,38 @@ color: white;
 background: var(–bg-card);
 border: 2px solid var(–accent);
 border-radius: 8px;
-padding: 16px;
+padding: 12px;
 cursor: pointer;
 }
 
 .exercise-lib-item h4 {
-margin: 0 0 8px 0;
+margin: 0 0 4px 0;
+font-size: 15px;
 }
 
 .exercise-lib-item p {
 margin: 0;
-font-size: 14px;
+font-size: 13px;
 color: var(–text-secondary);
 }
 
 .swap-banner {
 background: var(–accent);
 color: white;
-padding: 12px 16px;
+padding: 10px 14px;
 border-radius: 8px;
-margin-bottom: 16px;
+margin-bottom: 12px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+font-size: 13px;
 }
 
 .swap-banner button {
 background: white;
 color: var(–accent);
 border: none;
-padding: 6px 12px;
+padding: 5px 10px;
 border-radius: 4px;
 cursor: pointer;
 font-weight: 600;
@@ -447,7 +459,6 @@ font-weight: 600;
 <div class="overlay" id="overlay"></div>
 
 <div class="container">
-  <!-- Workouts Section -->
   <div id="workouts" class="section active">
     <select class="week-selector" id="weekSelector">
       <option value="1">Week 1</option>
@@ -471,38 +482,27 @@ font-weight: 600;
 
   </div>
 
-  <!-- Goals Section -->
-
   <div id="goals" class="section">
     <div class="goals-list" id="goalsList"></div>
   </div>
-
-  <!-- Progression Rules Section -->
 
   <div id="progression" class="section">
     <div class="rules-content">
       <h3>Progression Rules</h3>
       <p><strong>When to increase weight:</strong></p>
-      <p>If you hit the top of the rep range on all sets (e.g., 8 reps when prescribed 6-8) → add weight next week</p>
-
-```
-  <p><strong>Bench/OHP:</strong> +2.5-5 lbs</p>
-  <p><strong>Squat/Deadlift:</strong> +5-10 lbs</p>
-  <p><strong>Accessories:</strong> +2.5 lbs or add 1-2 reps</p>
-  
-  <p><strong>Program Structure:</strong></p>
-  <p>Weeks 1-4: Build phase with foundational exercises</p>
-  <p>Weeks 5-8: Progression phase with advanced variations and heavier weights</p>
-</div>
-```
-
+      <p>If you hit the top of the rep range on all sets (e.g., 8 reps when prescribed 6-8), add weight next week.</p>
+      <p><strong>Bench/OHP:</strong> +2.5-5 lbs</p>
+      <p><strong>Squat/Deadlift:</strong> +5-10 lbs</p>
+      <p><strong>Accessories:</strong> +2.5 lbs or add 1-2 reps</p>
+      <p><strong>Program Structure:</strong></p>
+      <p>Weeks 1-4: Build phase with foundational exercises</p>
+      <p>Weeks 5-8: Progression phase with advanced variations and heavier weights</p>
+    </div>
   </div>
-
-  <!-- Exercise Library Section -->
 
   <div id="library" class="section">
     <div id="swapBanner" class="swap-banner hidden">
-      <span>Select exercise to replace: <strong id="swapExerciseName"></strong></span>
+      <span>Swap: <strong id="swapExerciseName"></strong></span>
       <button id="cancelSwapBtn">Cancel</button>
     </div>
 
@@ -537,126 +537,96 @@ const defaultGoals = [
 
 const program = {
   weeks14: {
-    day1: {
-      name: "Legs",
-      exercises: [
-        { name: "Barbell Back Squat", sets: 4, reps: "6-8", suggestedWeight: 185 },
-        { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135 },
-        { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30 },
-        { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70 },
-        { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25 },
-        { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90 }
-      ]
-    },
-    day2: {
-      name: "Shoulders + Abs",
-      exercises: [
-        { name: "Barbell Overhead Press", sets: 4, reps: "6-8", suggestedWeight: 95 },
-        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20 },
-        { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15 },
-        { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40 },
-        { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20 },
-        { name: "Cable Crunch", sets: 3, reps: "15", suggestedWeight: 70 },
-        { name: "Hanging Leg Raise", sets: 3, reps: "12", suggestedWeight: 0 },
-        { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0 }
-      ]
-    },
-    day3: {
-      name: "Chest + Abs",
-      exercises: [
-        { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155 },
-        { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55 },
-        { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30 },
-        { name: "Dips", sets: 3, reps: "8-12", suggestedWeight: 0 },
-        { name: "Push-Ups", sets: 3, reps: "15-20", suggestedWeight: 0 },
-        { name: "Ab Wheel Rollout", sets: 3, reps: "10", suggestedWeight: 0 },
-        { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25 },
-        { name: "Mountain Climbers", sets: 3, reps: "30s", suggestedWeight: 0 }
-      ]
-    },
-    day4: {
-      name: "Back",
-      exercises: [
-        { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25 },
-        { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135 },
-        { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120 },
-        { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110 },
-        { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40 },
-        { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 60 }
-      ]
-    },
-    day5: {
-      name: "Shoulders (Volume)",
-      exercises: [
-        { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45 },
-        { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35 },
-        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15 },
-        { name: "Reverse Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 70 },
-        { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65 },
-        { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70 }
-      ]
-    }
+    day1: { name: "Legs", exercises: [
+      { name: "Barbell Back Squat", sets: 4, reps: "6-8", suggestedWeight: 185 },
+      { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135 },
+      { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30 },
+      { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70 },
+      { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25 },
+      { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90 }
+    ]},
+    day2: { name: "Shoulders + Abs", exercises: [
+      { name: "Barbell Overhead Press", sets: 4, reps: "6-8", suggestedWeight: 95 },
+      { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20 },
+      { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15 },
+      { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40 },
+      { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20 },
+      { name: "Cable Crunch", sets: 3, reps: "15", suggestedWeight: 70 },
+      { name: "Hanging Leg Raise", sets: 3, reps: "12", suggestedWeight: 0 },
+      { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0 }
+    ]},
+    day3: { name: "Chest + Abs", exercises: [
+      { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155 },
+      { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55 },
+      { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30 },
+      { name: "Dips", sets: 3, reps: "8-12", suggestedWeight: 0 },
+      { name: "Push-Ups", sets: 3, reps: "15-20", suggestedWeight: 0 },
+      { name: "Ab Wheel Rollout", sets: 3, reps: "10", suggestedWeight: 0 },
+      { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25 },
+      { name: "Mountain Climbers", sets: 3, reps: "30s", suggestedWeight: 0 }
+    ]},
+    day4: { name: "Back", exercises: [
+      { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25 },
+      { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135 },
+      { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120 },
+      { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110 },
+      { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40 },
+      { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 60 }
+    ]},
+    day5: { name: "Shoulders (Volume)", exercises: [
+      { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45 },
+      { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35 },
+      { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15 },
+      { name: "Reverse Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 70 },
+      { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65 },
+      { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70 }
+    ]}
   },
   weeks58: {
-    day1: {
-      name: "Legs",
-      exercises: [
-        { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 205 },
-        { name: "Stiff-Leg Deadlift", sets: 3, reps: "6-8", suggestedWeight: 155 },
-        { name: "Bulgarian Split Squat", sets: 3, reps: "8-10", suggestedWeight: 40 },
-        { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0 },
-        { name: "Reverse Lunges", sets: 3, reps: "10", suggestedWeight: 30 },
-        { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70 }
-      ]
-    },
-    day2: {
-      name: "Shoulders + Abs",
-      exercises: [
-        { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115 },
-        { name: "Dumbbell Lateral Raises", sets: 4, reps: "10-12", suggestedWeight: 25 },
-        { name: "Cable Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 20 },
-        { name: "Face Pulls", sets: 3, reps: "12-15", suggestedWeight: 50 },
-        { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35 },
-        { name: "Weighted Cable Crunch", sets: 3, reps: "12", suggestedWeight: 90 },
-        { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0 },
-        { name: "Side Plank", sets: 3, reps: "40s", suggestedWeight: 0 }
-      ]
-    },
-    day3: {
-      name: "Chest + Abs",
-      exercises: [
-        { name: "Barbell Bench Press", sets: 4, reps: "5-6", suggestedWeight: 175 },
-        { name: "Incline Dumbbell Press", sets: 4, reps: "6-8", suggestedWeight: 65 },
-        { name: "Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 35 },
-        { name: "Weighted Dips", sets: 3, reps: "6-10", suggestedWeight: 25 },
-        { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 },
-        { name: "Ab Wheel Rollout", sets: 3, reps: "12", suggestedWeight: 0 },
-        { name: "Weighted Russian Twist", sets: 3, reps: "25", suggestedWeight: 35 },
-        { name: "Burpees", sets: 3, reps: "20s", suggestedWeight: 0 }
-      ]
-    },
-    day4: {
-      name: "Back",
-      exercises: [
-        { name: "Weighted Pull-Ups", sets: 4, reps: "4-6", suggestedWeight: 35 },
-        { name: "Pendlay Row", sets: 4, reps: "5-6", suggestedWeight: 155 },
-        { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", suggestedWeight: 140 },
-        { name: "T-Bar Row", sets: 3, reps: "8-10", suggestedWeight: 90 },
-        { name: "Straight-Arm Pulldown", sets: 3, reps: "10-12", suggestedWeight: 50 },
-        { name: "Dumbbell Shrugs", sets: 3, reps: "10-12", suggestedWeight: 85 }
-      ]
-    },
-    day5: {
-      name: "Shoulders (Volume)",
-      exercises: [
-        { name: "Seated Dumbbell Press", sets: 4, reps: "6-8", suggestedWeight: 55 },
-        { name: "Arnold Press", sets: 3, reps: "8-10", suggestedWeight: 45 },
-        { name: "Cable Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20 },
-        { name: "Reverse Pec Deck", sets: 3, reps: "10-12", suggestedWeight: 85 },
-        { name: "Barbell Upright Row", sets: 3, reps: "8-10", suggestedWeight: 75 },
-        { name: "Dumbbell Shrugs", sets: 3, reps: "10-12", suggestedWeight: 85 }
-      ]
-    }
+    day1: { name: "Legs", exercises: [
+      { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 205 },
+      { name: "Stiff-Leg Deadlift", sets: 3, reps: "6-8", suggestedWeight: 155 },
+      { name: "Bulgarian Split Squat", sets: 3, reps: "8-10", suggestedWeight: 40 },
+      { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0 },
+      { name: "Reverse Lunges", sets: 3, reps: "10", suggestedWeight: 30 },
+      { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70 }
+    ]},
+    day2: { name: "Shoulders + Abs", exercises: [
+      { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115 },
+      { name: "Dumbbell Lateral Raises", sets: 4, reps: "10-12", suggestedWeight: 25 },
+      { name: "Cable Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 20 },
+      { name: "Face Pulls", sets: 3, reps: "12-15", suggestedWeight: 50 },
+      { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35 },
+      { name: "Weighted Cable Crunch", sets: 3, reps: "12", suggestedWeight: 90 },
+      { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0 },
+      { name: "Side Plank", sets: 3, reps: "40s", suggestedWeight: 0 }
+    ]},
+    day3: { name: "Chest + Abs", exercises: [
+      { name: "Barbell Bench Press", sets: 4, reps: "5-6", suggestedWeight: 175 },
+      { name: "Incline Dumbbell Press", sets: 4, reps: "6-8", suggestedWeight: 65 },
+      { name: "Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 35 },
+      { name: "Weighted Dips", sets: 3, reps: "6-10", suggestedWeight: 25 },
+      { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 },
+      { name: "Ab Wheel Rollout", sets: 3, reps: "12", suggestedWeight: 0 },
+      { name: "Weighted Russian Twist", sets: 3, reps: "25", suggestedWeight: 35 },
+      { name: "Burpees", sets: 3, reps: "20s", suggestedWeight: 0 }
+    ]},
+    day4: { name: "Back", exercises: [
+      { name: "Weighted Pull-Ups", sets: 4, reps: "4-6", suggestedWeight: 35 },
+      { name: "Pendlay Row", sets: 4, reps: "5-6", suggestedWeight: 155 },
+      { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", suggestedWeight: 140 },
+      { name: "T-Bar Row", sets: 3, reps: "8-10", suggestedWeight: 90 },
+      { name: "Straight-Arm Pulldown", sets: 3, reps: "10-12", suggestedWeight: 50 },
+      { name: "Dumbbell Shrugs", sets: 3, reps: "10-12", suggestedWeight: 85 }
+    ]},
+    day5: { name: "Shoulders (Volume)", exercises: [
+      { name: "Seated Dumbbell Press", sets: 4, reps: "6-8", suggestedWeight: 55 },
+      { name: "Arnold Press", sets: 3, reps: "8-10", suggestedWeight: 45 },
+      { name: "Cable Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20 },
+      { name: "Reverse Pec Deck", sets: 3, reps: "10-12", suggestedWeight: 85 },
+      { name: "Barbell Upright Row", sets: 3, reps: "8-10", suggestedWeight: 75 },
+      { name: "Dumbbell Shrugs", sets: 3, reps: "10-12", suggestedWeight: 85 }
+    ]}
   }
 };
 
@@ -758,17 +728,12 @@ function getData(key) {
   try {
     const item = localStorage.getItem(key);
     return item ? JSON.parse(item) : null;
-  } catch (e) {
-    return null;
-  }
+  } catch (e) { return null; }
 }
 
 function setData(key, value) {
-  try {
-    localStorage.setItem(key, JSON.stringify(value));
-  } catch (e) {
-    console.error('Save error:', e);
-  }
+  try { localStorage.setItem(key, JSON.stringify(value)); }
+  catch (e) { console.error(e); }
 }
 
 function toggleDarkMode() {
@@ -799,20 +764,13 @@ function switchSection(section) {
   document.querySelectorAll('.menu-items li').forEach(li => {
     li.classList.toggle('active', li.dataset.section === section);
   });
-  
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById(section).classList.add('active');
   
-  const titles = {
-    workouts: 'Workouts',
-    goals: 'Goals',
-    progression: 'Progression Rules',
-    library: 'Exercise Library'
-  };
+  const titles = { workouts: 'Workouts', goals: 'Goals', progression: 'Progression Rules', library: 'Exercise Library' };
   document.getElementById('headerTitle').textContent = titles[section];
   
   closeMenu();
-  
   if (section === 'goals') renderGoals();
   if (section === 'library') renderLibrary();
 }
@@ -820,17 +778,14 @@ function switchSection(section) {
 function renderGoals() {
   const list = document.getElementById('goalsList');
   list.innerHTML = '';
-  
   let goals = getData('goals');
   if (!goals) {
     goals = defaultGoals.map(text => ({ text, completed: false }));
     setData('goals', goals);
   }
-  
   goals.forEach((goal, idx) => {
     const div = document.createElement('div');
     div.className = 'goal-item' + (goal.completed ? ' completed' : '');
-    
     const cb = document.createElement('input');
     cb.type = 'checkbox';
     cb.checked = goal.completed;
@@ -839,11 +794,9 @@ function renderGoals() {
       setData('goals', goals);
       div.classList.toggle('completed', cb.checked);
     };
-    
     const text = document.createElement('div');
     text.className = 'goal-text';
     text.textContent = goal.text;
-    
     div.appendChild(cb);
     div.appendChild(text);
     list.appendChild(div);
@@ -853,39 +806,27 @@ function renderGoals() {
 function renderLibrary() {
   const list = document.getElementById('libraryList');
   list.innerHTML = '';
-  
-  const exercises = currentCategory === 'all'
-    ? Object.values(exerciseLibrary).flat()
-    : exerciseLibrary[currentCategory] || [];
-  
+  const exercises = currentCategory === 'all' ? Object.values(exerciseLibrary).flat() : exerciseLibrary[currentCategory] || [];
   exercises.forEach(ex => {
     const div = document.createElement('div');
     div.className = 'exercise-lib-item';
-    
     const h4 = document.createElement('h4');
     h4.textContent = ex.name;
-    
     const p = document.createElement('p');
-    p.textContent = `${ex.sets} sets × ${ex.reps} reps`;
-    
+    p.textContent = ex.sets + ' sets x ' + ex.reps + ' reps';
     div.appendChild(h4);
     div.appendChild(p);
-    
     if (swapMode) {
       div.onclick = () => swapExercise(ex);
     }
-    
     list.appendChild(div);
   });
 }
 
 function startSwap(week, dayIdx, exIdx) {
-  const programData = week <= 4 ? program.weeks14 : program.weeks58;
-  const dayKey = `day${dayIdx + 1}`;
-  const exercise = programData[dayKey].exercises[exIdx];
-  
+  const ex = getExercise(week, dayIdx, exIdx);
   swapMode = { week, dayIdx, exIdx };
-  document.getElementById('swapExerciseName').textContent = exercise.name;
+  document.getElementById('swapExerciseName').textContent = ex.name;
   document.getElementById('swapBanner').classList.remove('hidden');
   switchSection('library');
 }
@@ -898,56 +839,55 @@ function cancelSwap() {
 
 function swapExercise(newEx) {
   if (!swapMode) return;
-  
   const { week, dayIdx, exIdx } = swapMode;
-  const key = `swap-w${week}-d${dayIdx}-e${exIdx}`;
-  setData(key, newEx);
-  
+  setData('swap-w' + week + '-d' + dayIdx + '-e' + exIdx, newEx);
   cancelSwap();
   switchSection('workouts');
   renderWorkouts();
 }
 
+function getExercise(week, dayIdx, exIdx) {
+  const swapped = getData('swap-w' + week + '-d' + dayIdx + '-e' + exIdx);
+  if (swapped) return swapped;
+  const programData = week <= 4 ? program.weeks14 : program.weeks58;
+  return programData['day' + (dayIdx + 1)].exercises[exIdx];
+}
+
 function loadMiles() {
-  const miles = getData(`miles-w${currentWeek}`);
+  const miles = getData('miles-w' + currentWeek);
   document.getElementById('milesInput').value = miles || '';
 }
 
 function saveMiles() {
-  setData(`miles-w${currentWeek}`, document.getElementById('milesInput').value);
+  setData('miles-w' + currentWeek, document.getElementById('milesInput').value);
 }
 
 function renderWorkouts() {
   const list = document.getElementById('daysList');
   list.innerHTML = '';
-  
   const programData = currentWeek <= 4 ? program.weeks14 : program.weeks58;
   
   for (let dayIdx = 0; dayIdx < 5; dayIdx++) {
-    const dayKey = `day${dayIdx + 1}`;
-    const day = programData[dayKey];
-    
+    const day = programData['day' + (dayIdx + 1)];
     const card = document.createElement('div');
     card.className = 'day-card';
     
     const h3 = document.createElement('h3');
-    h3.textContent = day.name;
-    h3.innerHTML += ' <span style="font-size:16px">▼</span>';
+    h3.innerHTML = day.name + ' <span>▼</span>';
     
     const progress = document.createElement('div');
     progress.className = 'progress';
     
-    let completed = 0;
-    let total = 0;
+    let completed = 0, total = 0;
     day.exercises.forEach((_, eIdx) => {
       const ex = getExercise(currentWeek, dayIdx, eIdx);
       for (let s = 0; s < ex.sets; s++) {
         total++;
-        const setData = getData(`w${currentWeek}-d${dayIdx}-e${eIdx}-s${s}`);
+        const setData = getData('w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + s);
         if (setData && setData.completed) completed++;
       }
     });
-    progress.textContent = `${completed}/${total} sets completed`;
+    progress.textContent = completed + '/' + total + ' sets completed';
     
     const exercisesDiv = document.createElement('div');
     exercisesDiv.className = 'exercises';
@@ -959,118 +899,96 @@ function renderWorkouts() {
       
       const header = document.createElement('div');
       header.className = 'exercise-header';
-      
       const name = document.createElement('div');
       name.className = 'exercise-name';
       name.textContent = ex.name;
-      
       const swapBtn = document.createElement('button');
       swapBtn.className = 'swap-btn';
       swapBtn.textContent = 'Swap';
-      swapBtn.onclick = (e) => {
-        e.stopPropagation();
-        startSwap(currentWeek, dayIdx, eIdx);
-      };
-      
+      swapBtn.onclick = (e) => { e.stopPropagation(); startSwap(currentWeek, dayIdx, eIdx); };
       header.appendChild(name);
       header.appendChild(swapBtn);
       exDiv.appendChild(header);
       
-      const weightKey = `w${currentWeek}-d${dayIdx}-e${eIdx}-weight`;
-      const savedWeight = getData(weightKey);
-      
       const weightRow = document.createElement('div');
       weightRow.className = 'weight-row';
-      
-      const weightLabel = document.createElement('label');
-      weightLabel.textContent = 'Suggested:';
-      
-      const weightInput = document.createElement('input');
-      weightInput.type = 'number';
-      weightInput.value = ex.suggestedWeight;
-      weightInput.disabled = true;
-      weightInput.style.background = 'var(--bg)';
-      weightInput.style.color = 'var(--text-secondary)';
-      
-      weightRow.appendChild(weightLabel);
-      weightRow.appendChild(weightInput);
+      const wLabel = document.createElement('label');
+      wLabel.textContent = 'Suggested:';
+      const wInput = document.createElement('input');
+      wInput.type = 'number';
+      wInput.value = ex.suggestedWeight;
+      wInput.disabled = true;
+      weightRow.appendChild(wLabel);
+      weightRow.appendChild(wInput);
       exDiv.appendChild(weightRow);
       
       const setsGrid = document.createElement('div');
       setsGrid.className = 'sets-grid';
       
       for (let s = 0; s < ex.sets; s++) {
-        const setKey = `w${currentWeek}-d${dayIdx}-e${eIdx}-s${s}`;
+        const setKey = 'w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + s;
         const savedSet = getData(setKey) || {};
         
         const setRow = document.createElement('div');
         setRow.className = 'set-row';
         
         const label = document.createElement('label');
-        label.textContent = `Set ${s + 1}:`;
+        label.textContent = 'Set ' + (s + 1) + ':';
         
-        const weightSetInput = document.createElement('input');
-        weightSetInput.type = 'number';
-        weightSetInput.placeholder = 'lbs';
-        weightSetInput.value = savedSet.weight || '';
-        weightSetInput.style.width = '70px';
-        weightSetInput.onchange = function() {
-          const current = getData(setKey) || {};
-          current.weight = this.value;
-          setData(setKey, current);
+        const weightInput = document.createElement('input');
+        weightInput.type = 'number';
+        weightInput.placeholder = 'lbs';
+        weightInput.value = savedSet.weight || '';
+        weightInput.onchange = function() {
+          const c = getData(setKey) || {};
+          c.weight = this.value;
+          setData(setKey, c);
         };
         
-        const xLabel = document.createElement('span');
-        xLabel.textContent = '×';
-        xLabel.style.fontSize = '14px';
-        xLabel.style.color = 'var(--text-secondary)';
+        const x = document.createElement('span');
+        x.className = 'x';
+        x.textContent = '×';
         
         const repsInput = document.createElement('input');
         repsInput.type = 'number';
         repsInput.placeholder = ex.reps;
         repsInput.value = savedSet.reps || '';
         repsInput.onchange = function() {
-          const current = getData(setKey) || {};
-          current.reps = this.value;
-          setData(setKey, current);
+          const c = getData(setKey) || {};
+          c.reps = this.value;
+          setData(setKey, c);
         };
         
-        const repsLabel = document.createElement('span');
-        repsLabel.textContent = 'reps';
-        repsLabel.style.fontSize = '14px';
-        repsLabel.style.color = 'var(--text-secondary)';
+        const repsText = document.createElement('span');
+        repsText.className = 'reps-text';
+        repsText.textContent = 'reps';
         
         const cb = document.createElement('input');
         cb.type = 'checkbox';
         cb.checked = savedSet.completed || false;
         cb.onchange = function() {
-          const current = getData(setKey) || {};
-          current.completed = this.checked;
-          setData(setKey, current);
+          const c = getData(setKey) || {};
+          c.completed = this.checked;
+          setData(setKey, c);
         };
         
         setRow.appendChild(label);
-        setRow.appendChild(weightSetInput);
-        setRow.appendChild(xLabel);
+        setRow.appendChild(weightInput);
+        setRow.appendChild(x);
         setRow.appendChild(repsInput);
-        setRow.appendChild(repsLabel);
+        setRow.appendChild(repsText);
         setRow.appendChild(cb);
         setsGrid.appendChild(setRow);
       }
-      
       exDiv.appendChild(setsGrid);
       
-      const notesKey = `w${currentWeek}-d${dayIdx}-e${eIdx}-notes`;
-      const savedNotes = getData(notesKey) || '';
-      
+      const notesKey = 'w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-notes';
       const notesDiv = document.createElement('div');
       notesDiv.className = 'notes';
-      
       const notesArea = document.createElement('textarea');
       notesArea.placeholder = 'Notes (form tips, how it felt, etc.)';
-      notesArea.value = savedNotes;
+      notesArea.value = getData(notesKey) || '';
       notesArea.onchange = () => setData(notesKey, notesArea.value);
-      
       notesDiv.appendChild(notesArea);
       exDiv.appendChild(notesDiv);
       
@@ -1081,23 +999,15 @@ function renderWorkouts() {
     card.appendChild(progress);
     card.appendChild(exercisesDiv);
     
-    h3.onclick = () => {
+    const toggle = () => {
       exercisesDiv.classList.toggle('open');
       h3.querySelector('span').textContent = exercisesDiv.classList.contains('open') ? '▲' : '▼';
     };
+    h3.onclick = toggle;
+    progress.onclick = toggle;
     
     list.appendChild(card);
   }
-}
-
-function getExercise(week, dayIdx, exIdx) {
-  const swapKey = `swap-w${week}-d${dayIdx}-e${exIdx}`;
-  const swapped = getData(swapKey);
-  if (swapped) return swapped;
-  
-  const programData = week <= 4 ? program.weeks14 : program.weeks58;
-  const dayKey = `day${dayIdx + 1}`;
-  return programData[dayKey].exercises[exIdx];
 }
 
 document.getElementById('menuBtn').addEventListener('click', openMenu);
@@ -1105,19 +1015,15 @@ document.getElementById('closeBtn').addEventListener('click', closeMenu);
 document.getElementById('overlay').addEventListener('click', closeMenu);
 document.getElementById('darkToggle').addEventListener('click', toggleDarkMode);
 document.getElementById('cancelSwapBtn').addEventListener('click', cancelSwap);
-
 document.querySelectorAll('.menu-items li').forEach(li => {
   li.addEventListener('click', () => switchSection(li.dataset.section));
 });
-
 document.getElementById('weekSelector').addEventListener('change', (e) => {
   currentWeek = Number(e.target.value);
   loadMiles();
   renderWorkouts();
 });
-
 document.getElementById('milesInput').addEventListener('change', saveMiles);
-
 document.querySelectorAll('.category-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
