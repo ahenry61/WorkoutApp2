@@ -55,7 +55,7 @@ body.dark { background: #0f0f0f; color: #ffffff; }
 .header {
   background: #f8f8f8;
   padding: 12px 16px;
-  border-bottom: 3px solid #2d5f2e;
+  border-bottom: 2px solid #2d5f2e;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -68,7 +68,7 @@ body.dark .header { background: #1a1a1a; border-bottom-color: #4a9d4d; }
 
 .menu-btn, .dark-btn {
   background: none;
-  border: 2px solid #2d5f2e;
+  border: 1px solid #2d5f2e;
   color: inherit;
   padding: 6px 10px;
   border-radius: 8px;
@@ -77,6 +77,222 @@ body.dark .header { background: #1a1a1a; border-bottom-color: #4a9d4d; }
 }
 
 body.dark .menu-btn, body.dark .dark-btn { border-color: #4a9d4d; }
+
+.day-card {
+  background: #f8f8f8;
+  border: 1px solid #2d5f2e;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+body.dark .day-card { background: #1a1a1a; border-color: #4a9d4d; }
+
+.exercise {
+  background: #ffffff;
+  border: 1px solid #2d5f2e;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+body.dark .exercise { background: #0f0f0f; border-color: #4a9d4d; }
+
+.exercise.completed {
+  background: #d0d0d0;
+  opacity: 0.85;
+}
+
+body.dark .exercise.completed {
+  background: #2a2a2a;
+}
+
+.exercise-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2d5f2e;
+}
+
+body.dark .exercise-header { border-bottom-color: #4a9d4d; }
+
+.swap-btn {
+  background: none;
+  border: 1px solid #2d5f2e;
+  color: #2d5f2e;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+body.dark .swap-btn { border-color: #4a9d4d; color: #4a9d4d; }
+
+.weight-row input {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #2d5f2e;
+  border-radius: 6px;
+  background: #f8f8f8;
+  color: inherit;
+  font-size: 16px;
+}
+
+body.dark .weight-row input { background: #1a1a1a; border-color: #4a9d4d; }
+
+.set-row {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) 14px minmax(0, 1fr) 22px;
+  gap: 6px;
+  align-items: center;
+  padding: 6px;
+  background: #f8f8f8;
+  border: 1px solid #2d5f2e;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body.dark .set-row { background: #1a1a1a; border-color: #4a9d4d; }
+
+.set-row input[type="number"] {
+  width: 100%;
+  min-width: 0;
+  padding: 4px;
+  border: 1px solid #2d5f2e;
+  border-radius: 4px;
+  background: #ffffff;
+  color: inherit;
+  font-size: 16px;
+  text-align: center;
+}
+
+body.dark .set-row input[type="number"] { background: #0f0f0f; border-color: #4a9d4d; }
+
+.set-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.set-controls button {
+  flex: 1;
+  padding: 6px;
+  border: 1px solid #2d5f2e;
+  background: #f8f8f8;
+  color: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+body.dark .set-controls button { background: #1a1a1a; border-color: #4a9d4d; }
+
+.notes textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 8px;
+  border: 1px solid #2d5f2e;
+  border-radius: 6px;
+  background: #f8f8f8;
+  color: inherit;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+body.dark .notes textarea { background: #1a1a1a; border-color: #4a9d4d; }
+
+.miles-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid #2d5f2e;
+  border-radius: 8px;
+  background: #f8f8f8;
+}
+
+body.dark .miles-row { background: #1a1a1a; border-color: #4a9d4d; }
+
+.miles-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #2d5f2e;
+  border-radius: 6px;
+  background: #ffffff;
+  color: inherit;
+  font-size: 16px;
+}
+
+body.dark .miles-input { background: #0f0f0f; border-color: #4a9d4d; }
+
+.week-selector {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #2d5f2e;
+  background: #f8f8f8;
+  color: inherit;
+  font-size: 16px;
+}
+
+body.dark .week-selector { background: #1a1a1a; border-color: #4a9d4d; }
+
+.goal-item {
+  background: #f8f8f8;
+  border: 1px solid #2d5f2e;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+body.dark .goal-item { background: #1a1a1a; border-color: #4a9d4d; }
+
+.rules-content {
+  background: #f8f8f8;
+  border: 1px solid #2d5f2e;
+  border-radius: 12px;
+  padding: 18px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+body.dark .rules-content { background: #1a1a1a; border-color: #4a9d4d; }
+
+.category-btn {
+  padding: 8px;
+  border: 1px solid #2d5f2e;
+  background: #f8f8f8;
+  color: inherit;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+body.dark .category-btn { background: #1a1a1a; border-color: #4a9d4d; }
+
+.exercise-lib-item {
+  background: #f8f8f8;
+  border: 1px solid #2d5f2e;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+body.dark .exercise-lib-item { background: #1a1a1a; border-color: #4a9d4d; }
 
 .header h1 { flex: 1; font-size: 18px; font-weight: 600; }
 
@@ -658,87 +874,166 @@ const exerciseLibrary = {
     { name: "Barbell Back Squat", sets: 4, reps: "6-8", suggestedWeight: 185 },
     { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 165 },
     { name: "Front Squat", sets: 3, reps: "6-8", suggestedWeight: 135 },
+    { name: "Box Squat", sets: 3, reps: "6-8", suggestedWeight: 165 },
     { name: "Goblet Squat", sets: 3, reps: "10-12", suggestedWeight: 50 },
+    { name: "Safety Bar Squat", sets: 3, reps: "6-8", suggestedWeight: 155 },
+    { name: "Hack Squat", sets: 3, reps: "10-12", suggestedWeight: 180 },
     { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135 },
     { name: "Stiff-Leg Deadlift", sets: 3, reps: "6-8", suggestedWeight: 155 },
-    { name: "Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
+    { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
+    { name: "Sumo Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
+    { name: "Trap Bar Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
     { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30 },
     { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25 },
     { name: "Reverse Lunges", sets: 3, reps: "10", suggestedWeight: 30 },
+    { name: "Forward Lunges", sets: 3, reps: "10", suggestedWeight: 30 },
+    { name: "Lateral Lunges", sets: 3, reps: "10", suggestedWeight: 25 },
+    { name: "Step-Ups", sets: 3, reps: "10", suggestedWeight: 30 },
     { name: "Leg Press", sets: 3, reps: "10-12", suggestedWeight: 270 },
-    { name: "Hack Squat", sets: 3, reps: "10-12", suggestedWeight: 180 },
-    { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70 },
+    { name: "Single Leg Press", sets: 3, reps: "10", suggestedWeight: 90 },
+    { name: "Leg Curl (Lying)", sets: 3, reps: "12-15", suggestedWeight: 70 },
+    { name: "Leg Curl (Seated)", sets: 3, reps: "12-15", suggestedWeight: 70 },
+    { name: "Standing Leg Curl", sets: 3, reps: "12", suggestedWeight: 50 },
     { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0 },
     { name: "Leg Extension", sets: 3, reps: "12-15", suggestedWeight: 90 },
+    { name: "Single Leg Extension", sets: 3, reps: "12", suggestedWeight: 50 },
+    { name: "Sissy Squat", sets: 3, reps: "10-12", suggestedWeight: 0 },
     { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90 },
     { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70 },
+    { name: "Donkey Calf Raise", sets: 3, reps: "15-20", suggestedWeight: 90 },
+    { name: "Calf Press on Leg Press", sets: 3, reps: "15-20", suggestedWeight: 180 },
     { name: "Hip Thrust", sets: 3, reps: "10-12", suggestedWeight: 185 },
-    { name: "Glute Bridge", sets: 3, reps: "12-15", suggestedWeight: 135 }
+    { name: "Single Leg Hip Thrust", sets: 3, reps: "10", suggestedWeight: 45 },
+    { name: "Glute Bridge", sets: 3, reps: "12-15", suggestedWeight: 135 },
+    { name: "Cable Pull-Through", sets: 3, reps: "12-15", suggestedWeight: 70 },
+    { name: "Good Mornings", sets: 3, reps: "8-10", suggestedWeight: 95 },
+    { name: "Glute Kickbacks", sets: 3, reps: "12", suggestedWeight: 30 },
+    { name: "Sled Push", sets: 4, reps: "30s", suggestedWeight: 90 }
   ],
   shoulders: [
     { name: "Barbell Overhead Press", sets: 4, reps: "6-8", suggestedWeight: 95 },
     { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115 },
+    { name: "Seated Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 95 },
+    { name: "Standing Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45 },
     { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45 },
     { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35 },
+    { name: "Single-Arm Dumbbell Press", sets: 3, reps: "8-10", suggestedWeight: 35 },
+    { name: "Landmine Press", sets: 3, reps: "8-10", suggestedWeight: 65 },
+    { name: "Z Press", sets: 3, reps: "8-10", suggestedWeight: 75 },
+    { name: "Behind-the-Neck Press", sets: 3, reps: "8-10", suggestedWeight: 75 },
     { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20 },
     { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15 },
-    { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20 },
+    { name: "Machine Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 50 },
+    { name: "Lying Lateral Raises", sets: 3, reps: "12-15", suggestedWeight: 15 },
+    { name: "Front Raises (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 20 },
     { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35 },
-    { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15 },
+    { name: "Cable Front Raise", sets: 3, reps: "12", suggestedWeight: 20 },
+    { name: "Rear Delt Fly (Dumbbell)", sets: 3, reps: "12-15", suggestedWeight: 15 },
     { name: "Cable Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 20 },
     { name: "Reverse Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 70 },
+    { name: "Bent Over Rear Delt Raise", sets: 3, reps: "12", suggestedWeight: 15 },
     { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40 },
-    { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65 },
-    { name: "Barbell Upright Row", sets: 3, reps: "8-10", suggestedWeight: 75 },
-    { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 60 },
-    { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70 }
+    { name: "High Pulls", sets: 3, reps: "10-12", suggestedWeight: 75 },
+    { name: "Upright Row (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 30 },
+    { name: "Upright Row (Barbell)", sets: 3, reps: "8-10", suggestedWeight: 75 },
+    { name: "Cable Upright Row", sets: 3, reps: "12", suggestedWeight: 50 },
+    { name: "Shrugs (Barbell)", sets: 3, reps: "12-15", suggestedWeight: 135 },
+    { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70 },
+    { name: "Cable Shrugs", sets: 3, reps: "15", suggestedWeight: 100 },
+    { name: "Pike Push-Ups", sets: 3, reps: "10-15", suggestedWeight: 0 },
+    { name: "Handstand Push-Ups", sets: 3, reps: "5-10", suggestedWeight: 0 }
   ],
   chest: [
     { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155 },
+    { name: "Pause Bench Press", sets: 4, reps: "5-6", suggestedWeight: 145 },
+    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 135 },
+    { name: "Wide-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 145 },
     { name: "Dumbbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 65 },
     { name: "Incline Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 135 },
     { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55 },
     { name: "Decline Bench Press", sets: 3, reps: "8-10", suggestedWeight: 135 },
-    { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30 },
+    { name: "Decline Dumbbell Press", sets: 3, reps: "8-10", suggestedWeight: 55 },
+    { name: "Floor Press", sets: 3, reps: "6-8", suggestedWeight: 135 },
+    { name: "Machine Chest Press", sets: 3, reps: "10-12", suggestedWeight: 90 },
+    { name: "Smith Machine Bench", sets: 3, reps: "8-10", suggestedWeight: 135 },
+    { name: "Cable Fly (High to Low)", sets: 3, reps: "12-15", suggestedWeight: 30 },
+    { name: "Cable Fly (Low to High)", sets: 3, reps: "12-15", suggestedWeight: 30 },
+    { name: "Cable Fly (Mid)", sets: 3, reps: "12-15", suggestedWeight: 30 },
     { name: "Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 35 },
+    { name: "Incline Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 30 },
     { name: "Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 90 },
     { name: "Dips", sets: 3, reps: "8-12", suggestedWeight: 0 },
     { name: "Weighted Dips", sets: 3, reps: "6-10", suggestedWeight: 25 },
     { name: "Push-Ups", sets: 3, reps: "15-20", suggestedWeight: 0 },
-    { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 }
+    { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 },
+    { name: "Diamond Push-Ups", sets: 3, reps: "10-15", suggestedWeight: 0 },
+    { name: "Wide Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 },
+    { name: "Spoto Press", sets: 3, reps: "6-8", suggestedWeight: 145 },
+    { name: "Svend Press", sets: 3, reps: "12-15", suggestedWeight: 25 }
   ],
   back: [
     { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25 },
     { name: "Pull-Ups", sets: 4, reps: "8-12", suggestedWeight: 0 },
+    { name: "Wide-Grip Pull-Ups", sets: 4, reps: "6-10", suggestedWeight: 0 },
     { name: "Chin-Ups", sets: 4, reps: "8-12", suggestedWeight: 0 },
-    { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120 },
+    { name: "Neutral Grip Pull-Ups", sets: 4, reps: "8-12", suggestedWeight: 0 },
+    { name: "Lat Pulldown (Wide)", sets: 3, reps: "10-12", suggestedWeight: 120 },
+    { name: "Lat Pulldown (Close)", sets: 3, reps: "10-12", suggestedWeight: 120 },
+    { name: "V-Bar Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120 },
     { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", suggestedWeight: 140 },
+    { name: "Reverse Grip Pulldown", sets: 3, reps: "10-12", suggestedWeight: 110 },
+    { name: "Single Arm Lat Pulldown", sets: 3, reps: "10", suggestedWeight: 50 },
     { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135 },
     { name: "Pendlay Row", sets: 4, reps: "5-6", suggestedWeight: 155 },
+    { name: "Yates Row", sets: 4, reps: "6-8", suggestedWeight: 155 },
     { name: "Dumbbell Row", sets: 4, reps: "8-10", suggestedWeight: 65 },
+    { name: "Chest Supported Row", sets: 3, reps: "10-12", suggestedWeight: 70 },
     { name: "T-Bar Row", sets: 3, reps: "8-10", suggestedWeight: 90 },
-    { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110 },
+    { name: "V-Bar Row", sets: 3, reps: "10-12", suggestedWeight: 90 },
+    { name: "Seated Cable Row (Wide)", sets: 3, reps: "10-12", suggestedWeight: 110 },
+    { name: "Seated Cable Row (Close)", sets: 3, reps: "10-12", suggestedWeight: 110 },
+    { name: "Seated Cable Row (V-Bar)", sets: 3, reps: "10-12", suggestedWeight: 110 },
+    { name: "Single-Arm Cable Row", sets: 3, reps: "10", suggestedWeight: 50 },
+    { name: "Inverted Rows", sets: 3, reps: "10-15", suggestedWeight: 0 },
+    { name: "Meadows Row", sets: 3, reps: "8-10", suggestedWeight: 70 },
+    { name: "Kroc Row", sets: 3, reps: "20-25", suggestedWeight: 70 },
     { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40 },
     { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40 },
-    { name: "Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
-    { name: "Rack Pulls", sets: 3, reps: "6-8", suggestedWeight: 245 }
+    { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
+    { name: "Rack Pulls", sets: 3, reps: "6-8", suggestedWeight: 245 },
+    { name: "Good Mornings", sets: 3, reps: "8-10", suggestedWeight: 95 },
+    { name: "Hyperextensions", sets: 3, reps: "12-15", suggestedWeight: 25 },
+    { name: "Reverse Hyperextensions", sets: 3, reps: "12-15", suggestedWeight: 0 }
   ],
   abs: [
     { name: "Cable Crunch", sets: 3, reps: "15", suggestedWeight: 70 },
     { name: "Weighted Cable Crunch", sets: 3, reps: "12", suggestedWeight: 90 },
+    { name: "Kneeling Cable Crunch", sets: 3, reps: "12-15", suggestedWeight: 70 },
     { name: "Hanging Leg Raise", sets: 3, reps: "12", suggestedWeight: 0 },
-    { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0 },
     { name: "Hanging Knee Raise", sets: 3, reps: "15", suggestedWeight: 0 },
+    { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0 },
+    { name: "Captain's Chair Knee Raise", sets: 3, reps: "15", suggestedWeight: 0 },
+    { name: "Captain's Chair Leg Raise", sets: 3, reps: "12", suggestedWeight: 0 },
     { name: "Ab Wheel Rollout", sets: 3, reps: "10-12", suggestedWeight: 0 },
+    { name: "Standing Ab Wheel", sets: 3, reps: "5-8", suggestedWeight: 0 },
     { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0 },
     { name: "Side Plank", sets: 3, reps: "40s", suggestedWeight: 0 },
+    { name: "Plank Up-Downs", sets: 3, reps: "10", suggestedWeight: 0 },
     { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25 },
     { name: "Weighted Russian Twist", sets: 3, reps: "25", suggestedWeight: 35 },
+    { name: "Cable Woodchoppers", sets: 3, reps: "12", suggestedWeight: 30 },
+    { name: "Pallof Press", sets: 3, reps: "12", suggestedWeight: 30 },
     { name: "Mountain Climbers", sets: 3, reps: "30s", suggestedWeight: 0 },
     { name: "Burpees", sets: 3, reps: "20s", suggestedWeight: 0 },
     { name: "Bicycle Crunches", sets: 3, reps: "25", suggestedWeight: 0 },
     { name: "V-Ups", sets: 3, reps: "12", suggestedWeight: 0 },
-    { name: "Decline Sit-Up", sets: 3, reps: "15", suggestedWeight: 0 }
+    { name: "Reverse Crunch", sets: 3, reps: "15", suggestedWeight: 0 },
+    { name: "Decline Sit-Up", sets: 3, reps: "15", suggestedWeight: 0 },
+    { name: "Weighted Decline Sit-Up", sets: 3, reps: "10-12", suggestedWeight: 25 },
+    { name: "Dragon Flag", sets: 3, reps: "5-8", suggestedWeight: 0 },
+    { name: "Hollow Body Hold", sets: 3, reps: "30s", suggestedWeight: 0 },
+    { name: "Dead Bug", sets: 3, reps: "12", suggestedWeight: 0 },
+    { name: "Bird Dog", sets: 3, reps: "12", suggestedWeight: 0 }
   ]
 };
 
@@ -918,6 +1213,22 @@ function renderWorkouts() {
       const exDiv = document.createElement('div');
       exDiv.className = 'exercise';
       
+      // Get custom set count if exists
+      const setCountKey = 'setcount-w' + currentWeek + '-d' + dayIdx + '-e' + eIdx;
+      const customSetCount = getData(setCountKey);
+      const actualSets = customSetCount !== null ? customSetCount : ex.sets;
+      
+      // Check if all sets are completed
+      let allCompleted = actualSets > 0;
+      for (let s = 0; s < actualSets; s++) {
+        const setData = getData('w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + s);
+        if (!setData || !setData.completed) {
+          allCompleted = false;
+          break;
+        }
+      }
+      if (allCompleted) exDiv.classList.add('completed');
+      
       const header = document.createElement('div');
       header.className = 'exercise-header';
       const name = document.createElement('div');
@@ -946,7 +1257,7 @@ function renderWorkouts() {
       const setsGrid = document.createElement('div');
       setsGrid.className = 'sets-grid';
       
-      for (let s = 0; s < ex.sets; s++) {
+      for (let s = 0; s < actualSets; s++) {
         const setKey = 'w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + s;
         const savedSet = getData(setKey) || {};
         
@@ -987,6 +1298,7 @@ function renderWorkouts() {
           const c = getData(setKey) || {};
           c.completed = this.checked;
           setData(setKey, c);
+          renderWorkouts();
         };
         
         setRow.appendChild(label);
@@ -997,6 +1309,30 @@ function renderWorkouts() {
         setsGrid.appendChild(setRow);
       }
       exDiv.appendChild(setsGrid);
+      
+      // Set add/remove controls
+      const setControls = document.createElement('div');
+      setControls.className = 'set-controls';
+      
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = '− Remove Set';
+      removeBtn.onclick = () => {
+        if (actualSets > 1) {
+          setData(setCountKey, actualSets - 1);
+          renderWorkouts();
+        }
+      };
+      
+      const addBtn = document.createElement('button');
+      addBtn.textContent = '+ Add Set';
+      addBtn.onclick = () => {
+        setData(setCountKey, actualSets + 1);
+        renderWorkouts();
+      };
+      
+      setControls.appendChild(removeBtn);
+      setControls.appendChild(addBtn);
+      exDiv.appendChild(setControls);
       
       const notesKey = 'w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-notes';
       const notesDiv = document.createElement('div');
