@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Workout Tracker</title>
 <style>
 * { 
@@ -14,6 +16,7 @@
   padding: 0; 
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  max-width: 100%;
 }
 
 html {
@@ -49,6 +52,18 @@ border-radius: 0;
 input[type=“checkbox”] {
 -webkit-appearance: auto !important;
 appearance: auto !important;
+}
+
+input[type=“number”] {
+-webkit-appearance: none;
+-moz-appearance: textfield;
+appearance: none;
+}
+
+input[type=“number”]::-webkit-outer-spin-button,
+input[type=“number”]::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
 }
 
 body.dark { background: #0f0f0f; color: #ffffff; }
