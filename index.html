@@ -229,6 +229,52 @@ background: #1a1a1a;
 border-color: #353535;
 }
 
+.set-row label {
+font-size: 13px;
+color: #666;
+font-weight: 600;
+white-space: nowrap;
+flex-shrink: 0;
+width: 48px;
+}
+
+body.dark .set-row label { color: #b0b0b0; }
+
+.set-row input[type=“number”] {
+width: 0;
+flex: 1 1 0;
+min-width: 0;
+padding: 4px 2px;
+border: 1px solid #d0d0d0;
+border-radius: 4px;
+background: #ffffff;
+color: inherit;
+font-size: 16px;
+text-align: center;
+box-sizing: border-box;
+}
+
+body.dark .set-row input[type=“number”] { background: #0f0f0f; border-color: #404040; }
+
+.set-row input[type=“checkbox”] {
+width: 22px;
+height: 22px;
+flex-shrink: 0;
+accent-color: #2d5f2e;
+}
+
+body.dark .set-row input[type=“checkbox”] { accent-color: #4a9d4d; }
+
+.set-row .x {
+color: #666;
+font-size: 14px;
+font-weight: 600;
+flex-shrink: 0;
+width: 12px;
+text-align: center;
+}
+body.dark .set-row .x { color: #b0b0b0; }
+
 .set-controls button {
 flex: 1;
 padding: 8px;
