@@ -48,20 +48,37 @@ body.dark {
 }
 
 .header {
-  background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
+  background: #ffffff;
   padding: 14px 16px;
-  border-bottom: none;
+  border-bottom: 2px solid #2d5f2e;
   display: flex;
   align-items: center;
   gap: 12px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 body.dark .header { 
-  background: linear-gradient(135deg, #1a3a1b 0%, #2d5f2e 100%);
+  background: #1a1a1a;
+  border-bottom-color: #4a9d4d;
+}
+
+.menu-btn, .dark-btn {
+  background: white;
+  border: 1px solid #2d5f2e;
+  color: #2d5f2e;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+body.dark .menu-btn, body.dark .dark-btn { 
+  background: #1a1a1a;
+  border-color: #4a9d4d;
+  color: #4a9d4d;
 }
 
 .header h1 { 
@@ -69,19 +86,11 @@ body.dark .header {
   margin: 0; 
   font-size: 18px; 
   font-weight: 700;
-  color: white;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  color: #000000;
 }
 
-.menu-btn, .dark-btn {
-  background: rgba(255,255,255,0.2);
-  border: 1px solid rgba(255,255,255,0.3);
-  color: white;
-  padding: 6px 10px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  backdrop-filter: blur(10px);
+body.dark .header h1 {
+  color: #ffffff;
 }
 
 .day-card {
