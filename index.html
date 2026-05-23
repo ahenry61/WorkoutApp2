@@ -974,6 +974,7 @@ body.dark .measurement-entry .date { color: #4a9d4d; }
       <button class="category-btn" data-category="shoulders">Shoulders</button>
       <button class="category-btn" data-category="chest">Chest</button>
       <button class="category-btn" data-category="back">Back</button>
+      <button class="category-btn" data-category="arms">Arms</button>
       <button class="category-btn" data-category="abs">Abs</button>
     </div>
     <div class="library-list" id="libraryList"></div>
@@ -1252,6 +1253,53 @@ const exerciseLibrary = {
     { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30 },
     { name: "Barbell Curl", sets: 3, reps: "8-10", suggestedWeight: 65 },
     { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40 }
+  ],
+  arms: [
+    // Biceps
+    { name: "Barbell Curl", sets: 3, reps: "8-10", suggestedWeight: 65 },
+    { name: "EZ-Bar Curl", sets: 3, reps: "8-10", suggestedWeight: 55 },
+    { name: "Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
+    { name: "Alternating Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
+    { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30 },
+    { name: "Cross-Body Hammer Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
+    { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55 },
+    { name: "Preacher Curl (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 25 },
+    { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40 },
+    { name: "Cable Hammer Curl (Rope)", sets: 3, reps: "12-15", suggestedWeight: 40 },
+    { name: "Concentration Curl", sets: 3, reps: "10-12", suggestedWeight: 20 },
+    { name: "Spider Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
+    { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 20 },
+    { name: "Zottman Curl", sets: 3, reps: "10-12", suggestedWeight: 20 },
+    { name: "21s (Bicep Curl)", sets: 3, reps: "21", suggestedWeight: 35 },
+    { name: "Reverse Curl", sets: 3, reps: "10-12", suggestedWeight: 45 },
+    
+    // Triceps
+    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115 },
+    { name: "Skullcrusher (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55 },
+    { name: "Skullcrusher (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 25 },
+    { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 50 },
+    { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", suggestedWeight: 50 },
+    { name: "Cable Pushdown (Straight Bar)", sets: 3, reps: "10-12", suggestedWeight: 60 },
+    { name: "Cable Pushdown (V-Bar)", sets: 3, reps: "10-12", suggestedWeight: 60 },
+    { name: "Reverse Grip Pushdown", sets: 3, reps: "12-15", suggestedWeight: 40 },
+    { name: "Overhead Tricep Extension (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 35 },
+    { name: "Overhead Tricep Extension (Cable)", sets: 3, reps: "10-12", suggestedWeight: 50 },
+    { name: "Overhead Tricep Extension (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 45 },
+    { name: "Tricep Dips", sets: 3, reps: "8-12", suggestedWeight: 0 },
+    { name: "Weighted Tricep Dips", sets: 3, reps: "6-10", suggestedWeight: 25 },
+    { name: "Bench Dips", sets: 3, reps: "10-15", suggestedWeight: 0 },
+    { name: "Diamond Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 },
+    { name: "Tricep Kickback (Dumbbell)", sets: 3, reps: "12-15", suggestedWeight: 15 },
+    { name: "Tricep Kickback (Cable)", sets: 3, reps: "12-15", suggestedWeight: 25 },
+    { name: "JM Press", sets: 3, reps: "8-10", suggestedWeight: 95 },
+    { name: "Tate Press", sets: 3, reps: "10-12", suggestedWeight: 25 },
+    
+    // Forearms
+    { name: "Wrist Curl (Barbell)", sets: 3, reps: "12-15", suggestedWeight: 45 },
+    { name: "Wrist Curl (Dumbbell)", sets: 3, reps: "12-15", suggestedWeight: 15 },
+    { name: "Reverse Wrist Curl", sets: 3, reps: "12-15", suggestedWeight: 15 },
+    { name: "Farmer's Walk", sets: 3, reps: "30s", suggestedWeight: 50 },
+    { name: "Plate Pinch", sets: 3, reps: "30s", suggestedWeight: 10 }
   ],
   abs: [
     { name: "Cable Crunch", sets: 3, reps: "15", suggestedWeight: 70 },
