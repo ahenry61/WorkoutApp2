@@ -830,6 +830,25 @@ body.dark .measurement-entry .date { color: #4a9d4d; }
   font-size: 13px;
 }
 
+.reset-week-btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #c44;
+  background: white;
+  color: #c44;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+body.dark .reset-week-btn {
+  background: #1f1f1f;
+  border-color: #d66;
+  color: #d66;
+}
+
 .hidden { display: none; }
 </style>
 </head>
@@ -871,6 +890,7 @@ body.dark .measurement-entry .date { color: #4a9d4d; }
       <option value="7">Week 7</option>
       <option value="8">Week 8</option>
     </select>
+    <button class="reset-week-btn" id="resetWeekBtn">↺ Reset This Week</button>
     <div id="daysList"></div>
     <button class="add-day-btn" id="addDayBtn">+ Add Workout Day</button>
   </div>
@@ -2120,6 +2140,33 @@ function saveMeasurement() {
   renderMeasurements();
 }
 
+function resetWeek() {
+  if (!confirm('Reset Week ' + currentWeek + '? This will clear all weights, reps, checkboxes, notes, added exercises, and added days for this week. This cannot be undone.')) {
+    return;
+  }
+  
+  // Get all localStorage keys
+  const keysToRemove = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    // Match keys for this week: w{N}-..., setcount-w{N}-..., swap-w{N}-..., added-w{N}-..., added-days-w{N}
+    if (key && (
+      key.startsWith('w' + currentWeek + '-') ||
+      key.startsWith('setcount-w' + currentWeek + '-') ||
+      key.startsWith('swap-w' + currentWeek + '-') ||
+      key.startsWith('added-w' + currentWeek + '-') ||
+      key === 'added-days-w' + currentWeek
+    )) {
+      keysToRemove.push(key);
+    }
+  }
+  
+  keysToRemove.forEach(key => localStorage.removeItem(key));
+  
+  alert('Week ' + currentWeek + ' has been reset!');
+  renderWorkouts();
+}
+
 // Event listeners
 document.getElementById('menuBtn').addEventListener('click', openMenu);
 document.getElementById('closeBtn').addEventListener('click', closeMenu);
@@ -2146,6 +2193,7 @@ document.querySelectorAll('.category-btn').forEach(btn => {
 });
 
 document.getElementById('addDayBtn').addEventListener('click', showAddDayOptions);
+document.getElementById('resetWeekBtn').addEventListener('click', resetWeek);
 document.getElementById('createCustomBtn').addEventListener('click', showFocusList);
 document.getElementById('backToCustomBtn').addEventListener('click', renderCustomList);
 document.getElementById('cancelCustomBtn').addEventListener('click', renderCustomList);
