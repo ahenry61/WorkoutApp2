@@ -31,7 +31,6 @@ body {
   font-size: 14px;
   overflow-x: hidden;
   width: 100%;
-  max-width: 100vw;
   min-height: 100vh;
 }
 
@@ -68,19 +67,9 @@ input[type="checkbox"] {
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-body.dark .header { 
-  background: #1a1a1a;
-  border-bottom-color: #4a9d4d;
-}
+body.dark .header { background: #1a1a1a; border-bottom-color: #4a9d4d; }
 
-.header h1 { 
-  flex: 1; 
-  margin: 0; 
-  font-size: 18px; 
-  font-weight: 700;
-  color: #000;
-}
-
+.header h1 { flex: 1; font-size: 18px; font-weight: 700; color: #000; }
 body.dark .header h1 { color: #fff; }
 
 .menu-btn, .dark-btn {
@@ -94,17 +83,13 @@ body.dark .header h1 { color: #fff; }
 }
 
 body.dark .menu-btn, body.dark .dark-btn { 
-  background: #1a1a1a;
-  border-color: #4a9d4d;
-  color: #4a9d4d;
+  background: #1a1a1a; border-color: #4a9d4d; color: #4a9d4d;
 }
 
 .sidebar {
   position: fixed;
-  top: 0;
-  left: -280px;
-  width: 280px;
-  height: 100vh;
+  top: 0; left: -280px;
+  width: 280px; height: 100vh;
   background: linear-gradient(135deg, #ffffff 0%, #f0f4f0 100%);
   box-shadow: 4px 0 16px rgba(0,0,0,0.15);
   transition: left 0.3s;
@@ -112,9 +97,7 @@ body.dark .menu-btn, body.dark .dark-btn {
   overflow-y: auto;
 }
 
-body.dark .sidebar { 
-  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
-}
+body.dark .sidebar { background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%); }
 
 .sidebar.open { left: 0; }
 
@@ -127,26 +110,19 @@ body.dark .sidebar {
   color: white;
 }
 
-body.dark .sidebar-header {
-  background: linear-gradient(135deg, #1a3a1b 0%, #2d5f2e 100%);
-}
+body.dark .sidebar-header { background: linear-gradient(135deg, #1a3a1b 0%, #2d5f2e 100%); }
 
 .sidebar-header h2 { font-size: 18px; color: white; }
 
 .close-btn {
   background: rgba(255,255,255,0.2);
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: white;
-  width: 30px;
-  height: 30px;
+  border: none; font-size: 20px;
+  cursor: pointer; color: white;
+  width: 30px; height: 30px;
   border-radius: 50%;
 }
 
-.menu-items {
-  list-style: none;
-}
+.menu-items { list-style: none; }
 
 .menu-items li {
   padding: 14px 16px;
@@ -156,9 +132,7 @@ body.dark .sidebar-header {
   font-weight: 500;
 }
 
-body.dark .menu-items li { 
-  border-bottom-color: rgba(74, 157, 77, 0.15);
-}
+body.dark .menu-items li { border-bottom-color: rgba(74, 157, 77, 0.15); }
 
 .menu-items li.active {
   background: linear-gradient(90deg, rgba(45, 95, 46, 0.15) 0%, transparent 100%);
@@ -167,17 +141,12 @@ body.dark .menu-items li {
   border-left: 4px solid #2d5f2e;
 }
 
-body.dark .menu-items li.active { 
-  color: #4a9d4d;
-  border-left-color: #4a9d4d;
-}
+body.dark .menu-items li.active { color: #4a9d4d; border-left-color: #4a9d4d; }
 
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
   background: rgba(0,0,0,0.5);
   display: none;
   z-index: 150;
@@ -185,101 +154,233 @@ body.dark .menu-items li.active {
 
 .overlay.active { display: block; }
 
-.container { 
-  max-width: 100%; 
-  margin: 0 auto; 
-  padding: 12px; 
-  overflow-x: hidden; 
-  width: 100%;
-}
+.container { max-width: 100%; margin: 0 auto; padding: 12px; width: 100%; }
 
 .section { display: none; }
 .section.active { display: block; }
 
-.week-selector, .month-selector {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 10px;
-  border: 1px solid #d0d0d0;
-  background: white;
-  color: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-body.dark .week-selector, body.dark .month-selector { 
-  background: #1f1f1f; 
-  border-color: #353535;
-}
-
-.day-card {
-  background: #ffffff;
+/* Today's Recommendation Card */
+.today-card {
+  background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
+  color: white;
   border-radius: 14px;
-  padding: 12px;
-  margin-bottom: 14px;
-  overflow: hidden;
-  box-sizing: border-box;
-  width: 100%;
-  box-shadow: 0 2px 8px rgba(45, 95, 46, 0.12);
-  border-top: 4px solid #2d5f2e;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(45, 95, 46, 0.25);
 }
 
-body.dark .day-card { 
-  background: #1f1f1f; 
-  border-top-color: #4a9d4d;
+.today-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.85;
+  margin-bottom: 6px;
 }
 
-.day-card h3 {
-  margin: 0 0 6px 0;
-  font-size: 17px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  color: #2d5f2e;
-  font-weight: 700;
-}
-
-body.dark .day-card h3 { color: #4a9d4d; }
-
-.day-card .progress {
-  font-size: 13px;
-  color: #666;
-  cursor: pointer;
+.today-name {
+  font-size: 24px;
+  font-weight: 800;
   margin-bottom: 4px;
 }
 
-body.dark .day-card .progress { color: #b0b0b0; }
+.today-reason {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 14px;
+  font-style: italic;
+}
 
-.complete-workout-btn {
+.start-workout-btn {
+  width: 100%;
+  padding: 14px;
+  background: white;
+  color: #2d5f2e;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pick-different-btn {
   width: 100%;
   padding: 10px;
-  margin-top: 10px;
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* Stats Quick View */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: white;
+  padding: 12px 8px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  border-top: 3px solid #2d5f2e;
+}
+
+body.dark .stat-card { background: #1f1f1f; border-top-color: #4a9d4d; }
+
+.stat-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: #2d5f2e;
+}
+
+body.dark .stat-value { color: #4a9d4d; }
+
+.stat-label {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+body.dark .stat-label { color: #b0b0b0; }
+
+/* Workout Library Categories */
+.workout-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.workout-category {
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-left: 4px solid #2d5f2e;
+}
+
+body.dark .workout-category { background: #1f1f1f; border-left-color: #4a9d4d; }
+
+.workout-category h3 {
+  color: #2d5f2e;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+body.dark .workout-category h3 { color: #4a9d4d; }
+
+.workout-category p {
+  font-size: 12px;
+  color: #666;
+}
+
+body.dark .workout-category p { color: #b0b0b0; }
+
+/* Variation cards */
+.variation-card {
+  background: white;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border-left: 4px solid #2d5f2e;
+  cursor: pointer;
+}
+
+body.dark .variation-card { background: #1f1f1f; border-left-color: #4a9d4d; }
+
+.variation-card.recommended {
+  border-left-color: #f59e0b;
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+}
+
+body.dark .variation-card.recommended {
+  border-left-color: #fbbf24;
+  background: linear-gradient(135deg, #2a2519 0%, #1f1f1f 100%);
+}
+
+.variation-card h4 {
+  color: #2d5f2e;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body.dark .variation-card h4 { color: #4a9d4d; }
+
+.recommended-badge {
+  background: #f59e0b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.variation-card .meta {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+body.dark .variation-card .meta { color: #b0b0b0; }
+
+.variation-card .exercises-preview {
+  font-size: 12px;
+  color: #888;
+  margin-top: 6px;
+}
+
+body.dark .variation-card .exercises-preview { color: #999; }
+
+/* Active Workout Screen */
+.active-workout {
+  display: none;
+}
+
+.active-workout.open { display: block; }
+
+.active-workout-header {
   background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
   color: white;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active-workout-header h2 { font-size: 18px; }
+
+.active-workout-header .back-btn {
+  background: rgba(255,255,255,0.2);
   border: none;
-  border-radius: 8px;
-  font-weight: 700;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 14px;
 }
 
-.complete-workout-btn:disabled {
-  background: #999;
-  cursor: not-allowed;
-}
-
-.exercises { display: none; margin-top: 14px; width: 100%; }
-.exercises.open { display: block; }
-
+/* Exercise styles */
 .exercise {
   background: linear-gradient(135deg, #fafbfa 0%, #f5f7f5 100%);
   border: 1px solid #e0e5e0;
   border-left: 4px solid #2d5f2e;
   border-radius: 8px;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 10px;
   width: 100%;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
@@ -299,7 +400,6 @@ body.dark .exercise {
 
 body.dark .exercise.completed {
   background: linear-gradient(135deg, #353535 0%, #303030 100%);
-  border-left-color: #666;
 }
 
 .exercise-header {
@@ -324,16 +424,19 @@ body.dark .exercise-name { color: #4a9d4d; }
 .suggested-banner {
   background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
   color: white;
-  padding: 8px 12px;
+  padding: 10px 12px;
   border-radius: 6px;
   margin-bottom: 10px;
   font-size: 13px;
-  font-weight: 600;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
+}
+
+.suggested-banner.buildup {
+  background: linear-gradient(135deg, #c9740b 0%, #f59e0b 100%);
 }
 
 .suggested-banner .label {
@@ -344,7 +447,7 @@ body.dark .exercise-name { color: #4a9d4d; }
 }
 
 .suggested-banner .value { font-size: 16px; font-weight: 700; }
-.suggested-banner .instruction { font-size: 11px; opacity: 0.85; font-style: italic; }
+.suggested-banner .instruction { font-size: 11px; opacity: 0.9; font-style: italic; max-width: 50%; text-align: right; }
 
 .previous-banner {
   background: rgba(45, 95, 46, 0.08);
@@ -357,11 +460,7 @@ body.dark .exercise-name { color: #4a9d4d; }
   font-weight: 600;
 }
 
-body.dark .previous-banner {
-  background: rgba(74, 157, 77, 0.08);
-  border-color: rgba(74, 157, 77, 0.2);
-  color: #4a9d4d;
-}
+body.dark .previous-banner { background: rgba(74, 157, 77, 0.08); border-color: rgba(74, 157, 77, 0.2); color: #4a9d4d; }
 
 .swap-btn, .delete-btn {
   background: white;
@@ -372,19 +471,11 @@ body.dark .previous-banner {
   cursor: pointer;
   font-size: 12px;
   font-weight: 600;
-  margin-left: 4px;
 }
 
-body.dark .swap-btn, body.dark .delete-btn { 
-  background: #1f1f1f;
-  border-color: #4a9d4d; 
-  color: #4a9d4d; 
-}
+body.dark .swap-btn, body.dark .delete-btn { background: #1f1f1f; border-color: #4a9d4d; color: #4a9d4d; }
 
-.delete-btn {
-  border-color: #c44;
-  color: #c44;
-}
+.delete-btn { border-color: #c44; color: #c44; }
 
 .sets-grid {
   display: flex;
@@ -451,10 +542,8 @@ body.dark .set-row input[type="number"] { background: #0f0f0f; border-color: #40
 
 body.dark .set-row input[type="checkbox"] { accent-color: #4a9d4d; }
 
-.set-row .x { 
-  color: #666; 
-  font-size: 14px; 
-  font-weight: 600;
+.set-row .x {
+  color: #666; font-size: 14px; font-weight: 600;
   -webkit-flex: 0 0 12px;
   flex: 0 0 12px;
   width: 12px;
@@ -480,13 +569,9 @@ body.dark .set-row input[type="checkbox"] { accent-color: #4a9d4d; }
   font-weight: 600;
 }
 
-body.dark .set-controls button { 
-  background: #1f1f1f;
-  border-color: #4a9d4d; 
-  color: #4a9d4d; 
-}
+body.dark .set-controls button { background: #1f1f1f; border-color: #4a9d4d; color: #4a9d4d; }
 
-.add-exercise-btn, .add-day-btn {
+.add-exercise-btn {
   width: 100%;
   padding: 12px;
   margin-top: 10px;
@@ -499,10 +584,19 @@ body.dark .set-controls button {
   font-weight: 600;
 }
 
-body.dark .add-exercise-btn, body.dark .add-day-btn { 
-  border-color: #4a9d4d;
-  color: #4a9d4d;
-  background: rgba(74, 157, 77, 0.1);
+body.dark .add-exercise-btn { border-color: #4a9d4d; color: #4a9d4d; background: rgba(74, 157, 77, 0.1); }
+
+.complete-workout-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
 }
 
 .notes textarea {
@@ -520,13 +614,14 @@ body.dark .add-exercise-btn, body.dark .add-day-btn {
 
 body.dark .notes textarea { background: #1a1a1a; border-color: #404040; }
 
-.goals-list, .library-list, .focus-list, .custom-list, .measurements-list {
+/* Goals / Other sections */
+.goals-list, .library-list, .measurements-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.goal-item, .focus-item, .custom-item, .measurement-item {
+.goal-item, .measurement-item {
   background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
   border-left: 4px solid #2d5f2e;
   border-radius: 12px;
@@ -535,46 +630,18 @@ body.dark .notes textarea { background: #1a1a1a; border-color: #404040; }
   gap: 14px;
   align-items: center;
   box-shadow: 0 2px 6px rgba(45, 95, 46, 0.1);
-  cursor: pointer;
 }
 
-body.dark .goal-item, body.dark .focus-item, body.dark .custom-item, body.dark .measurement-item { 
+body.dark .goal-item, body.dark .measurement-item { 
   background: linear-gradient(135deg, #1f1f1f 0%, #252525 100%);
   border-left-color: #4a9d4d;
 }
 
-.goal-item input {
-  width: 26px;
-  height: 26px;
-  accent-color: #2d5f2e;
-}
+.goal-item input { width: 26px; height: 26px; accent-color: #2d5f2e; }
 
-.goal-item.completed .goal-text {
-  text-decoration: line-through;
-  color: #666;
-}
+.goal-item.completed .goal-text { text-decoration: line-through; color: #666; }
 
 .goal-text { font-size: 16px; flex: 1; }
-
-.focus-item, .custom-item {
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.focus-item h3, .custom-item h3 {
-  color: #2d5f2e;
-  font-size: 16px;
-  margin-bottom: 4px;
-}
-
-body.dark .focus-item h3, body.dark .custom-item h3 { color: #4a9d4d; }
-
-.focus-item p, .custom-item p {
-  font-size: 13px;
-  color: #666;
-}
-
-body.dark .focus-item p, body.dark .custom-item p { color: #b0b0b0; }
 
 .rules-content {
   background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
@@ -584,20 +651,18 @@ body.dark .focus-item p, body.dark .custom-item p { color: #b0b0b0; }
   line-height: 1.6;
   font-size: 14px;
   box-shadow: 0 2px 6px rgba(45, 95, 46, 0.1);
-}
-
-body.dark .rules-content { 
-  background: linear-gradient(135deg, #1f1f1f 0%, #252525 100%);
-  border-left-color: #4a9d4d;
-}
-
-.rules-content h3 {
-  color: #2d5f2e;
-  font-size: 16px;
   margin-bottom: 12px;
 }
 
+body.dark .rules-content { background: linear-gradient(135deg, #1f1f1f 0%, #252525 100%); border-left-color: #4a9d4d; }
+
+.rules-content h3 { color: #2d5f2e; font-size: 16px; margin-bottom: 12px; }
 body.dark .rules-content h3 { color: #4a9d4d; }
+
+.rules-content h4 { color: #2d5f2e; font-size: 14px; margin-top: 14px; margin-bottom: 6px; }
+body.dark .rules-content h4 { color: #4a9d4d; }
+
+.rules-content p { margin-bottom: 8px; }
 
 .library-categories {
   display: grid;
@@ -619,10 +684,7 @@ body.dark .rules-content h3 { color: #4a9d4d; }
 
 body.dark .category-btn { background: #1f1f1f; border-color: #353535; }
 
-.category-btn.active { 
-  background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
-  color: white;
-}
+.category-btn.active { background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%); color: white; }
 
 .exercise-lib-item {
   background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
@@ -692,17 +754,9 @@ body.dark .calendar { background: #1f1f1f; }
   font-weight: 600;
 }
 
-body.dark .calendar-header button {
-  background: #1f1f1f;
-  border-color: #4a9d4d;
-  color: #4a9d4d;
-}
+body.dark .calendar-header button { background: #1f1f1f; border-color: #4a9d4d; color: #4a9d4d; }
 
-.calendar-header h3 {
-  font-size: 16px;
-  color: #2d5f2e;
-}
-
+.calendar-header h3 { font-size: 16px; color: #2d5f2e; }
 body.dark .calendar-header h3 { color: #4a9d4d; }
 
 .calendar-grid {
@@ -728,7 +782,6 @@ body.dark .calendar-header h3 { color: #4a9d4d; }
   border-radius: 6px;
   cursor: pointer;
   background: #f5f5f5;
-  position: relative;
 }
 
 body.dark .calendar-day { background: #2a2a2a; }
@@ -739,14 +792,8 @@ body.dark .calendar-day { background: #2a2a2a; }
   font-weight: 700;
 }
 
-.calendar-day.today {
-  border: 2px solid #2d5f2e;
-}
-
-.calendar-day.empty {
-  background: transparent;
-  cursor: default;
-}
+.calendar-day.today { border: 2px solid #2d5f2e; }
+.calendar-day.empty { background: transparent; cursor: default; }
 
 .workout-detail {
   margin-top: 16px;
@@ -765,12 +812,7 @@ body.dark .workout-detail { background: #2a2a2a; }
   margin-bottom: 12px;
 }
 
-.measurement-input-row label {
-  font-size: 13px;
-  color: #666;
-  font-weight: 600;
-}
-
+.measurement-input-row label { font-size: 13px; color: #666; font-weight: 600; }
 body.dark .measurement-input-row label { color: #b0b0b0; }
 
 .measurement-input-row input {
@@ -797,10 +839,6 @@ body.dark .measurement-input-row input { background: #1a1a1a; border-color: #404
   margin-top: 10px;
 }
 
-.measurement-history {
-  margin-top: 20px;
-}
-
 .measurement-entry {
   background: white;
   padding: 12px;
@@ -810,17 +848,9 @@ body.dark .measurement-input-row input { background: #1a1a1a; border-color: #404
   border-left: 3px solid #2d5f2e;
 }
 
-body.dark .measurement-entry { 
-  background: #1f1f1f; 
-  border-left-color: #4a9d4d;
-}
+body.dark .measurement-entry { background: #1f1f1f; border-left-color: #4a9d4d; }
 
-.measurement-entry .date {
-  font-weight: 700;
-  color: #2d5f2e;
-  margin-bottom: 6px;
-}
-
+.measurement-entry .date { font-weight: 700; color: #2d5f2e; margin-bottom: 6px; }
 body.dark .measurement-entry .date { color: #4a9d4d; }
 
 .measurement-entry .stats {
@@ -830,24 +860,29 @@ body.dark .measurement-entry .date { color: #4a9d4d; }
   font-size: 13px;
 }
 
-.reset-week-btn {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid #c44;
-  background: white;
-  color: #c44;
-  border-radius: 8px;
-  cursor: pointer;
+.section-title {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
+  color: #2d5f2e;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-body.dark .reset-week-btn {
-  background: #1f1f1f;
-  border-color: #d66;
-  color: #d66;
+body.dark .section-title { color: #4a9d4d; }
+
+.back-arrow-btn {
+  background: none;
+  border: none;
+  color: #2d5f2e;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 10px;
+  font-size: 14px;
 }
+
+body.dark .back-arrow-btn { color: #4a9d4d; }
 
 .hidden { display: none; }
 </style>
@@ -856,7 +891,7 @@ body.dark .reset-week-btn {
 
 <div class="header">
   <button class="menu-btn" id="menuBtn">☰</button>
-  <h1 id="headerTitle">Workout Plan</h1>
+  <h1 id="headerTitle">Today</h1>
   <button class="dark-btn" id="darkToggle">🌙</button>
 </div>
 
@@ -866,12 +901,12 @@ body.dark .reset-week-btn {
     <button class="close-btn" id="closeBtn">×</button>
   </div>
   <ul class="menu-items">
-    <li data-section="workouts" class="active">Workout Plan</li>
-    <li data-section="custom">Custom Workouts</li>
+    <li data-section="today" class="active">Today</li>
+    <li data-section="workouts">Workouts</li>
     <li data-section="calendar">Calendar</li>
     <li data-section="measurements">Body Measurements</li>
     <li data-section="goals">Goals</li>
-    <li data-section="progression">Progression Rules</li>
+    <li data-section="strength-guide">Strength Guide</li>
     <li data-section="library">Exercise Library</li>
   </ul>
 </div>
@@ -879,40 +914,33 @@ body.dark .reset-week-btn {
 <div class="overlay" id="overlay"></div>
 
 <div class="container">
-  <div id="workouts" class="section active">
-    <select class="week-selector" id="weekSelector">
-      <option value="1">Week 1</option>
-      <option value="2">Week 2</option>
-      <option value="3">Week 3</option>
-      <option value="4">Week 4</option>
-      <option value="5">Week 5</option>
-      <option value="6">Week 6</option>
-      <option value="7">Week 7</option>
-      <option value="8">Week 8</option>
-    </select>
-    <button class="reset-week-btn" id="resetWeekBtn">↺ Reset This Week</button>
-    <div id="daysList"></div>
-    <button class="add-day-btn" id="addDayBtn">+ Add Workout Day</button>
+  <div id="today" class="section active">
+    <div id="recommendationArea"></div>
+    <div class="stats-row" id="statsRow"></div>
+    <div class="section-title">Recent Workouts</div>
+    <div id="recentWorkouts"></div>
   </div>
 
-  <div id="custom" class="section">
-    <div id="customListView">
-      <div class="custom-list" id="customList"></div>
-      <button class="add-day-btn" id="createCustomBtn">+ Create Custom Workout</button>
+  <div id="workouts" class="section">
+    <div id="workoutListView">
+      <div class="section-title">Choose Workout Type</div>
+      <div class="workout-categories" id="workoutCategories"></div>
     </div>
     
-    <div id="focusListView" class="hidden">
-      <h3 style="margin-bottom:12px;color:#2d5f2e;">Choose Focus Area:</h3>
-      <div class="focus-list" id="focusList"></div>
-      <button class="add-day-btn" id="backToCustomBtn" style="margin-top:12px;">← Back</button>
+    <div id="variationListView" class="hidden">
+      <button class="back-arrow-btn" id="backToCategoriesBtn">← Back to categories</button>
+      <div class="section-title" id="variationTitle"></div>
+      <div id="variationsList"></div>
     </div>
     
-    <div id="customEditView" class="hidden">
-      <input type="text" id="customNameInput" placeholder="Workout name" style="width:100%;padding:12px;margin-bottom:12px;border:1px solid #d0d0d0;border-radius:8px;font-size:16px;">
-      <div id="customExercisesList"></div>
-      <button class="add-exercise-btn" id="addCustomExerciseBtn">+ Add Exercise</button>
-      <button class="save-btn" id="saveCustomBtn">Save Workout</button>
-      <button class="add-day-btn" id="cancelCustomBtn" style="margin-top:8px;">Cancel</button>
+    <div id="activeWorkoutView" class="hidden">
+      <div class="active-workout-header">
+        <h2 id="activeWorkoutName"></h2>
+        <button class="back-btn" id="backFromActiveBtn">Back</button>
+      </div>
+      <div id="exerciseList"></div>
+      <button class="add-exercise-btn" id="addExerciseToActiveBtn">+ Add Exercise</button>
+      <button class="complete-workout-btn" id="completeActiveBtn">✓ Complete Workout</button>
     </div>
   </div>
 
@@ -929,63 +957,78 @@ body.dark .reset-week-btn {
   </div>
 
   <div id="measurements" class="section">
-    <div class="rules-content" style="margin-bottom:16px;">
+    <div class="rules-content">
       <h3>Log Measurement</h3>
-      <div class="measurement-input-row">
-        <label>Weight (lbs)</label>
-        <input type="number" id="m-weight" step="0.1">
-      </div>
-      <div class="measurement-input-row">
-        <label>Skeletal Muscle Mass (lbs)</label>
-        <input type="number" id="m-muscle" step="0.1">
-      </div>
-      <div class="measurement-input-row">
-        <label>BMI</label>
-        <input type="number" id="m-bmi" step="0.1">
-      </div>
-      <div class="measurement-input-row">
-        <label>Body Fat %</label>
-        <input type="number" id="m-bodyfat" step="0.1">
-      </div>
-      <div class="measurement-input-row">
-        <label>Waist (inches)</label>
-        <input type="number" id="m-waist" step="0.1">
-      </div>
-      <div class="measurement-input-row">
-        <label>Arms (inches)</label>
-        <input type="number" id="m-arms" step="0.1">
-      </div>
-      <div class="measurement-input-row">
-        <label>Chest (inches)</label>
-        <input type="number" id="m-chest" step="0.1">
-      </div>
+      <div class="measurement-input-row"><label>Weight (lbs)</label><input type="number" id="m-weight" step="0.1"></div>
+      <div class="measurement-input-row"><label>Skeletal Muscle Mass (lbs)</label><input type="number" id="m-muscle" step="0.1"></div>
+      <div class="measurement-input-row"><label>BMI</label><input type="number" id="m-bmi" step="0.1"></div>
+      <div class="measurement-input-row"><label>Body Fat %</label><input type="number" id="m-bodyfat" step="0.1"></div>
+      <div class="measurement-input-row"><label>Waist (inches)</label><input type="number" id="m-waist" step="0.1"></div>
+      <div class="measurement-input-row"><label>Arms (inches)</label><input type="number" id="m-arms" step="0.1"></div>
+      <div class="measurement-input-row"><label>Chest (inches)</label><input type="number" id="m-chest" step="0.1"></div>
       <button class="save-btn" id="saveMeasurementBtn">Save Measurement</button>
     </div>
-    <div class="measurement-history">
-      <h3 style="margin-bottom:12px;color:#2d5f2e;">History</h3>
-      <div id="measurementHistory"></div>
-    </div>
+    <div class="section-title">History</div>
+    <div id="measurementHistory"></div>
   </div>
 
   <div id="goals" class="section">
+    <div class="rules-content">
+      <h3>Your Goals</h3>
+      <p>🎯 Build strong, wider shoulders</p>
+      <p>💪 Chest with real strength</p>
+      <p>🔥 Defined back</p>
+      <p>✨ Visible abs year-round</p>
+      <p>📉 Reduce midsection weight</p>
+    </div>
     <div class="goals-list" id="goalsList"></div>
   </div>
 
-  <div id="progression" class="section">
+  <div id="strength-guide" class="section">
     <div class="rules-content">
-      <h3>Progression Rules</h3>
-      <p>If you hit top reps clean → add weight next week.</p>
-      <p><strong>Bench/OHP:</strong> +2.5-5 lbs</p>
-      <p><strong>Squat/Deadlift:</strong> +5-10 lbs</p>
-      <p><strong>Accessories:</strong> +2.5 lbs or add 1-2 reps</p>
-      <p><strong>Weeks 1-4:</strong> Build phase</p>
-      <p><strong>Weeks 5-8:</strong> Progression phase with advanced variations</p>
+      <h3>How to Build Strength</h3>
+      
+      <h4>The Two Types of Lifts</h4>
+      <p><strong>Build-Up Lifts (Heavy Compounds):</strong> Bench, Squat, Deadlift, Overhead Press, Weighted Pull-ups, Barbell Row. Do 3-4 warm-up sets, gradually adding weight, then hit your working sets.</p>
+      <p><strong>Start-Here Lifts (Accessories):</strong> Lateral raises, curls, flys, leg curls, etc. Start with your working weight, maintain across all sets.</p>
+      
+      <h4>Warmup Protocol (for Build-Up lifts)</h4>
+      <p><strong>Example:</strong> Working set = 185 lbs Bench</p>
+      <p>• Set 1: Bar (45 lbs) × 10 reps</p>
+      <p>• Set 2: 95 lbs × 8 reps</p>
+      <p>• Set 3: 135 lbs × 5 reps</p>
+      <p>• Set 4: 165 lbs × 3 reps</p>
+      <p>• Working Sets: 185 × 5-6 reps (4 sets)</p>
+      
+      <h4>When to Add Weight</h4>
+      <p>If you hit the TOP of the rep range on ALL working sets with good form → add weight next session.</p>
+      <p><strong>Compound lifts:</strong> +5 lbs (or 2.5 lbs on small lifts)</p>
+      <p><strong>Bodyweight (Pull-ups, Dips):</strong> +5 lbs added weight</p>
+      <p><strong>Accessories:</strong> +2.5-5 lbs or add 1-2 reps</p>
+      
+      <h4>Strength + Hypertrophy Split</h4>
+      <p>Each workout has both:</p>
+      <p>• <strong>Strength work (5-6 reps):</strong> Build raw strength on main lift</p>
+      <p>• <strong>Hypertrophy (8-12 reps):</strong> Build muscle size</p>
+      <p>• <strong>Finishers (12-15 reps):</strong> Pump and definition</p>
+      
+      <h4>For Your Specific Goals</h4>
+      <p><strong>Wider shoulders:</strong> Lateral raises 4x/week, varying angles. Don't neglect rear delts.</p>
+      <p><strong>Chest strength:</strong> Bench press progression is king. Heavy 5-6 reps + incline hypertrophy.</p>
+      <p><strong>Back definition:</strong> Mix vertical pulls (pull-ups, pulldowns) and horizontal (rows). Train back 2x/week.</p>
+      <p><strong>Visible abs:</strong> 90% diet, 10% direct ab work. Cable crunches and hanging leg raises 2-3x/week.</p>
+      <p><strong>Midsection weight:</strong> Caloric deficit + strength training preserves muscle while losing fat. Don't crash diet.</p>
+      
+      <h4>Recovery Rules</h4>
+      <p>• Don't train the same muscle group hard 2 days in a row</p>
+      <p>• Sleep 7-8 hours minimum</p>
+      <p>• Take a deload week every 6-8 weeks (reduce volume 40%)</p>
     </div>
   </div>
 
   <div id="library" class="section">
     <div id="swapBanner" class="swap-banner hidden">
-      <span id="swapBannerText">Swap: <strong id="swapExerciseName"></strong></span>
+      <span id="swapBannerText">Swap exercise</span>
       <button id="cancelSwapBtn">Cancel</button>
     </div>
     <div class="library-categories">
@@ -1002,14 +1045,12 @@ body.dark .reset-week-btn {
 </div>
 
 <script>
-let currentWeek = 1;
 let currentCategory = 'all';
+let currentWorkoutType = null;
+let currentVariationId = null;
 let swapMode = null;
 let addExerciseMode = null;
-let addToCustomMode = null;
-let currentCustomWorkout = null;
 let calendarDate = new Date();
-let selectedFocusArea = null;
 
 const defaultGoals = [
   "Bench 200+ x 6",
@@ -1019,332 +1060,343 @@ const defaultGoals = [
   "Visible abs year-round"
 ];
 
-const program = {
-  weeks14: {
-    day1: { name: "Legs", exercises: [
-      { name: "Barbell Back Squat", sets: 4, reps: "6-8", suggestedWeight: 185 },
-      { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135 },
-      { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30 },
-      { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70 },
-      { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25 },
-      { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90 }
-    ]},
-    day2: { name: "Shoulders + Abs", exercises: [
-      { name: "Barbell Overhead Press", sets: 4, reps: "6-8", suggestedWeight: 95 },
-      { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20 },
-      { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15 },
-      { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40 },
-      { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20 },
-      { name: "Cable Crunch", sets: 3, reps: "15", suggestedWeight: 70 },
-      { name: "Hanging Leg Raise", sets: 3, reps: "12", suggestedWeight: 0 },
-      { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0 }
-    ]},
-    day3: { name: "Chest + Abs", exercises: [
-      { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155 },
-      { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55 },
-      { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30 },
-      { name: "Dips", sets: 3, reps: "8-12", suggestedWeight: 0 },
-      { name: "Push-Ups", sets: 3, reps: "15-20", suggestedWeight: 0 },
-      { name: "Ab Wheel Rollout", sets: 3, reps: "10", suggestedWeight: 0 },
-      { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25 },
-      { name: "Mountain Climbers", sets: 3, reps: "30s", suggestedWeight: 0 }
-    ]},
-    day4: { name: "Back", exercises: [
-      { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25 },
-      { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135 },
-      { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120 },
-      { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110 },
-      { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40 },
-      { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 60 }
-    ]},
-    day5: { name: "Shoulders (Volume)", exercises: [
-      { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45 },
-      { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35 },
-      { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15 },
-      { name: "Reverse Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 70 },
-      { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65 },
-      { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70 }
-    ]}
-  },
-  weeks58: {
-    day1: { name: "Legs", exercises: [
-      { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 205 },
-      { name: "Stiff-Leg Deadlift", sets: 3, reps: "6-8", suggestedWeight: 155 },
-      { name: "Bulgarian Split Squat", sets: 3, reps: "8-10", suggestedWeight: 40 },
-      { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0 },
-      { name: "Reverse Lunges", sets: 3, reps: "10", suggestedWeight: 30 },
-      { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70 }
-    ]},
-    day2: { name: "Shoulders + Abs", exercises: [
-      { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115 },
-      { name: "Dumbbell Lateral Raises", sets: 4, reps: "10-12", suggestedWeight: 25 },
-      { name: "Cable Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 20 },
-      { name: "Face Pulls", sets: 3, reps: "12-15", suggestedWeight: 50 },
-      { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35 },
-      { name: "Weighted Cable Crunch", sets: 3, reps: "12", suggestedWeight: 90 },
-      { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0 },
-      { name: "Side Plank", sets: 3, reps: "40s", suggestedWeight: 0 }
-    ]},
-    day3: { name: "Chest + Abs", exercises: [
-      { name: "Barbell Bench Press", sets: 4, reps: "5-6", suggestedWeight: 175 },
-      { name: "Incline Dumbbell Press", sets: 4, reps: "6-8", suggestedWeight: 65 },
-      { name: "Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 35 },
-      { name: "Weighted Dips", sets: 3, reps: "6-10", suggestedWeight: 25 },
-      { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 },
-      { name: "Ab Wheel Rollout", sets: 3, reps: "12", suggestedWeight: 0 },
-      { name: "Weighted Russian Twist", sets: 3, reps: "25", suggestedWeight: 35 },
-      { name: "Burpees", sets: 3, reps: "20s", suggestedWeight: 0 }
-    ]},
-    day4: { name: "Back", exercises: [
-      { name: "Weighted Pull-Ups", sets: 4, reps: "4-6", suggestedWeight: 35 },
-      { name: "Pendlay Row", sets: 4, reps: "5-6", suggestedWeight: 155 },
-      { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", suggestedWeight: 140 },
-      { name: "T-Bar Row", sets: 3, reps: "8-10", suggestedWeight: 90 },
-      { name: "Straight-Arm Pulldown", sets: 3, reps: "10-12", suggestedWeight: 50 },
-      { name: "Dumbbell Shrugs", sets: 3, reps: "10-12", suggestedWeight: 85 }
-    ]},
-    day5: { name: "Shoulders (Volume)", exercises: [
-      { name: "Seated Dumbbell Press", sets: 4, reps: "6-8", suggestedWeight: 55 },
-      { name: "Arnold Press", sets: 3, reps: "8-10", suggestedWeight: 45 },
-      { name: "Cable Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20 },
-      { name: "Reverse Pec Deck", sets: 3, reps: "10-12", suggestedWeight: 85 },
-      { name: "Barbell Upright Row", sets: 3, reps: "8-10", suggestedWeight: 75 },
-      { name: "Dumbbell Shrugs", sets: 3, reps: "10-12", suggestedWeight: 85 }
-    ]}
-  }
-};
-
-const focusTemplates = {
-  fullBody: {
-    name: "Full Body",
-    description: "Hits all major muscle groups",
-    exercises: [
-      { name: "Barbell Back Squat", sets: 3, reps: "8-10", suggestedWeight: 155 },
-      { name: "Barbell Bench Press", sets: 3, reps: "8-10", suggestedWeight: 135 },
-      { name: "Barbell Row", sets: 3, reps: "8-10", suggestedWeight: 115 },
-      { name: "Barbell Overhead Press", sets: 3, reps: "8-10", suggestedWeight: 85 },
-      { name: "Romanian Deadlift", sets: 3, reps: "10", suggestedWeight: 135 },
-      { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0 }
-    ]
-  },
-  arms: {
-    name: "Arms Focus",
-    description: "Biceps and triceps",
-    exercises: [
-      { name: "Barbell Curl", sets: 4, reps: "8-10", suggestedWeight: 65 },
-      { name: "Close-Grip Bench Press", sets: 4, reps: "8-10", suggestedWeight: 115 },
-      { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30 },
-      { name: "Tricep Dips", sets: 3, reps: "10-12", suggestedWeight: 0 },
-      { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40 },
-      { name: "Cable Pushdown", sets: 3, reps: "12-15", suggestedWeight: 50 }
-    ]
-  },
-  coreBurn: {
-    name: "Core Burn",
-    description: "Intense ab and core work",
-    exercises: [
-      { name: "Ab Wheel Rollout", sets: 4, reps: "10-12", suggestedWeight: 0 },
-      { name: "Hanging Leg Raise", sets: 4, reps: "12", suggestedWeight: 0 },
-      { name: "Cable Crunch", sets: 4, reps: "15", suggestedWeight: 70 },
-      { name: "Russian Twist", sets: 3, reps: "25", suggestedWeight: 25 },
-      { name: "Plank", sets: 3, reps: "60s", suggestedWeight: 0 },
-      { name: "Mountain Climbers", sets: 3, reps: "30s", suggestedWeight: 0 }
-    ]
-  },
-  legLoad: {
-    name: "Leg Load",
-    description: "Heavy lower body work",
-    exercises: [
-      { name: "Barbell Back Squat", sets: 4, reps: "5-6", suggestedWeight: 205 },
-      { name: "Romanian Deadlift", sets: 4, reps: "6-8", suggestedWeight: 155 },
-      { name: "Bulgarian Split Squat", sets: 3, reps: "8-10", suggestedWeight: 40 },
-      { name: "Leg Press", sets: 3, reps: "10-12", suggestedWeight: 270 },
-      { name: "Leg Curl", sets: 3, reps: "10-12", suggestedWeight: 80 },
-      { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 100 }
-    ]
-  },
-  pushDay: {
+// Workout types with 4 variations each
+const workoutTypes = {
+  push: {
     name: "Push Day",
     description: "Chest, shoulders, triceps",
-    exercises: [
-      { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155 },
-      { name: "Barbell Overhead Press", sets: 3, reps: "8-10", suggestedWeight: 95 },
-      { name: "Incline Dumbbell Press", sets: 3, reps: "10", suggestedWeight: 55 },
-      { name: "Dumbbell Lateral Raises", sets: 3, reps: "12-15", suggestedWeight: 20 },
-      { name: "Cable Pushdown", sets: 3, reps: "12", suggestedWeight: 50 },
-      { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30 }
-    ]
+    icon: "💪",
+    variations: {
+      A: { name: "Push A - Heavy Bench", focus: "Bench focus", exercises: [
+        { name: "Barbell Bench Press", sets: 4, reps: "5-6", suggestedWeight: 155, type: "buildup" },
+        { name: "Barbell Overhead Press", sets: 3, reps: "6-8", suggestedWeight: 95, type: "buildup" },
+        { name: "Incline Dumbbell Press", sets: 3, reps: "8-10", suggestedWeight: 55, type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20, type: "maintain" },
+        { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" }
+      ]},
+      B: { name: "Push B - Heavy OHP", focus: "Overhead Press focus", exercises: [
+        { name: "Barbell Overhead Press", sets: 4, reps: "5-6", suggestedWeight: 95, type: "buildup" },
+        { name: "Incline Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
+        { name: "Dumbbell Bench Press", sets: 3, reps: "8-10", suggestedWeight: 65, type: "maintain" },
+        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
+        { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" }
+      ]},
+      C: { name: "Push C - Volume Pump", focus: "Hypertrophy & shoulder width", exercises: [
+        { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55, type: "buildup" },
+        { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45, type: "maintain" },
+        { name: "Cable Fly", sets: 4, reps: "12-15", suggestedWeight: 30, type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", suggestedWeight: 20, type: "maintain" },
+        { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15, type: "maintain" },
+        { name: "Cable Pushdown (Rope)", sets: 3, reps: "12-15", suggestedWeight: 50, type: "maintain" }
+      ]},
+      D: { name: "Push D - Dips & Power", focus: "Push power & arms", exercises: [
+        { name: "Weighted Dips", sets: 4, reps: "6-8", suggestedWeight: 25, type: "buildup" },
+        { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115, type: "buildup" },
+        { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" },
+        { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
+        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
+        { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115, type: "buildup" }
+      ]}
+    }
   },
-  pullDay: {
+  pull: {
     name: "Pull Day",
-    description: "Back and biceps",
-    exercises: [
-      { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25 },
-      { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135 },
-      { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120 },
-      { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110 },
-      { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30 },
-      { name: "Face Pulls", sets: 3, reps: "15", suggestedWeight: 40 }
-    ]
+    description: "Back, biceps, rear delts",
+    icon: "🔙",
+    variations: {
+      A: { name: "Pull A - Heavy Pulls", focus: "Weighted pull-ups", exercises: [
+        { name: "Weighted Pull-Ups", sets: 4, reps: "5-6", suggestedWeight: 25, type: "buildup" },
+        { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
+        { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120, type: "maintain" },
+        { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40, type: "maintain" },
+        { name: "Barbell Curl", sets: 3, reps: "8-10", suggestedWeight: 65, type: "maintain" }
+      ]},
+      B: { name: "Pull B - Deadlift Day", focus: "Deadlift focus", exercises: [
+        { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225, type: "buildup" },
+        { name: "Pendlay Row", sets: 4, reps: "5-6", suggestedWeight: 155, type: "buildup" },
+        { name: "Pull-Ups", sets: 3, reps: "8-12", suggestedWeight: 0, type: "maintain" },
+        { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
+        { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 135, type: "maintain" }
+      ]},
+      C: { name: "Pull C - Back Volume", focus: "Back width & definition", exercises: [
+        { name: "Pull-Ups", sets: 4, reps: "8-12", suggestedWeight: 0, type: "maintain" },
+        { name: "Seated Cable Row", sets: 4, reps: "10-12", suggestedWeight: 110, type: "maintain" },
+        { name: "V-Bar Pulldown", sets: 4, reps: "10-12", suggestedWeight: 120, type: "maintain" },
+        { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
+        { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15, type: "maintain" },
+        { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" }
+      ]},
+      D: { name: "Pull D - Rows & Curls", focus: "Thickness & arms", exercises: [
+        { name: "T-Bar Row", sets: 4, reps: "6-8", suggestedWeight: 90, type: "buildup" },
+        { name: "Chest Supported Row", sets: 4, reps: "8-10", suggestedWeight: 70, type: "maintain" },
+        { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", suggestedWeight: 140, type: "maintain" },
+        { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55, type: "maintain" },
+        { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" }
+      ]}
+    }
+  },
+  legs: {
+    name: "Leg Day",
+    description: "Quads, hamstrings, glutes, calves",
+    icon: "🦵",
+    variations: {
+      A: { name: "Legs A - Squat Focus", focus: "Heavy squat", exercises: [
+        { name: "Barbell Back Squat", sets: 4, reps: "5-6", suggestedWeight: 185, type: "buildup" },
+        { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135, type: "buildup" },
+        { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
+        { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70, type: "maintain" },
+        { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90, type: "maintain" }
+      ]},
+      B: { name: "Legs B - Deadlift Focus", focus: "Posterior chain", exercises: [
+        { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225, type: "buildup" },
+        { name: "Front Squat", sets: 3, reps: "6-8", suggestedWeight: 135, type: "buildup" },
+        { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25, type: "maintain" },
+        { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0, type: "maintain" },
+        { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" }
+      ]},
+      C: { name: "Legs C - Hypertrophy", focus: "Volume & pump", exercises: [
+        { name: "Leg Press", sets: 4, reps: "10-12", suggestedWeight: 270, type: "buildup" },
+        { name: "Romanian Deadlift", sets: 3, reps: "10-12", suggestedWeight: 135, type: "maintain" },
+        { name: "Leg Extension", sets: 4, reps: "12-15", suggestedWeight: 90, type: "maintain" },
+        { name: "Leg Curl", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" },
+        { name: "Hip Thrust", sets: 3, reps: "10-12", suggestedWeight: 185, type: "maintain" },
+        { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90, type: "maintain" }
+      ]},
+      D: { name: "Legs D - Athletic", focus: "Power & conditioning", exercises: [
+        { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 165, type: "buildup" },
+        { name: "Bulgarian Split Squat", sets: 3, reps: "8-10", suggestedWeight: 40, type: "buildup" },
+        { name: "Jump Squats", sets: 3, reps: "15", suggestedWeight: 0, type: "maintain" },
+        { name: "Stiff-Leg Deadlift", sets: 3, reps: "8-10", suggestedWeight: 155, type: "maintain" },
+        { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25, type: "maintain" }
+      ]}
+    }
   },
   upperBody: {
     name: "Upper Body",
-    description: "Complete upper body",
-    exercises: [
-      { name: "Barbell Bench Press", sets: 3, reps: "8-10", suggestedWeight: 135 },
-      { name: "Barbell Row", sets: 3, reps: "8-10", suggestedWeight: 115 },
-      { name: "Barbell Overhead Press", sets: 3, reps: "8-10", suggestedWeight: 85 },
-      { name: "Pull-Ups", sets: 3, reps: "8-12", suggestedWeight: 0 },
-      { name: "Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
-      { name: "Cable Pushdown", sets: 3, reps: "12", suggestedWeight: 50 }
-    ]
+    description: "Full upper body in one workout",
+    icon: "👕",
+    variations: {
+      A: { name: "Upper A - Strength", focus: "Heavy compounds", exercises: [
+        { name: "Barbell Bench Press", sets: 4, reps: "5-6", suggestedWeight: 155, type: "buildup" },
+        { name: "Barbell Row", sets: 4, reps: "5-6", suggestedWeight: 135, type: "buildup" },
+        { name: "Barbell Overhead Press", sets: 3, reps: "6-8", suggestedWeight: 95, type: "buildup" },
+        { name: "Pull-Ups", sets: 3, reps: "8-12", suggestedWeight: 0, type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 3, reps: "12-15", suggestedWeight: 20, type: "maintain" }
+      ]},
+      B: { name: "Upper B - Hypertrophy", focus: "Volume work", exercises: [
+        { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55, type: "buildup" },
+        { name: "Seated Cable Row", sets: 4, reps: "10-12", suggestedWeight: 110, type: "maintain" },
+        { name: "Seated Dumbbell Press", sets: 3, reps: "8-10", suggestedWeight: 45, type: "maintain" },
+        { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120, type: "maintain" },
+        { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30, type: "maintain" },
+        { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" }
+      ]},
+      C: { name: "Upper C - Push/Pull", focus: "Balanced push & pull", exercises: [
+        { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25, type: "buildup" },
+        { name: "Dumbbell Bench Press", sets: 4, reps: "8-10", suggestedWeight: 65, type: "buildup" },
+        { name: "Cable Row (V-Bar)", sets: 3, reps: "10-12", suggestedWeight: 110, type: "maintain" },
+        { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
+        { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40, type: "maintain" },
+        { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" }
+      ]},
+      D: { name: "Upper D - Aesthetics", focus: "Shoulders, chest, arms", exercises: [
+        { name: "Incline Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
+        { name: "T-Bar Row", sets: 4, reps: "8-10", suggestedWeight: 90, type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", suggestedWeight: 20, type: "maintain" },
+        { name: "Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 90, type: "maintain" },
+        { name: "EZ-Bar Curl", sets: 3, reps: "8-10", suggestedWeight: 55, type: "maintain" },
+        { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" }
+      ]}
+    }
   },
-  conditioning: {
-    name: "Conditioning",
-    description: "Cardio and circuit work",
-    exercises: [
-      { name: "Burpees", sets: 4, reps: "30s", suggestedWeight: 0 },
-      { name: "Mountain Climbers", sets: 4, reps: "30s", suggestedWeight: 0 },
-      { name: "Jump Squats", sets: 4, reps: "15", suggestedWeight: 0 },
-      { name: "Push-Ups", sets: 4, reps: "15", suggestedWeight: 0 },
-      { name: "Plank", sets: 3, reps: "60s", suggestedWeight: 0 }
-    ]
+  arms: {
+    name: "Arms Day",
+    description: "Biceps and triceps focus",
+    icon: "💪",
+    variations: {
+      A: { name: "Arms A - Heavy", focus: "Strength biceps & triceps", exercises: [
+        { name: "Close-Grip Bench Press", sets: 4, reps: "6-8", suggestedWeight: 115, type: "buildup" },
+        { name: "Barbell Curl", sets: 4, reps: "6-8", suggestedWeight: 65, type: "buildup" },
+        { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" },
+        { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55, type: "maintain" },
+        { name: "Weighted Tricep Dips", sets: 3, reps: "8-10", suggestedWeight: 25, type: "buildup" }
+      ]},
+      B: { name: "Arms B - Volume", focus: "Pump & growth", exercises: [
+        { name: "EZ-Bar Curl", sets: 4, reps: "10-12", suggestedWeight: 55, type: "maintain" },
+        { name: "Cable Pushdown (Rope)", sets: 4, reps: "10-12", suggestedWeight: 50, type: "maintain" },
+        { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
+        { name: "Overhead Tricep Extension (Cable)", sets: 3, reps: "12-15", suggestedWeight: 50, type: "maintain" },
+        { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
+        { name: "Diamond Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" }
+      ]},
+      C: { name: "Arms C - Supersets", focus: "Density work", exercises: [
+        { name: "Dumbbell Curl", sets: 4, reps: "10-12", suggestedWeight: 25, type: "maintain" },
+        { name: "Cable Pushdown (Straight Bar)", sets: 4, reps: "10-12", suggestedWeight: 60, type: "maintain" },
+        { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
+        { name: "Skullcrusher (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
+        { name: "Spider Curl", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
+        { name: "Bench Dips", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" }
+      ]},
+      D: { name: "Arms D - Power", focus: "Strength & forearms", exercises: [
+        { name: "Barbell Curl", sets: 4, reps: "8-10", suggestedWeight: 65, type: "buildup" },
+        { name: "JM Press", sets: 4, reps: "8-10", suggestedWeight: 95, type: "buildup" },
+        { name: "Zottman Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
+        { name: "Reverse Grip Pushdown", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
+        { name: "Wrist Curl (Barbell)", sets: 3, reps: "12-15", suggestedWeight: 45, type: "maintain" },
+        { name: "Farmer's Walk", sets: 3, reps: "30s", suggestedWeight: 50, type: "maintain" }
+      ]}
+    }
+  },
+  shouldersAbs: {
+    name: "Shoulders + Abs",
+    description: "Wider shoulders & visible core",
+    icon: "🎯",
+    variations: {
+      A: { name: "Shoulders A - Strength", focus: "OHP + core strength", exercises: [
+        { name: "Barbell Overhead Press", sets: 4, reps: "5-6", suggestedWeight: 95, type: "buildup" },
+        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20, type: "maintain" },
+        { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15, type: "maintain" },
+        { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40, type: "maintain" },
+        { name: "Cable Crunch", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" },
+        { name: "Hanging Leg Raise", sets: 3, reps: "10-12", suggestedWeight: 0, type: "maintain" }
+      ]},
+      B: { name: "Shoulders B - Width", focus: "Maximum shoulder width", exercises: [
+        { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45, type: "buildup" },
+        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", suggestedWeight: 20, type: "maintain" },
+        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
+        { name: "Reverse Pec Deck", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" },
+        { name: "Ab Wheel Rollout", sets: 4, reps: "10-12", suggestedWeight: 0, type: "maintain" },
+        { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0, type: "maintain" }
+      ]},
+      C: { name: "Shoulders C - All-Around", focus: "3D shoulders + abs", exercises: [
+        { name: "Arnold Press", sets: 4, reps: "8-10", suggestedWeight: 35, type: "buildup" },
+        { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20, type: "maintain" },
+        { name: "Cable Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 20, type: "maintain" },
+        { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25, type: "maintain" },
+        { name: "Bicycle Crunches", sets: 3, reps: "25", suggestedWeight: 0, type: "maintain" }
+      ]},
+      D: { name: "Shoulders D - Push Power", focus: "Power & abs", exercises: [
+        { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115, type: "buildup" },
+        { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
+        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
+        { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65, type: "maintain" },
+        { name: "Weighted Cable Crunch", sets: 3, reps: "12", suggestedWeight: 90, type: "maintain" },
+        { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0, type: "maintain" }
+      ]}
+    }
   }
 };
 
 const exerciseLibrary = {
   legs: [
-    { name: "Barbell Back Squat", sets: 4, reps: "6-8", suggestedWeight: 185 },
-    { name: "Front Squat", sets: 3, reps: "6-8", suggestedWeight: 135 },
-    { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135 },
-    { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
-    { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30 },
-    { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25 },
-    { name: "Leg Press", sets: 3, reps: "10-12", suggestedWeight: 270 },
-    { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70 },
-    { name: "Leg Extension", sets: 3, reps: "12-15", suggestedWeight: 90 },
-    { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90 },
-    { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70 },
-    { name: "Hip Thrust", sets: 3, reps: "10-12", suggestedWeight: 185 },
-    { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0 },
-    { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 165 },
-    { name: "Jump Squats", sets: 3, reps: "15", suggestedWeight: 0 }
+    { name: "Barbell Back Squat", sets: 4, reps: "6-8", suggestedWeight: 185, type: "buildup" },
+    { name: "Front Squat", sets: 3, reps: "6-8", suggestedWeight: 135, type: "buildup" },
+    { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 165, type: "buildup" },
+    { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135, type: "maintain" },
+    { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225, type: "buildup" },
+    { name: "Stiff-Leg Deadlift", sets: 3, reps: "8-10", suggestedWeight: 155, type: "maintain" },
+    { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
+    { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25, type: "maintain" },
+    { name: "Leg Press", sets: 3, reps: "10-12", suggestedWeight: 270, type: "maintain" },
+    { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70, type: "maintain" },
+    { name: "Leg Extension", sets: 3, reps: "12-15", suggestedWeight: 90, type: "maintain" },
+    { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90, type: "maintain" },
+    { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" },
+    { name: "Hip Thrust", sets: 3, reps: "10-12", suggestedWeight: 185, type: "maintain" },
+    { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0, type: "maintain" },
+    { name: "Jump Squats", sets: 3, reps: "15", suggestedWeight: 0, type: "maintain" }
   ],
   shoulders: [
-    { name: "Barbell Overhead Press", sets: 4, reps: "6-8", suggestedWeight: 95 },
-    { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115 },
-    { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45 },
-    { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35 },
-    { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20 },
-    { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15 },
-    { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20 },
-    { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15 },
-    { name: "Reverse Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 70 },
-    { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40 },
-    { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65 },
-    { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70 }
+    { name: "Barbell Overhead Press", sets: 4, reps: "6-8", suggestedWeight: 95, type: "buildup" },
+    { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115, type: "buildup" },
+    { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45, type: "maintain" },
+    { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
+    { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20, type: "maintain" },
+    { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
+    { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
+    { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15, type: "maintain" },
+    { name: "Reverse Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 70, type: "maintain" },
+    { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40, type: "maintain" },
+    { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65, type: "maintain" },
+    { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70, type: "maintain" },
+    { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" }
   ],
   chest: [
-    { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155 },
-    { name: "Incline Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 135 },
-    { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55 },
-    { name: "Dumbbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 65 },
-    { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30 },
-    { name: "Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 35 },
-    { name: "Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 90 },
-    { name: "Dips", sets: 3, reps: "8-12", suggestedWeight: 0 },
-    { name: "Weighted Dips", sets: 3, reps: "6-10", suggestedWeight: 25 },
-    { name: "Push-Ups", sets: 3, reps: "15-20", suggestedWeight: 0 },
-    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115 },
-    { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 }
+    { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155, type: "buildup" },
+    { name: "Incline Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
+    { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55, type: "maintain" },
+    { name: "Dumbbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 65, type: "maintain" },
+    { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30, type: "maintain" },
+    { name: "Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
+    { name: "Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 90, type: "maintain" },
+    { name: "Dips", sets: 3, reps: "8-12", suggestedWeight: 0, type: "maintain" },
+    { name: "Weighted Dips", sets: 3, reps: "6-10", suggestedWeight: 25, type: "buildup" },
+    { name: "Push-Ups", sets: 3, reps: "15-20", suggestedWeight: 0, type: "maintain" },
+    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115, type: "buildup" },
+    { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" }
   ],
   back: [
-    { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25 },
-    { name: "Pull-Ups", sets: 4, reps: "8-12", suggestedWeight: 0 },
-    { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120 },
-    { name: "V-Bar Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120 },
-    { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135 },
-    { name: "Dumbbell Row", sets: 4, reps: "8-10", suggestedWeight: 65 },
-    { name: "T-Bar Row", sets: 3, reps: "8-10", suggestedWeight: 90 },
-    { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110 },
-    { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40 },
-    { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40 },
-    { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225 },
-    { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30 },
-    { name: "Barbell Curl", sets: 3, reps: "8-10", suggestedWeight: 65 },
-    { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40 }
+    { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25, type: "buildup" },
+    { name: "Pull-Ups", sets: 4, reps: "8-12", suggestedWeight: 0, type: "maintain" },
+    { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120, type: "maintain" },
+    { name: "V-Bar Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120, type: "maintain" },
+    { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", suggestedWeight: 140, type: "maintain" },
+    { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
+    { name: "Pendlay Row", sets: 4, reps: "5-6", suggestedWeight: 155, type: "buildup" },
+    { name: "Dumbbell Row", sets: 4, reps: "8-10", suggestedWeight: 65, type: "maintain" },
+    { name: "T-Bar Row", sets: 3, reps: "8-10", suggestedWeight: 90, type: "maintain" },
+    { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110, type: "maintain" },
+    { name: "Chest Supported Row", sets: 3, reps: "10-12", suggestedWeight: 70, type: "maintain" },
+    { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
+    { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225, type: "buildup" },
+    { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 135, type: "maintain" }
   ],
   arms: [
-    // Biceps
-    { name: "Barbell Curl", sets: 3, reps: "8-10", suggestedWeight: 65 },
-    { name: "EZ-Bar Curl", sets: 3, reps: "8-10", suggestedWeight: 55 },
-    { name: "Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
-    { name: "Alternating Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
-    { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30 },
-    { name: "Cross-Body Hammer Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
-    { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55 },
-    { name: "Preacher Curl (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 25 },
-    { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40 },
-    { name: "Cable Hammer Curl (Rope)", sets: 3, reps: "12-15", suggestedWeight: 40 },
-    { name: "Concentration Curl", sets: 3, reps: "10-12", suggestedWeight: 20 },
-    { name: "Spider Curl", sets: 3, reps: "10-12", suggestedWeight: 25 },
-    { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 20 },
-    { name: "Zottman Curl", sets: 3, reps: "10-12", suggestedWeight: 20 },
-    { name: "21s (Bicep Curl)", sets: 3, reps: "21", suggestedWeight: 35 },
-    { name: "Reverse Curl", sets: 3, reps: "10-12", suggestedWeight: 45 },
-    
-    // Triceps
-    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115 },
-    { name: "Skullcrusher (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55 },
-    { name: "Skullcrusher (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 25 },
-    { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 50 },
-    { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", suggestedWeight: 50 },
-    { name: "Cable Pushdown (Straight Bar)", sets: 3, reps: "10-12", suggestedWeight: 60 },
-    { name: "Cable Pushdown (V-Bar)", sets: 3, reps: "10-12", suggestedWeight: 60 },
-    { name: "Reverse Grip Pushdown", sets: 3, reps: "12-15", suggestedWeight: 40 },
-    { name: "Overhead Tricep Extension (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 35 },
-    { name: "Overhead Tricep Extension (Cable)", sets: 3, reps: "10-12", suggestedWeight: 50 },
-    { name: "Overhead Tricep Extension (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 45 },
-    { name: "Tricep Dips", sets: 3, reps: "8-12", suggestedWeight: 0 },
-    { name: "Weighted Tricep Dips", sets: 3, reps: "6-10", suggestedWeight: 25 },
-    { name: "Bench Dips", sets: 3, reps: "10-15", suggestedWeight: 0 },
-    { name: "Diamond Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0 },
-    { name: "Tricep Kickback (Dumbbell)", sets: 3, reps: "12-15", suggestedWeight: 15 },
-    { name: "Tricep Kickback (Cable)", sets: 3, reps: "12-15", suggestedWeight: 25 },
-    { name: "JM Press", sets: 3, reps: "8-10", suggestedWeight: 95 },
-    { name: "Tate Press", sets: 3, reps: "10-12", suggestedWeight: 25 },
-    
-    // Forearms
-    { name: "Wrist Curl (Barbell)", sets: 3, reps: "12-15", suggestedWeight: 45 },
-    { name: "Wrist Curl (Dumbbell)", sets: 3, reps: "12-15", suggestedWeight: 15 },
-    { name: "Reverse Wrist Curl", sets: 3, reps: "12-15", suggestedWeight: 15 },
-    { name: "Farmer's Walk", sets: 3, reps: "30s", suggestedWeight: 50 },
-    { name: "Plate Pinch", sets: 3, reps: "30s", suggestedWeight: 10 }
+    { name: "Barbell Curl", sets: 3, reps: "8-10", suggestedWeight: 65, type: "buildup" },
+    { name: "EZ-Bar Curl", sets: 3, reps: "8-10", suggestedWeight: 55, type: "maintain" },
+    { name: "Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
+    { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
+    { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55, type: "maintain" },
+    { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
+    { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
+    { name: "Zottman Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
+    { name: "Spider Curl", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
+    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115, type: "buildup" },
+    { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" },
+    { name: "Skullcrusher (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
+    { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" },
+    { name: "Cable Pushdown (Straight Bar)", sets: 3, reps: "10-12", suggestedWeight: 60, type: "maintain" },
+    { name: "Overhead Tricep Extension (Cable)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" },
+    { name: "Tricep Dips", sets: 3, reps: "8-12", suggestedWeight: 0, type: "maintain" },
+    { name: "Weighted Tricep Dips", sets: 3, reps: "6-10", suggestedWeight: 25, type: "buildup" },
+    { name: "Diamond Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" },
+    { name: "JM Press", sets: 3, reps: "8-10", suggestedWeight: 95, type: "buildup" },
+    { name: "Reverse Grip Pushdown", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
+    { name: "Wrist Curl (Barbell)", sets: 3, reps: "12-15", suggestedWeight: 45, type: "maintain" },
+    { name: "Farmer's Walk", sets: 3, reps: "30s", suggestedWeight: 50, type: "maintain" }
   ],
   abs: [
-    { name: "Cable Crunch", sets: 3, reps: "15", suggestedWeight: 70 },
-    { name: "Hanging Leg Raise", sets: 3, reps: "12", suggestedWeight: 0 },
-    { name: "Ab Wheel Rollout", sets: 3, reps: "10-12", suggestedWeight: 0 },
-    { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0 },
-    { name: "Side Plank", sets: 3, reps: "40s", suggestedWeight: 0 },
-    { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25 },
-    { name: "Mountain Climbers", sets: 3, reps: "30s", suggestedWeight: 0 },
-    { name: "Burpees", sets: 3, reps: "20s", suggestedWeight: 0 },
-    { name: "V-Ups", sets: 3, reps: "12", suggestedWeight: 0 },
-    { name: "Decline Sit-Up", sets: 3, reps: "15", suggestedWeight: 0 }
+    { name: "Cable Crunch", sets: 3, reps: "15", suggestedWeight: 70, type: "maintain" },
+    { name: "Weighted Cable Crunch", sets: 3, reps: "12", suggestedWeight: 90, type: "maintain" },
+    { name: "Hanging Leg Raise", sets: 3, reps: "12", suggestedWeight: 0, type: "maintain" },
+    { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0, type: "maintain" },
+    { name: "Ab Wheel Rollout", sets: 3, reps: "10-12", suggestedWeight: 0, type: "maintain" },
+    { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0, type: "maintain" },
+    { name: "Side Plank", sets: 3, reps: "40s", suggestedWeight: 0, type: "maintain" },
+    { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25, type: "maintain" },
+    { name: "Mountain Climbers", sets: 3, reps: "30s", suggestedWeight: 0, type: "maintain" },
+    { name: "Bicycle Crunches", sets: 3, reps: "25", suggestedWeight: 0, type: "maintain" }
   ]
 };
 
 function getData(key) {
-  try {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
-  } catch (e) { return null; }
+  try { const item = localStorage.getItem(key); return item ? JSON.parse(item) : null; }
+  catch (e) { return null; }
 }
 
 function setData(key, value) {
-  try { localStorage.setItem(key, JSON.stringify(value)); }
-  catch (e) {}
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
 }
 
 function toggleDarkMode() {
@@ -1379,22 +1431,504 @@ function switchSection(section) {
   document.getElementById(section).classList.add('active');
   
   const titles = { 
-    workouts: 'Workout Plan', 
-    custom: 'Custom Workouts',
-    calendar: 'Calendar',
-    measurements: 'Body Measurements',
-    goals: 'Goals', 
-    progression: 'Progression Rules', 
-    library: 'Exercise Library' 
+    today: 'Today', workouts: 'Workouts', calendar: 'Calendar',
+    measurements: 'Body Measurements', goals: 'Goals', 
+    'strength-guide': 'Strength Guide', library: 'Exercise Library' 
   };
   document.getElementById('headerTitle').textContent = titles[section];
   
   closeMenu();
+  if (section === 'today') renderToday();
   if (section === 'goals') renderGoals();
   if (section === 'library') renderLibrary();
-  if (section === 'custom') renderCustomList();
+  if (section === 'workouts') renderWorkoutCategories();
   if (section === 'calendar') renderCalendar();
   if (section === 'measurements') renderMeasurements();
+}
+
+// Get recommendation based on workout history
+function getRecommendation() {
+  const history = getData('workout-history') || {};
+  const dates = Object.keys(history).sort().reverse();
+  
+  // Get last 7 workouts
+  const recentTypes = dates.slice(0, 7).map(d => history[d].workoutTypeKey).filter(Boolean);
+  
+  // Find what hasn't been done recently
+  const allTypes = ['push', 'pull', 'legs', 'shouldersAbs', 'arms', 'upperBody'];
+  
+  // Count occurrences in last 4 workouts
+  const recent4 = recentTypes.slice(0, 4);
+  const typeCounts = {};
+  allTypes.forEach(t => typeCounts[t] = recent4.filter(rt => rt === t).length);
+  
+  // Recommend based on priority for user's goals
+  // Priority: Push (chest/shoulders), Pull (back), Legs, Shoulders+Abs
+  let recommended;
+  let reason;
+  
+  if (recentTypes.length === 0) {
+    recommended = 'push';
+    reason = "Let's start with Push Day to kick off your routine";
+  } else {
+    const lastType = recentTypes[0];
+    
+    // Don't do same type back-to-back
+    if (lastType === 'push' || lastType === 'upperBody') {
+      recommended = typeCounts.pull < typeCounts.legs ? 'pull' : 'legs';
+      reason = lastType === 'push' ? "You hit push yesterday - time to pull" : "After upper body, let's hit pull or legs";
+    } else if (lastType === 'pull') {
+      recommended = typeCounts.legs <= typeCounts.shouldersAbs ? 'legs' : 'shouldersAbs';
+      reason = "Pull is done - legs or shoulders next";
+    } else if (lastType === 'legs') {
+      recommended = typeCounts.push <= typeCounts.shouldersAbs ? 'push' : 'shouldersAbs';
+      reason = "Legs are recovering - upper body day";
+    } else if (lastType === 'shouldersAbs') {
+      recommended = typeCounts.push <= typeCounts.pull ? 'push' : 'pull';
+      reason = "Time to hit a major lift day";
+    } else if (lastType === 'arms') {
+      recommended = 'legs';
+      reason = "Arms hit - let's do something different";
+    } else {
+      recommended = 'push';
+      reason = "Time to push some weight";
+    }
+  }
+  
+  // Pick variation - one not done recently
+  const recentVariations = dates.slice(0, 8)
+    .filter(d => history[d].workoutTypeKey === recommended)
+    .map(d => history[d].variationId);
+  
+  const allVariations = Object.keys(workoutTypes[recommended].variations);
+  let variation = allVariations.find(v => !recentVariations.includes(v));
+  if (!variation) variation = allVariations[0];
+  
+  return { typeKey: recommended, variation: variation, reason: reason };
+}
+
+function renderToday() {
+  const rec = getRecommendation();
+  const workoutType = workoutTypes[rec.typeKey];
+  const variation = workoutType.variations[rec.variation];
+  
+  const area = document.getElementById('recommendationArea');
+  area.innerHTML = `
+    <div class="today-card">
+      <div class="today-label">Recommended Next</div>
+      <div class="today-name">${variation.name}</div>
+      <div class="today-reason">${rec.reason}</div>
+      <button class="start-workout-btn" onclick="startWorkout('${rec.typeKey}', '${rec.variation}')">Start ${variation.name}</button>
+      <button class="pick-different-btn" onclick="switchSection('workouts')">Pick a different workout</button>
+    </div>
+  `;
+  
+  // Stats
+  const history = getData('workout-history') || {};
+  const dates = Object.keys(history);
+  const thisWeekStart = new Date();
+  thisWeekStart.setDate(thisWeekStart.getDate() - 7);
+  const thisWeek = dates.filter(d => new Date(d) >= thisWeekStart).length;
+  
+  // Streak calculation
+  let streak = 0;
+  const today = new Date();
+  for (let i = 0; i < 30; i++) {
+    const d = new Date(today);
+    d.setDate(d.getDate() - i);
+    const dStr = d.toISOString().split('T')[0];
+    if (history[dStr]) streak++;
+    else if (i > 0) break;
+  }
+  
+  document.getElementById('statsRow').innerHTML = `
+    <div class="stat-card"><div class="stat-value">${dates.length}</div><div class="stat-label">Total Workouts</div></div>
+    <div class="stat-card"><div class="stat-value">${thisWeek}</div><div class="stat-label">This Week</div></div>
+    <div class="stat-card"><div class="stat-value">${streak}</div><div class="stat-label">Day Streak</div></div>
+  `;
+  
+  // Recent
+  const recentList = document.getElementById('recentWorkouts');
+  recentList.innerHTML = '';
+  const sortedDates = Object.keys(history).sort().reverse().slice(0, 5);
+  
+  if (sortedDates.length === 0) {
+    recentList.innerHTML = '<div style="text-align:center;padding:20px;color:#666;">No workouts yet - get started above!</div>';
+    return;
+  }
+  
+  sortedDates.forEach(date => {
+    const w = history[date];
+    const div = document.createElement('div');
+    div.className = 'variation-card';
+    div.innerHTML = `
+      <h4>${w.name}</h4>
+      <div class="meta">${date} • ${w.exercises.length} exercises</div>
+    `;
+    div.onclick = () => { switchSection('calendar'); setTimeout(() => showWorkoutDetail(date), 100); };
+    recentList.appendChild(div);
+  });
+}
+
+function renderWorkoutCategories() {
+  document.getElementById('workoutListView').classList.remove('hidden');
+  document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('activeWorkoutView').classList.add('hidden');
+  
+  const list = document.getElementById('workoutCategories');
+  list.innerHTML = '';
+  
+  Object.entries(workoutTypes).forEach(([key, type]) => {
+    const div = document.createElement('div');
+    div.className = 'workout-category';
+    div.innerHTML = `<h3>${type.icon} ${type.name}</h3><p>${type.description}</p>`;
+    div.onclick = () => showVariations(key);
+    list.appendChild(div);
+  });
+}
+
+function showVariations(typeKey) {
+  currentWorkoutType = typeKey;
+  document.getElementById('workoutListView').classList.add('hidden');
+  document.getElementById('variationListView').classList.remove('hidden');
+  document.getElementById('activeWorkoutView').classList.add('hidden');
+  
+  const type = workoutTypes[typeKey];
+  document.getElementById('variationTitle').textContent = type.name;
+  
+  const history = getData('workout-history') || {};
+  const dates = Object.keys(history).sort().reverse();
+  
+  // Find which variation was done most recently for this type
+  const recentForType = dates.filter(d => history[d].workoutTypeKey === typeKey);
+  const lastVariation = recentForType.length > 0 ? history[recentForType[0]].variationId : null;
+  
+  // Find next recommended variation
+  const allVars = Object.keys(type.variations);
+  const recent4ForType = recentForType.slice(0, 4).map(d => history[d].variationId);
+  const recommendedVar = allVars.find(v => !recent4ForType.includes(v)) || allVars[0];
+  
+  const list = document.getElementById('variationsList');
+  list.innerHTML = '';
+  
+  Object.entries(type.variations).forEach(([vId, v]) => {
+    const div = document.createElement('div');
+    div.className = 'variation-card';
+    if (vId === recommendedVar) div.classList.add('recommended');
+    
+    // Find when this was last done
+    const lastDone = recentForType.find(d => history[d].variationId === vId);
+    const lastDoneText = lastDone ? `Last done: ${lastDone}` : 'Never done';
+    
+    const preview = v.exercises.slice(0, 3).map(e => e.name).join(', ');
+    
+    div.innerHTML = `
+      <h4>${v.name} ${vId === recommendedVar ? '<span class="recommended-badge">RECOMMENDED</span>' : ''}</h4>
+      <div class="meta">${v.focus} • ${v.exercises.length} exercises</div>
+      <div class="exercises-preview">${preview}...</div>
+      <div class="meta" style="margin-top:6px;">${lastDoneText}</div>
+    `;
+    div.onclick = () => startWorkout(typeKey, vId);
+    list.appendChild(div);
+  });
+}
+
+function startWorkout(typeKey, vId) {
+  currentWorkoutType = typeKey;
+  currentVariationId = vId;
+  switchSection('workouts');
+  
+  document.getElementById('workoutListView').classList.add('hidden');
+  document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('activeWorkoutView').classList.remove('hidden');
+  
+  const variation = workoutTypes[typeKey].variations[vId];
+  document.getElementById('activeWorkoutName').textContent = variation.name;
+  
+  renderActiveWorkout();
+}
+
+// Get the in-progress key for tracking active workout
+function getProgressKey(typeKey, vId, exIdx, setIdx) {
+  return 'active-' + typeKey + '-' + vId + '-e' + exIdx + '-s' + setIdx;
+}
+
+function getActiveAddedKey(typeKey, vId) {
+  return 'active-added-' + typeKey + '-' + vId;
+}
+
+function getActiveSwapKey(typeKey, vId, exIdx) {
+  return 'active-swap-' + typeKey + '-' + vId + '-e' + exIdx;
+}
+
+function getActiveSetCountKey(typeKey, vId, exIdx) {
+  return 'active-setcount-' + typeKey + '-' + vId + '-e' + exIdx;
+}
+
+function getActiveExercises() {
+  const variation = workoutTypes[currentWorkoutType].variations[currentVariationId];
+  const baseExercises = variation.exercises;
+  const added = getData(getActiveAddedKey(currentWorkoutType, currentVariationId)) || [];
+  return [...baseExercises, ...added];
+}
+
+function getActiveExercise(eIdx) {
+  const swapped = getData(getActiveSwapKey(currentWorkoutType, currentVariationId, eIdx));
+  if (swapped) return swapped;
+  return getActiveExercises()[eIdx];
+}
+
+function getPreviousWeightForExercise(exerciseName) {
+  const history = getData('workout-history') || {};
+  const dates = Object.keys(history).sort().reverse();
+  
+  for (const date of dates) {
+    const w = history[date];
+    for (const ex of w.exercises) {
+      if (ex.name === exerciseName) {
+        for (const set of ex.sets) {
+          if (set.weight) return { weight: set.weight, reps: set.reps, date: date };
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function renderActiveWorkout() {
+  const exercises = getActiveExercises();
+  const list = document.getElementById('exerciseList');
+  list.innerHTML = '';
+  
+  exercises.forEach((_, eIdx) => {
+    const ex = getActiveExercise(eIdx);
+    const setCountKey = getActiveSetCountKey(currentWorkoutType, currentVariationId, eIdx);
+    const customSetCount = getData(setCountKey);
+    const actualSets = customSetCount !== null ? customSetCount : ex.sets;
+    
+    const exDiv = document.createElement('div');
+    exDiv.className = 'exercise';
+    
+    let allCompleted = actualSets > 0;
+    for (let s = 0; s < actualSets; s++) {
+      const sd = getData(getProgressKey(currentWorkoutType, currentVariationId, eIdx, s));
+      if (!sd || !sd.completed) { allCompleted = false; break; }
+    }
+    if (allCompleted) exDiv.classList.add('completed');
+    
+    const header = document.createElement('div');
+    header.className = 'exercise-header';
+    const name = document.createElement('div');
+    name.className = 'exercise-name';
+    name.textContent = ex.name;
+    const swapBtn = document.createElement('button');
+    swapBtn.className = 'swap-btn';
+    swapBtn.textContent = 'Swap';
+    swapBtn.onclick = (e) => { e.stopPropagation(); startSwap(eIdx); };
+    header.appendChild(name);
+    header.appendChild(swapBtn);
+    exDiv.appendChild(header);
+    
+    if (ex.suggestedWeight > 0) {
+      const isBuildup = ex.type === 'buildup';
+      const instruction = isBuildup 
+        ? 'Build up: warmups then ' + actualSets + ' working sets'
+        : 'Start at this weight, maintain all sets';
+      const banner = document.createElement('div');
+      banner.className = 'suggested-banner' + (isBuildup ? ' buildup' : '');
+      banner.innerHTML = '<div><div class="label">' + (isBuildup ? 'Top Working Set' : 'Working Weight') + '</div><div class="value">' + ex.suggestedWeight + ' lbs</div></div><div class="instruction">' + instruction + '</div>';
+      exDiv.appendChild(banner);
+    }
+    
+    // Previous workout comparison
+    const prev = getPreviousWeightForExercise(ex.name);
+    if (prev) {
+      const prevBanner = document.createElement('div');
+      prevBanner.className = 'previous-banner';
+      prevBanner.textContent = 'Last time: ' + prev.weight + ' lbs × ' + prev.reps + ' reps (' + prev.date + ')';
+      exDiv.appendChild(prevBanner);
+    }
+    
+    const setsGrid = document.createElement('div');
+    setsGrid.className = 'sets-grid';
+    
+    for (let s = 0; s < actualSets; s++) {
+      const setKey = getProgressKey(currentWorkoutType, currentVariationId, eIdx, s);
+      const savedSet = getData(setKey) || {};
+      
+      const setRow = document.createElement('div');
+      setRow.className = 'set-row';
+      
+      const label = document.createElement('label');
+      label.textContent = 'Set ' + (s + 1) + ':';
+      
+      const weightInput = document.createElement('input');
+      weightInput.type = 'number';
+      weightInput.placeholder = 'lbs';
+      weightInput.value = savedSet.weight || '';
+      weightInput.onchange = function() {
+        const c = getData(setKey) || {};
+        c.weight = this.value;
+        setData(setKey, c);
+      };
+      
+      const x = document.createElement('span');
+      x.className = 'x';
+      x.textContent = '×';
+      
+      const repsInput = document.createElement('input');
+      repsInput.type = 'number';
+      repsInput.placeholder = ex.reps;
+      repsInput.value = savedSet.reps || '';
+      repsInput.onchange = function() {
+        const c = getData(setKey) || {};
+        c.reps = this.value;
+        setData(setKey, c);
+      };
+      
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = savedSet.completed || false;
+      cb.onchange = function() {
+        const c = getData(setKey) || {};
+        c.completed = this.checked;
+        setData(setKey, c);
+        let allDone = true;
+        for (let si = 0; si < actualSets; si++) {
+          const sd = getData(getProgressKey(currentWorkoutType, currentVariationId, eIdx, si));
+          if (!sd || !sd.completed) { allDone = false; break; }
+        }
+        exDiv.classList.toggle('completed', allDone);
+      };
+      
+      setRow.appendChild(label);
+      setRow.appendChild(weightInput);
+      setRow.appendChild(x);
+      setRow.appendChild(repsInput);
+      setRow.appendChild(cb);
+      setsGrid.appendChild(setRow);
+    }
+    exDiv.appendChild(setsGrid);
+    
+    const setControls = document.createElement('div');
+    setControls.className = 'set-controls';
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = '− Remove Set';
+    removeBtn.onclick = (e) => {
+      e.stopPropagation();
+      if (actualSets > 1) {
+        setData(setCountKey, actualSets - 1);
+        renderActiveWorkout();
+      }
+    };
+    const addBtn = document.createElement('button');
+    addBtn.textContent = '+ Add Set';
+    addBtn.onclick = (e) => {
+      e.stopPropagation();
+      setData(setCountKey, actualSets + 1);
+      renderActiveWorkout();
+    };
+    setControls.appendChild(removeBtn);
+    setControls.appendChild(addBtn);
+    exDiv.appendChild(setControls);
+    
+    const notesKey = 'active-notes-' + currentWorkoutType + '-' + currentVariationId + '-e' + eIdx;
+    const notesDiv = document.createElement('div');
+    notesDiv.className = 'notes';
+    const notesArea = document.createElement('textarea');
+    notesArea.placeholder = 'Notes...';
+    notesArea.value = getData(notesKey) || '';
+    notesArea.onchange = () => setData(notesKey, notesArea.value);
+    notesDiv.appendChild(notesArea);
+    exDiv.appendChild(notesDiv);
+    
+    list.appendChild(exDiv);
+  });
+}
+
+function startSwap(eIdx) {
+  swapMode = { eIdx };
+  document.getElementById('swapBannerText').textContent = 'Pick a replacement exercise';
+  document.getElementById('swapBanner').classList.remove('hidden');
+  switchSection('library');
+}
+
+function cancelSwap() {
+  swapMode = null;
+  addExerciseMode = null;
+  document.getElementById('swapBanner').classList.add('hidden');
+  renderLibrary();
+}
+
+function swapExercise(newEx) {
+  if (!swapMode) return;
+  setData(getActiveSwapKey(currentWorkoutType, currentVariationId, swapMode.eIdx), newEx);
+  cancelSwap();
+  switchSection('workouts');
+  document.getElementById('workoutListView').classList.add('hidden');
+  document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('activeWorkoutView').classList.remove('hidden');
+  renderActiveWorkout();
+}
+
+function addExerciseFromLibrary(ex) {
+  const added = getData(getActiveAddedKey(currentWorkoutType, currentVariationId)) || [];
+  added.push(ex);
+  setData(getActiveAddedKey(currentWorkoutType, currentVariationId), added);
+  cancelSwap();
+  switchSection('workouts');
+  document.getElementById('workoutListView').classList.add('hidden');
+  document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('activeWorkoutView').classList.remove('hidden');
+  renderActiveWorkout();
+}
+
+function completeWorkout() {
+  const today = new Date().toISOString().split('T')[0];
+  const variation = workoutTypes[currentWorkoutType].variations[currentVariationId];
+  const exercises = getActiveExercises();
+  
+  const workoutData = {
+    date: today,
+    name: variation.name,
+    workoutTypeKey: currentWorkoutType,
+    variationId: currentVariationId,
+    exercises: exercises.map((_, eIdx) => {
+      const ex = getActiveExercise(eIdx);
+      const setCountKey = getActiveSetCountKey(currentWorkoutType, currentVariationId, eIdx);
+      const customSetCount = getData(setCountKey);
+      const actualSets = customSetCount !== null ? customSetCount : ex.sets;
+      const sets = [];
+      for (let s = 0; s < actualSets; s++) {
+        const setData = getData(getProgressKey(currentWorkoutType, currentVariationId, eIdx, s)) || {};
+        sets.push(setData);
+      }
+      return { name: ex.name, sets: sets };
+    })
+  };
+  
+  const history = getData('workout-history') || {};
+  history[today] = workoutData;
+  setData('workout-history', history);
+  
+  // Clear active workout data
+  const keysToRemove = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && (
+      key.startsWith('active-' + currentWorkoutType + '-' + currentVariationId) ||
+      key.startsWith('active-setcount-' + currentWorkoutType + '-' + currentVariationId) ||
+      key.startsWith('active-swap-' + currentWorkoutType + '-' + currentVariationId) ||
+      key === 'active-added-' + currentWorkoutType + '-' + currentVariationId ||
+      key.startsWith('active-notes-' + currentWorkoutType + '-' + currentVariationId)
+    )) {
+      keysToRemove.push(key);
+    }
+  }
+  keysToRemove.forEach(k => localStorage.removeItem(k));
+  
+  alert('Workout saved to ' + today + '! 💪');
+  switchSection('today');
 }
 
 function renderGoals() {
@@ -1435,573 +1969,18 @@ function renderLibrary() {
     const h4 = document.createElement('h4');
     h4.textContent = ex.name;
     const p = document.createElement('p');
-    p.textContent = ex.sets + ' sets x ' + ex.reps + ' reps';
+    p.textContent = ex.sets + ' sets x ' + ex.reps + ' reps' + (ex.suggestedWeight > 0 ? ' @ ' + ex.suggestedWeight + ' lbs' : '');
     div.appendChild(h4);
     div.appendChild(p);
     if (swapMode) {
       div.onclick = () => swapExercise(ex);
     } else if (addExerciseMode) {
       div.onclick = () => addExerciseFromLibrary(ex);
-    } else if (addToCustomMode) {
-      div.onclick = () => addExerciseToCustom(ex);
     }
     list.appendChild(div);
   });
 }
 
-function getExercisesForDay(week, dayIdx) {
-  // Check for added custom day
-  const addedDaysKey = 'added-days-w' + week;
-  const addedDays = getData(addedDaysKey) || [];
-  
-  if (dayIdx < 5) {
-    const programData = week <= 4 ? program.weeks14 : program.weeks58;
-    const baseExercises = programData['day' + (dayIdx + 1)].exercises;
-    const addedKey = 'added-w' + week + '-d' + dayIdx;
-    const added = getData(addedKey) || [];
-    return [...baseExercises, ...added];
-  } else {
-    // Added custom day
-    const addedDay = addedDays[dayIdx - 5];
-    if (addedDay) return addedDay.exercises;
-    return [];
-  }
-}
-
-function getDayName(week, dayIdx) {
-  if (dayIdx < 5) {
-    const programData = week <= 4 ? program.weeks14 : program.weeks58;
-    return programData['day' + (dayIdx + 1)].name;
-  } else {
-    const addedDays = getData('added-days-w' + week) || [];
-    return addedDays[dayIdx - 5]?.name || 'Custom Day';
-  }
-}
-
-function getTotalDays(week) {
-  const addedDays = getData('added-days-w' + week) || [];
-  return 5 + addedDays.length;
-}
-
-function getExercise(week, dayIdx, exIdx) {
-  const swapped = getData('swap-w' + week + '-d' + dayIdx + '-e' + exIdx);
-  if (swapped) return swapped;
-  const allExercises = getExercisesForDay(week, dayIdx);
-  return allExercises[exIdx];
-}
-
-function addExerciseToDay(week, dayIdx, exercise) {
-  if (dayIdx < 5) {
-    const addedKey = 'added-w' + week + '-d' + dayIdx;
-    const added = getData(addedKey) || [];
-    added.push(exercise);
-    setData(addedKey, added);
-  } else {
-    const addedDays = getData('added-days-w' + week) || [];
-    addedDays[dayIdx - 5].exercises.push(exercise);
-    setData('added-days-w' + week, addedDays);
-  }
-}
-
-function getPreviousWeekData(week, dayIdx, eIdx, setIdx) {
-  if (week <= 1) return null;
-  const prevWeek = week - 1;
-  const data = getData('w' + prevWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + setIdx);
-  return data;
-}
-
-function startSwap(week, dayIdx, exIdx) {
-  const ex = getExercise(week, dayIdx, exIdx);
-  swapMode = { week, dayIdx, exIdx };
-  document.getElementById('swapBannerText').innerHTML = 'Swap: <strong>' + ex.name + '</strong>';
-  document.getElementById('swapBanner').classList.remove('hidden');
-  switchSection('library');
-}
-
-function startAddExercise(week, dayIdx) {
-  addExerciseMode = { week, dayIdx };
-  document.getElementById('swapBannerText').innerHTML = 'Add to ' + getDayName(week, dayIdx);
-  document.getElementById('swapBanner').classList.remove('hidden');
-  switchSection('library');
-}
-
-function cancelSwap() {
-  swapMode = null;
-  addExerciseMode = null;
-  addToCustomMode = null;
-  document.getElementById('swapBanner').classList.add('hidden');
-  renderLibrary();
-}
-
-function swapExercise(newEx) {
-  if (!swapMode) return;
-  const { week, dayIdx, exIdx } = swapMode;
-  setData('swap-w' + week + '-d' + dayIdx + '-e' + exIdx, newEx);
-  cancelSwap();
-  switchSection('workouts');
-  renderWorkouts();
-}
-
-function addExerciseFromLibrary(ex) {
-  if (!addExerciseMode) return;
-  const { week, dayIdx } = addExerciseMode;
-  addExerciseToDay(week, dayIdx, ex);
-  cancelSwap();
-  switchSection('workouts');
-  renderWorkouts();
-}
-
-function completeWorkout(week, dayIdx) {
-  const today = new Date().toISOString().split('T')[0];
-  const dayName = getDayName(week, dayIdx);
-  const allExercises = getExercisesForDay(week, dayIdx);
-  
-  const workoutData = {
-    date: today,
-    name: dayName,
-    week: week,
-    dayIdx: dayIdx,
-    exercises: allExercises.map((_, eIdx) => {
-      const ex = getExercise(week, dayIdx, eIdx);
-      const setCountKey = 'setcount-w' + week + '-d' + dayIdx + '-e' + eIdx;
-      const customSetCount = getData(setCountKey);
-      const actualSets = customSetCount !== null ? customSetCount : ex.sets;
-      const sets = [];
-      for (let s = 0; s < actualSets; s++) {
-        const setData = getData('w' + week + '-d' + dayIdx + '-e' + eIdx + '-s' + s) || {};
-        sets.push(setData);
-      }
-      return { name: ex.name, sets: sets };
-    })
-  };
-  
-  const history = getData('workout-history') || {};
-  history[today] = workoutData;
-  setData('workout-history', history);
-  
-  alert('Workout saved to ' + today + '!');
-}
-
-function renderWorkouts() {
-  const list = document.getElementById('daysList');
-  list.innerHTML = '';
-  const totalDays = getTotalDays(currentWeek);
-  
-  for (let dayIdx = 0; dayIdx < totalDays; dayIdx++) {
-    const dayName = getDayName(currentWeek, dayIdx);
-    const allExercises = getExercisesForDay(currentWeek, dayIdx);
-    const card = document.createElement('div');
-    card.className = 'day-card';
-    
-    const h3 = document.createElement('h3');
-    const arrow = document.createElement('span');
-    arrow.textContent = '▼';
-    h3.textContent = dayName + ' ';
-    h3.appendChild(arrow);
-    
-    const progress = document.createElement('div');
-    progress.className = 'progress';
-    
-    let completed = 0, total = 0;
-    allExercises.forEach((_, eIdx) => {
-      const ex = getExercise(currentWeek, dayIdx, eIdx);
-      const setCountKey = 'setcount-w' + currentWeek + '-d' + dayIdx + '-e' + eIdx;
-      const customSetCount = getData(setCountKey);
-      const actualSets = customSetCount !== null ? customSetCount : ex.sets;
-      for (let s = 0; s < actualSets; s++) {
-        total++;
-        const setData = getData('w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + s);
-        if (setData && setData.completed) completed++;
-      }
-    });
-    progress.textContent = completed + '/' + total + ' sets completed';
-    
-    const exercisesDiv = document.createElement('div');
-    exercisesDiv.className = 'exercises';
-    
-    allExercises.forEach((_, eIdx) => {
-      const ex = getExercise(currentWeek, dayIdx, eIdx);
-      const setCountKey = 'setcount-w' + currentWeek + '-d' + dayIdx + '-e' + eIdx;
-      const customSetCount = getData(setCountKey);
-      const actualSets = customSetCount !== null ? customSetCount : ex.sets;
-      
-      const exDiv = document.createElement('div');
-      exDiv.className = 'exercise';
-      
-      let allCompleted = actualSets > 0;
-      for (let s = 0; s < actualSets; s++) {
-        const sd = getData('w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + s);
-        if (!sd || !sd.completed) { allCompleted = false; break; }
-      }
-      if (allCompleted) exDiv.classList.add('completed');
-      
-      const header = document.createElement('div');
-      header.className = 'exercise-header';
-      const name = document.createElement('div');
-      name.className = 'exercise-name';
-      name.textContent = ex.name;
-      const swapBtn = document.createElement('button');
-      swapBtn.className = 'swap-btn';
-      swapBtn.textContent = 'Swap';
-      swapBtn.onclick = (e) => { e.stopPropagation(); startSwap(currentWeek, dayIdx, eIdx); };
-      header.appendChild(name);
-      header.appendChild(swapBtn);
-      exDiv.appendChild(header);
-      
-      if (ex.suggestedWeight > 0) {
-        const isCompound = ex.reps && (ex.reps.includes('5-6') || ex.reps.includes('6-8') || ex.reps.includes('4-6') || ex.reps.includes('5-8'));
-        const instruction = isCompound ? 'Build up to this' : 'Start here & maintain';
-        const banner = document.createElement('div');
-        banner.className = 'suggested-banner';
-        banner.innerHTML = '<div><div class="label">Suggested</div><div class="value">' + ex.suggestedWeight + ' lbs</div></div><div class="instruction">' + instruction + '</div>';
-        exDiv.appendChild(banner);
-      }
-      
-      // Previous week comparison
-      if (currentWeek > 1) {
-        let prevSets = [];
-        for (let s = 0; s < actualSets; s++) {
-          const prev = getPreviousWeekData(currentWeek, dayIdx, eIdx, s);
-          if (prev && prev.weight) prevSets.push(prev.weight + 'x' + (prev.reps || '?'));
-        }
-        if (prevSets.length > 0) {
-          const prevBanner = document.createElement('div');
-          prevBanner.className = 'previous-banner';
-          prevBanner.textContent = 'Last week: ' + prevSets.join(', ');
-          exDiv.appendChild(prevBanner);
-        }
-      }
-      
-      const setsGrid = document.createElement('div');
-      setsGrid.className = 'sets-grid';
-      
-      for (let s = 0; s < actualSets; s++) {
-        const setKey = 'w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + s;
-        const savedSet = getData(setKey) || {};
-        
-        const setRow = document.createElement('div');
-        setRow.className = 'set-row';
-        
-        const label = document.createElement('label');
-        label.textContent = 'Set ' + (s + 1) + ':';
-        
-        const weightInput = document.createElement('input');
-        weightInput.type = 'number';
-        weightInput.placeholder = 'lbs';
-        weightInput.value = savedSet.weight || '';
-        weightInput.onchange = function() {
-          const c = getData(setKey) || {};
-          c.weight = this.value;
-          setData(setKey, c);
-        };
-        
-        const x = document.createElement('span');
-        x.className = 'x';
-        x.textContent = '×';
-        
-        const repsInput = document.createElement('input');
-        repsInput.type = 'number';
-        repsInput.placeholder = ex.reps;
-        repsInput.value = savedSet.reps || '';
-        repsInput.onchange = function() {
-          const c = getData(setKey) || {};
-          c.reps = this.value;
-          setData(setKey, c);
-        };
-        
-        const cb = document.createElement('input');
-        cb.type = 'checkbox';
-        cb.checked = savedSet.completed || false;
-        cb.onchange = function() {
-          const c = getData(setKey) || {};
-          c.completed = this.checked;
-          setData(setKey, c);
-          let allDone = true;
-          for (let si = 0; si < actualSets; si++) {
-            const sd = getData('w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-s' + si);
-            if (!sd || !sd.completed) { allDone = false; break; }
-          }
-          exDiv.classList.toggle('completed', allDone);
-        };
-        
-        setRow.appendChild(label);
-        setRow.appendChild(weightInput);
-        setRow.appendChild(x);
-        setRow.appendChild(repsInput);
-        setRow.appendChild(cb);
-        setsGrid.appendChild(setRow);
-      }
-      exDiv.appendChild(setsGrid);
-      
-      const setControls = document.createElement('div');
-      setControls.className = 'set-controls';
-      const removeBtn = document.createElement('button');
-      removeBtn.textContent = '− Remove Set';
-      removeBtn.onclick = (e) => {
-        e.stopPropagation();
-        if (actualSets > 1) {
-          setData(setCountKey, actualSets - 1);
-          renderWorkouts();
-        }
-      };
-      const addBtn = document.createElement('button');
-      addBtn.textContent = '+ Add Set';
-      addBtn.onclick = (e) => {
-        e.stopPropagation();
-        setData(setCountKey, actualSets + 1);
-        renderWorkouts();
-      };
-      setControls.appendChild(removeBtn);
-      setControls.appendChild(addBtn);
-      exDiv.appendChild(setControls);
-      
-      const notesKey = 'w' + currentWeek + '-d' + dayIdx + '-e' + eIdx + '-notes';
-      const notesDiv = document.createElement('div');
-      notesDiv.className = 'notes';
-      const notesArea = document.createElement('textarea');
-      notesArea.placeholder = 'Notes...';
-      notesArea.value = getData(notesKey) || '';
-      notesArea.onchange = () => setData(notesKey, notesArea.value);
-      notesDiv.appendChild(notesArea);
-      exDiv.appendChild(notesDiv);
-      
-      exercisesDiv.appendChild(exDiv);
-    });
-    
-    const addExerciseBtn = document.createElement('button');
-    addExerciseBtn.className = 'add-exercise-btn';
-    addExerciseBtn.textContent = '+ Add Exercise';
-    addExerciseBtn.onclick = (e) => {
-      e.stopPropagation();
-      startAddExercise(currentWeek, dayIdx);
-    };
-    exercisesDiv.appendChild(addExerciseBtn);
-    
-    const completeBtn = document.createElement('button');
-    completeBtn.className = 'complete-workout-btn';
-    completeBtn.textContent = '✓ Complete Workout & Save to Calendar';
-    completeBtn.onclick = (e) => {
-      e.stopPropagation();
-      completeWorkout(currentWeek, dayIdx);
-    };
-    exercisesDiv.appendChild(completeBtn);
-    
-    card.appendChild(h3);
-    card.appendChild(progress);
-    card.appendChild(exercisesDiv);
-    
-    const toggle = () => {
-      exercisesDiv.classList.toggle('open');
-      arrow.textContent = exercisesDiv.classList.contains('open') ? '▲' : '▼';
-    };
-    h3.onclick = toggle;
-    progress.onclick = toggle;
-    
-    list.appendChild(card);
-  }
-}
-
-// Custom Workouts
-function renderCustomList() {
-  document.getElementById('customListView').classList.remove('hidden');
-  document.getElementById('focusListView').classList.add('hidden');
-  document.getElementById('customEditView').classList.add('hidden');
-  
-  const list = document.getElementById('customList');
-  list.innerHTML = '';
-  const customs = getData('custom-workouts') || [];
-  
-  if (customs.length === 0) {
-    const empty = document.createElement('div');
-    empty.style.textAlign = 'center';
-    empty.style.padding = '40px 20px';
-    empty.style.color = '#666';
-    empty.textContent = 'No custom workouts yet. Create one to get started!';
-    list.appendChild(empty);
-  }
-  
-  customs.forEach((custom, idx) => {
-    const div = document.createElement('div');
-    div.className = 'custom-item';
-    const h3 = document.createElement('h3');
-    h3.textContent = custom.name;
-    const p = document.createElement('p');
-    p.textContent = custom.exercises.length + ' exercises';
-    
-    const actions = document.createElement('div');
-    actions.style.display = 'flex';
-    actions.style.gap = '8px';
-    actions.style.marginTop = '8px';
-    actions.style.width = '100%';
-    
-    const editBtn = document.createElement('button');
-    editBtn.textContent = 'Edit';
-    editBtn.className = 'swap-btn';
-    editBtn.onclick = (e) => { e.stopPropagation(); editCustomWorkout(idx); };
-    
-    const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'Delete';
-    deleteBtn.className = 'delete-btn';
-    deleteBtn.onclick = (e) => { 
-      e.stopPropagation(); 
-      if (confirm('Delete this workout?')) {
-        const customs = getData('custom-workouts') || [];
-        customs.splice(idx, 1);
-        setData('custom-workouts', customs);
-        renderCustomList();
-      }
-    };
-    
-    actions.appendChild(editBtn);
-    actions.appendChild(deleteBtn);
-    
-    div.appendChild(h3);
-    div.appendChild(p);
-    div.appendChild(actions);
-    list.appendChild(div);
-  });
-}
-
-function showFocusList() {
-  document.getElementById('customListView').classList.add('hidden');
-  document.getElementById('focusListView').classList.remove('hidden');
-  document.getElementById('customEditView').classList.add('hidden');
-  
-  const list = document.getElementById('focusList');
-  list.innerHTML = '';
-  
-  Object.entries(focusTemplates).forEach(([key, template]) => {
-    const div = document.createElement('div');
-    div.className = 'focus-item';
-    const h3 = document.createElement('h3');
-    h3.textContent = template.name;
-    const p = document.createElement('p');
-    p.textContent = template.description + ' • ' + template.exercises.length + ' exercises';
-    div.appendChild(h3);
-    div.appendChild(p);
-    div.onclick = () => {
-      currentCustomWorkout = {
-        name: template.name,
-        exercises: JSON.parse(JSON.stringify(template.exercises))
-      };
-      showCustomEdit();
-    };
-    list.appendChild(div);
-  });
-}
-
-function showCustomEdit() {
-  document.getElementById('customListView').classList.add('hidden');
-  document.getElementById('focusListView').classList.add('hidden');
-  document.getElementById('customEditView').classList.remove('hidden');
-  
-  document.getElementById('customNameInput').value = currentCustomWorkout.name;
-  renderCustomExercises();
-}
-
-function renderCustomExercises() {
-  const list = document.getElementById('customExercisesList');
-  list.innerHTML = '';
-  
-  currentCustomWorkout.exercises.forEach((ex, idx) => {
-    const div = document.createElement('div');
-    div.className = 'exercise';
-    
-    const header = document.createElement('div');
-    header.className = 'exercise-header';
-    const name = document.createElement('div');
-    name.className = 'exercise-name';
-    name.textContent = ex.name;
-    
-    const actions = document.createElement('div');
-    actions.style.display = 'flex';
-    
-    const deleteBtn = document.createElement('button');
-    deleteBtn.className = 'delete-btn';
-    deleteBtn.textContent = 'Remove';
-    deleteBtn.onclick = () => {
-      currentCustomWorkout.exercises.splice(idx, 1);
-      renderCustomExercises();
-    };
-    actions.appendChild(deleteBtn);
-    
-    header.appendChild(name);
-    header.appendChild(actions);
-    div.appendChild(header);
-    
-    const info = document.createElement('div');
-    info.style.fontSize = '13px';
-    info.style.color = '#666';
-    info.textContent = ex.sets + ' sets × ' + ex.reps + ' reps' + (ex.suggestedWeight > 0 ? ' @ ' + ex.suggestedWeight + ' lbs' : '');
-    div.appendChild(info);
-    
-    list.appendChild(div);
-  });
-}
-
-function editCustomWorkout(idx) {
-  const customs = getData('custom-workouts') || [];
-  currentCustomWorkout = JSON.parse(JSON.stringify(customs[idx]));
-  currentCustomWorkout.editIdx = idx;
-  showCustomEdit();
-}
-
-function saveCustomWorkout() {
-  const name = document.getElementById('customNameInput').value.trim();
-  if (!name) { alert('Please enter a workout name'); return; }
-  
-  currentCustomWorkout.name = name;
-  const customs = getData('custom-workouts') || [];
-  
-  if (currentCustomWorkout.editIdx !== undefined) {
-    customs[currentCustomWorkout.editIdx] = { name: currentCustomWorkout.name, exercises: currentCustomWorkout.exercises };
-  } else {
-    customs.push({ name: currentCustomWorkout.name, exercises: currentCustomWorkout.exercises });
-  }
-  
-  setData('custom-workouts', customs);
-  currentCustomWorkout = null;
-  renderCustomList();
-}
-
-function addExerciseToCustom(ex) {
-  if (!currentCustomWorkout) return;
-  currentCustomWorkout.exercises.push(ex);
-  cancelSwap();
-  switchSection('custom');
-  showCustomEdit();
-}
-
-// Add workout day to weekly plan
-function showAddDayOptions() {
-  const customs = getData('custom-workouts') || [];
-  let options = ['Stock: Legs', 'Stock: Shoulders+Abs', 'Stock: Chest+Abs', 'Stock: Back', 'Stock: Shoulders Volume'];
-  customs.forEach(c => options.push('Custom: ' + c.name));
-  
-  const choice = prompt('Add which workout?\n\n' + options.map((o, i) => (i + 1) + '. ' + o).join('\n') + '\n\nEnter number:');
-  if (!choice) return;
-  
-  const idx = parseInt(choice) - 1;
-  if (isNaN(idx) || idx < 0 || idx >= options.length) return;
-  
-  const addedDays = getData('added-days-w' + currentWeek) || [];
-  let newDay;
-  
-  if (idx < 5) {
-    const programData = currentWeek <= 4 ? program.weeks14 : program.weeks58;
-    const stockDay = programData['day' + (idx + 1)];
-    newDay = { name: stockDay.name + ' (Copy)', exercises: JSON.parse(JSON.stringify(stockDay.exercises)) };
-  } else {
-    const custom = customs[idx - 5];
-    newDay = { name: custom.name, exercises: JSON.parse(JSON.stringify(custom.exercises)) };
-  }
-  
-  addedDays.push(newDay);
-  setData('added-days-w' + currentWeek, addedDays);
-  renderWorkouts();
-}
-
-// Calendar
 function renderCalendar() {
   const year = calendarDate.getFullYear();
   const month = calendarDate.getMonth();
@@ -2051,7 +2030,7 @@ function showWorkoutDetail(dateStr) {
   const detail = document.getElementById('workoutDetail');
   
   if (!workout) {
-    detail.innerHTML = '<strong>' + dateStr + '</strong><br><em style="color:#666;">No workout logged this day</em>';
+    detail.innerHTML = '<strong>' + dateStr + '</strong><br><em style="color:#666;">No workout logged</em>';
     detail.classList.remove('hidden');
     return;
   }
@@ -2071,7 +2050,6 @@ function showWorkoutDetail(dateStr) {
   detail.classList.remove('hidden');
 }
 
-// Measurements
 function renderMeasurements() {
   const history = getData('measurement-history') || [];
   const list = document.getElementById('measurementHistory');
@@ -2086,7 +2064,6 @@ function renderMeasurements() {
     const realIdx = history.length - 1 - idx;
     const div = document.createElement('div');
     div.className = 'measurement-entry';
-    
     let html = '<div class="date">' + m.date + '</div><div class="stats">';
     if (m.weight) html += '<div>Weight: ' + m.weight + ' lbs</div>';
     if (m.muscle) html += '<div>Muscle: ' + m.muscle + ' lbs</div>';
@@ -2131,40 +2108,12 @@ function saveMeasurement() {
   history.push(m);
   setData('measurement-history', history);
   
-  // Clear form
   ['m-weight', 'm-muscle', 'm-bmi', 'm-bodyfat', 'm-waist', 'm-arms', 'm-chest'].forEach(id => {
     document.getElementById(id).value = '';
   });
   
   alert('Measurement saved!');
   renderMeasurements();
-}
-
-function resetWeek() {
-  if (!confirm('Reset Week ' + currentWeek + '? This will clear all weights, reps, checkboxes, notes, added exercises, and added days for this week. This cannot be undone.')) {
-    return;
-  }
-  
-  // Get all localStorage keys
-  const keysToRemove = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    // Match keys for this week: w{N}-..., setcount-w{N}-..., swap-w{N}-..., added-w{N}-..., added-days-w{N}
-    if (key && (
-      key.startsWith('w' + currentWeek + '-') ||
-      key.startsWith('setcount-w' + currentWeek + '-') ||
-      key.startsWith('swap-w' + currentWeek + '-') ||
-      key.startsWith('added-w' + currentWeek + '-') ||
-      key === 'added-days-w' + currentWeek
-    )) {
-      keysToRemove.push(key);
-    }
-  }
-  
-  keysToRemove.forEach(key => localStorage.removeItem(key));
-  
-  alert('Week ' + currentWeek + ' has been reset!');
-  renderWorkouts();
 }
 
 // Event listeners
@@ -2178,11 +2127,6 @@ document.querySelectorAll('.menu-items li').forEach(li => {
   li.addEventListener('click', () => switchSection(li.dataset.section));
 });
 
-document.getElementById('weekSelector').addEventListener('change', (e) => {
-  currentWeek = Number(e.target.value);
-  renderWorkouts();
-});
-
 document.querySelectorAll('.category-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
@@ -2192,15 +2136,13 @@ document.querySelectorAll('.category-btn').forEach(btn => {
   });
 });
 
-document.getElementById('addDayBtn').addEventListener('click', showAddDayOptions);
-document.getElementById('resetWeekBtn').addEventListener('click', resetWeek);
-document.getElementById('createCustomBtn').addEventListener('click', showFocusList);
-document.getElementById('backToCustomBtn').addEventListener('click', renderCustomList);
-document.getElementById('cancelCustomBtn').addEventListener('click', renderCustomList);
-document.getElementById('saveCustomBtn').addEventListener('click', saveCustomWorkout);
-document.getElementById('addCustomExerciseBtn').addEventListener('click', () => {
-  addToCustomMode = true;
-  document.getElementById('swapBannerText').innerHTML = 'Add to custom workout';
+document.getElementById('backToCategoriesBtn').addEventListener('click', renderWorkoutCategories);
+document.getElementById('backFromActiveBtn').addEventListener('click', () => showVariations(currentWorkoutType));
+document.getElementById('completeActiveBtn').addEventListener('click', completeWorkout);
+
+document.getElementById('addExerciseToActiveBtn').addEventListener('click', () => {
+  addExerciseMode = true;
+  document.getElementById('swapBannerText').textContent = 'Add an exercise';
   document.getElementById('swapBanner').classList.remove('hidden');
   switchSection('library');
 });
@@ -2218,7 +2160,7 @@ document.getElementById('nextMonthBtn').addEventListener('click', () => {
 document.getElementById('saveMeasurementBtn').addEventListener('click', saveMeasurement);
 
 initDarkMode();
-renderWorkouts();
+renderToday();
 renderGoals();
 </script>
 </body>
