@@ -169,6 +169,11 @@ body.dark .menu-items li.active { color: #4a9d4d; border-left-color: #4a9d4d; }
   box-shadow: 0 4px 12px rgba(45, 95, 46, 0.25);
 }
 
+.today-card.resume {
+  background: linear-gradient(135deg, #c9740b 0%, #f59e0b 100%);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
 .today-label {
   font-size: 12px;
   text-transform: uppercase;
@@ -202,6 +207,8 @@ body.dark .menu-items li.active { color: #4a9d4d; border-left-color: #4a9d4d; }
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
+.today-card.resume .start-workout-btn { color: #c9740b; }
 
 .pick-different-btn {
   width: 100%;
@@ -328,6 +335,15 @@ body.dark .variation-card h4 { color: #4a9d4d; }
   font-weight: 700;
 }
 
+.custom-badge {
+  background: #2d5f2e;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
 .variation-card .meta {
   font-size: 12px;
   color: #666;
@@ -345,12 +361,6 @@ body.dark .variation-card .meta { color: #b0b0b0; }
 body.dark .variation-card .exercises-preview { color: #999; }
 
 /* Active Workout Screen */
-.active-workout {
-  display: none;
-}
-
-.active-workout.open { display: block; }
-
 .active-workout-header {
   background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
   color: white;
@@ -421,33 +431,25 @@ body.dark .exercise-header { border-bottom-color: #353535; }
 
 body.dark .exercise-name { color: #4a9d4d; }
 
-.suggested-banner {
-  background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
-  color: white;
-  padding: 10px 12px;
+.instruction-banner {
+  background: rgba(45, 95, 46, 0.08);
+  border: 1px solid rgba(45, 95, 46, 0.2);
+  color: #2d5f2e;
+  padding: 6px 10px;
   border-radius: 6px;
   margin-bottom: 10px;
-  font-size: 13px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  box-sizing: border-box;
+  font-size: 12px;
+  font-weight: 600;
 }
 
-.suggested-banner.buildup {
-  background: linear-gradient(135deg, #c9740b 0%, #f59e0b 100%);
+.instruction-banner.buildup {
+  background: rgba(201, 116, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #c9740b;
 }
 
-.suggested-banner .label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  opacity: 0.9;
-}
-
-.suggested-banner .value { font-size: 16px; font-weight: 700; }
-.suggested-banner .instruction { font-size: 11px; opacity: 0.9; font-style: italic; max-width: 50%; text-align: right; }
+body.dark .instruction-banner { background: rgba(74, 157, 77, 0.08); border-color: rgba(74, 157, 77, 0.2); color: #4a9d4d; }
+body.dark .instruction-banner.buildup { background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3); color: #fbbf24; }
 
 .previous-banner {
   background: rgba(45, 95, 46, 0.08);
@@ -476,6 +478,9 @@ body.dark .previous-banner { background: rgba(74, 157, 77, 0.08); border-color: 
 body.dark .swap-btn, body.dark .delete-btn { background: #1f1f1f; border-color: #4a9d4d; color: #4a9d4d; }
 
 .delete-btn { border-color: #c44; color: #c44; }
+body.dark .delete-btn { border-color: #e66; color: #e66; }
+
+.exercise-actions { display: flex; gap: 6px; }
 
 .sets-grid {
   display: flex;
@@ -686,6 +691,19 @@ body.dark .category-btn { background: #1f1f1f; border-color: #353535; }
 
 .category-btn.active { background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%); color: white; }
 
+.search-box {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d0d0d0;
+  border-radius: 8px;
+  background: white;
+  color: inherit;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+body.dark .search-box { background: #1a1a1a; border-color: #404040; }
+
 .exercise-lib-item {
   background: linear-gradient(135deg, #ffffff 0%, #f8faf8 100%);
   border: 1px solid #e0e5e0;
@@ -693,6 +711,10 @@ body.dark .category-btn { background: #1f1f1f; border-color: #353535; }
   border-radius: 8px;
   padding: 14px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 
 body.dark .exercise-lib-item { 
@@ -701,9 +723,20 @@ body.dark .exercise-lib-item {
   border-left-color: #4a9d4d;
 }
 
+.exercise-lib-item .lib-info { flex: 1; min-width: 0; }
 .exercise-lib-item h4 { font-size: 15px; margin-bottom: 4px; }
 .exercise-lib-item p { font-size: 13px; color: #666; }
 body.dark .exercise-lib-item p { color: #b0b0b0; }
+
+.custom-tag {
+  font-size: 10px;
+  background: #2d5f2e;
+  color: white;
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
 
 .swap-banner {
   background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
@@ -726,6 +759,68 @@ body.dark .exercise-lib-item p { color: #b0b0b0; }
   cursor: pointer;
   font-weight: 600;
 }
+
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #2d5f2e 0%, #3d7a3e 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.outline-btn {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  color: #2d5f2e;
+  border: 2px dashed #2d5f2e;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+body.dark .outline-btn { background: #1f1f1f; color: #4a9d4d; border-color: #4a9d4d; }
+
+/* Builder */
+.builder-exercise {
+  background: white;
+  border: 1px solid #e0e5e0;
+  border-left: 4px solid #2d5f2e;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+body.dark .builder-exercise { background: #1f1f1f; border-color: #353535; border-left-color: #4a9d4d; }
+
+.builder-exercise .be-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.builder-exercise .be-name { font-weight: 700; font-size: 14px; color: #2d5f2e; }
+body.dark .builder-exercise .be-name { color: #4a9d4d; }
+
+.builder-row { display: flex; gap: 8px; align-items: center; }
+.builder-row label { font-size: 12px; color: #666; flex: 0 0 auto; }
+body.dark .builder-row label { color: #b0b0b0; }
+.builder-row input {
+  flex: 1; padding: 6px; border: 1px solid #d0d0d0; border-radius: 4px;
+  background: white; color: inherit; font-size: 16px; text-align: center; min-width: 0;
+}
+body.dark .builder-row input { background: #0f0f0f; border-color: #404040; }
+
+.field-label { font-size: 13px; font-weight: 600; color: #2d5f2e; margin-bottom: 6px; display: block; }
+body.dark .field-label { color: #4a9d4d; }
+
+.text-input, .select-input {
+  width: 100%; padding: 10px; border: 1px solid #d0d0d0; border-radius: 8px;
+  background: white; color: inherit; font-size: 16px; margin-bottom: 12px;
+}
+body.dark .text-input, body.dark .select-input { background: #1a1a1a; border-color: #404040; }
 
 /* Calendar */
 .calendar {
@@ -923,6 +1018,7 @@ body.dark .back-arrow-btn { color: #4a9d4d; }
 
   <div id="workouts" class="section">
     <div id="workoutListView">
+      <button class="primary-btn" id="buildWorkoutBtn">+ Build Custom Workout</button>
       <div class="section-title">Choose Workout Type</div>
       <div class="workout-categories" id="workoutCategories"></div>
     </div>
@@ -931,6 +1027,19 @@ body.dark .back-arrow-btn { color: #4a9d4d; }
       <button class="back-arrow-btn" id="backToCategoriesBtn">← Back to categories</button>
       <div class="section-title" id="variationTitle"></div>
       <div id="variationsList"></div>
+    </div>
+    
+    <div id="builderView" class="hidden">
+      <button class="back-arrow-btn" id="backFromBuilderBtn">← Cancel</button>
+      <div class="section-title">Build Custom Workout</div>
+      <label class="field-label">Workout name</label>
+      <input type="text" class="text-input" id="builderName" placeholder="e.g. My Push Day">
+      <label class="field-label">Save into which category?</label>
+      <select class="select-input" id="builderCategory"></select>
+      <label class="field-label">Exercises</label>
+      <div id="builderExercises"></div>
+      <button class="outline-btn" id="builderAddExerciseBtn">+ Add Exercise from Library</button>
+      <button class="primary-btn" id="builderSaveBtn">Save Workout</button>
     </div>
     
     <div id="activeWorkoutView" class="hidden">
@@ -1031,6 +1140,8 @@ body.dark .back-arrow-btn { color: #4a9d4d; }
       <span id="swapBannerText">Swap exercise</span>
       <button id="cancelSwapBtn">Cancel</button>
     </div>
+    <input type="text" class="search-box" id="librarySearch" placeholder="🔍 Search exercises...">
+    <button class="outline-btn" id="addCustomExerciseBtn">+ Add Custom Exercise</button>
     <div class="library-categories">
       <button class="category-btn active" data-category="all">All</button>
       <button class="category-btn" data-category="legs">Legs</button>
@@ -1051,6 +1162,9 @@ let currentVariationId = null;
 let swapMode = null;
 let addExerciseMode = null;
 let calendarDate = new Date();
+let librarySearchTerm = '';
+let builderDraft = null;       // { name, category, exercises: [] }
+let builderAddMode = false;    // when picking a library exercise for the builder
 
 const defaultGoals = [
   "Bench 200+ x 6",
@@ -1060,333 +1174,387 @@ const defaultGoals = [
   "Visible abs year-round"
 ];
 
-// Workout types with 4 variations each
+// ---- Built-in workout types with variations (suggestedWeight removed) ----
 const workoutTypes = {
   push: {
-    name: "Push Day",
-    description: "Chest, shoulders, triceps",
-    icon: "💪",
+    name: "Push Day", description: "Chest, shoulders, triceps", icon: "💪",
     variations: {
       A: { name: "Push A - Heavy Bench", focus: "Bench focus", exercises: [
-        { name: "Barbell Bench Press", sets: 4, reps: "5-6", suggestedWeight: 155, type: "buildup" },
-        { name: "Barbell Overhead Press", sets: 3, reps: "6-8", suggestedWeight: 95, type: "buildup" },
-        { name: "Incline Dumbbell Press", sets: 3, reps: "8-10", suggestedWeight: 55, type: "maintain" },
-        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20, type: "maintain" },
-        { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" }
+        { name: "Barbell Bench Press", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Barbell Overhead Press", sets: 3, reps: "6-8", type: "buildup" },
+        { name: "Incline Dumbbell Press", sets: 3, reps: "8-10", type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", type: "maintain" },
+        { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", type: "maintain" }
       ]},
       B: { name: "Push B - Heavy OHP", focus: "Overhead Press focus", exercises: [
-        { name: "Barbell Overhead Press", sets: 4, reps: "5-6", suggestedWeight: 95, type: "buildup" },
-        { name: "Incline Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
-        { name: "Dumbbell Bench Press", sets: 3, reps: "8-10", suggestedWeight: 65, type: "maintain" },
-        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
-        { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" }
+        { name: "Barbell Overhead Press", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Incline Barbell Press", sets: 4, reps: "6-8", type: "buildup" },
+        { name: "Dumbbell Bench Press", sets: 3, reps: "8-10", type: "maintain" },
+        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", type: "maintain" },
+        { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", type: "maintain" }
       ]},
       C: { name: "Push C - Volume Pump", focus: "Hypertrophy & shoulder width", exercises: [
-        { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55, type: "buildup" },
-        { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45, type: "maintain" },
-        { name: "Cable Fly", sets: 4, reps: "12-15", suggestedWeight: 30, type: "maintain" },
-        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", suggestedWeight: 20, type: "maintain" },
-        { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15, type: "maintain" },
-        { name: "Cable Pushdown (Rope)", sets: 3, reps: "12-15", suggestedWeight: 50, type: "maintain" }
+        { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", type: "buildup" },
+        { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", type: "maintain" },
+        { name: "Cable Fly", sets: 4, reps: "12-15", type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", type: "maintain" },
+        { name: "Rear Delt Fly", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Cable Pushdown (Rope)", sets: 3, reps: "12-15", type: "maintain" }
       ]},
       D: { name: "Push D - Dips & Power", focus: "Push power & arms", exercises: [
-        { name: "Weighted Dips", sets: 4, reps: "6-8", suggestedWeight: 25, type: "buildup" },
-        { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115, type: "buildup" },
-        { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" },
-        { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
-        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
-        { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115, type: "buildup" }
+        { name: "Weighted Dips", sets: 4, reps: "6-8", type: "buildup" },
+        { name: "Push Press", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Decline Push-Ups", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Plate Front Raise", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", type: "maintain" },
+        { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", type: "buildup" }
       ]}
     }
   },
   pull: {
-    name: "Pull Day",
-    description: "Back, biceps, rear delts",
-    icon: "🔙",
+    name: "Pull Day", description: "Back, biceps, rear delts", icon: "🔙",
     variations: {
       A: { name: "Pull A - Heavy Pulls", focus: "Weighted pull-ups", exercises: [
-        { name: "Weighted Pull-Ups", sets: 4, reps: "5-6", suggestedWeight: 25, type: "buildup" },
-        { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
-        { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120, type: "maintain" },
-        { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40, type: "maintain" },
-        { name: "Barbell Curl", sets: 3, reps: "8-10", suggestedWeight: 65, type: "maintain" }
+        { name: "Weighted Pull-Ups", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Barbell Row", sets: 4, reps: "6-8", type: "buildup" },
+        { name: "Lat Pulldown", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Face Pulls", sets: 3, reps: "15-20", type: "maintain" },
+        { name: "Barbell Curl", sets: 3, reps: "8-10", type: "maintain" }
       ]},
       B: { name: "Pull B - Deadlift Day", focus: "Deadlift focus", exercises: [
-        { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225, type: "buildup" },
-        { name: "Pendlay Row", sets: 4, reps: "5-6", suggestedWeight: 155, type: "buildup" },
-        { name: "Pull-Ups", sets: 3, reps: "8-12", suggestedWeight: 0, type: "maintain" },
-        { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
-        { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 135, type: "maintain" }
+        { name: "Conventional Deadlift", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Pendlay Row", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Pull-Ups", sets: 3, reps: "8-12", type: "maintain" },
+        { name: "Hammer Curls", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Shrugs", sets: 3, reps: "12-15", type: "maintain" }
       ]},
       C: { name: "Pull C - Back Volume", focus: "Back width & definition", exercises: [
-        { name: "Pull-Ups", sets: 4, reps: "8-12", suggestedWeight: 0, type: "maintain" },
-        { name: "Seated Cable Row", sets: 4, reps: "10-12", suggestedWeight: 110, type: "maintain" },
-        { name: "V-Bar Pulldown", sets: 4, reps: "10-12", suggestedWeight: 120, type: "maintain" },
-        { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
-        { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15, type: "maintain" },
-        { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" }
+        { name: "Pull-Ups", sets: 4, reps: "8-12", type: "maintain" },
+        { name: "Seated Cable Row", sets: 4, reps: "10-12", type: "maintain" },
+        { name: "V-Bar Pulldown", sets: 4, reps: "10-12", type: "maintain" },
+        { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Rear Delt Fly", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Cable Curl", sets: 3, reps: "12-15", type: "maintain" }
       ]},
       D: { name: "Pull D - Rows & Curls", focus: "Thickness & arms", exercises: [
-        { name: "T-Bar Row", sets: 4, reps: "6-8", suggestedWeight: 90, type: "buildup" },
-        { name: "Chest Supported Row", sets: 4, reps: "8-10", suggestedWeight: 70, type: "maintain" },
-        { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", suggestedWeight: 140, type: "maintain" },
-        { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55, type: "maintain" },
-        { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" }
+        { name: "T-Bar Row", sets: 4, reps: "6-8", type: "buildup" },
+        { name: "Chest Supported Row", sets: 4, reps: "8-10", type: "maintain" },
+        { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", type: "maintain" },
+        { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", type: "maintain" }
       ]}
     }
   },
   legs: {
-    name: "Leg Day",
-    description: "Quads, hamstrings, glutes, calves",
-    icon: "🦵",
+    name: "Leg Day", description: "Quads, hamstrings, glutes, calves", icon: "🦵",
     variations: {
       A: { name: "Legs A - Squat Focus", focus: "Heavy squat", exercises: [
-        { name: "Barbell Back Squat", sets: 4, reps: "5-6", suggestedWeight: 185, type: "buildup" },
-        { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135, type: "buildup" },
-        { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
-        { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70, type: "maintain" },
-        { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90, type: "maintain" }
+        { name: "Barbell Back Squat", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Romanian Deadlift", sets: 3, reps: "8-10", type: "buildup" },
+        { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Leg Curl", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Standing Calf Raise", sets: 4, reps: "15-20", type: "maintain" }
       ]},
       B: { name: "Legs B - Deadlift Focus", focus: "Posterior chain", exercises: [
-        { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225, type: "buildup" },
-        { name: "Front Squat", sets: 3, reps: "6-8", suggestedWeight: 135, type: "buildup" },
-        { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25, type: "maintain" },
-        { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0, type: "maintain" },
-        { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" }
+        { name: "Conventional Deadlift", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Front Squat", sets: 3, reps: "6-8", type: "buildup" },
+        { name: "Walking Lunges", sets: 3, reps: "12", type: "maintain" },
+        { name: "Nordic Curls", sets: 3, reps: "6-8", type: "maintain" },
+        { name: "Seated Calf Raise", sets: 4, reps: "12-15", type: "maintain" }
       ]},
       C: { name: "Legs C - Hypertrophy", focus: "Volume & pump", exercises: [
-        { name: "Leg Press", sets: 4, reps: "10-12", suggestedWeight: 270, type: "buildup" },
-        { name: "Romanian Deadlift", sets: 3, reps: "10-12", suggestedWeight: 135, type: "maintain" },
-        { name: "Leg Extension", sets: 4, reps: "12-15", suggestedWeight: 90, type: "maintain" },
-        { name: "Leg Curl", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" },
-        { name: "Hip Thrust", sets: 3, reps: "10-12", suggestedWeight: 185, type: "maintain" },
-        { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90, type: "maintain" }
+        { name: "Leg Press", sets: 4, reps: "10-12", type: "buildup" },
+        { name: "Romanian Deadlift", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Leg Extension", sets: 4, reps: "12-15", type: "maintain" },
+        { name: "Leg Curl", sets: 4, reps: "12-15", type: "maintain" },
+        { name: "Hip Thrust", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Standing Calf Raise", sets: 4, reps: "15-20", type: "maintain" }
       ]},
       D: { name: "Legs D - Athletic", focus: "Power & conditioning", exercises: [
-        { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 165, type: "buildup" },
-        { name: "Bulgarian Split Squat", sets: 3, reps: "8-10", suggestedWeight: 40, type: "buildup" },
-        { name: "Jump Squats", sets: 3, reps: "15", suggestedWeight: 0, type: "maintain" },
-        { name: "Stiff-Leg Deadlift", sets: 3, reps: "8-10", suggestedWeight: 155, type: "maintain" },
-        { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25, type: "maintain" }
+        { name: "Pause Squat", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Bulgarian Split Squat", sets: 3, reps: "8-10", type: "buildup" },
+        { name: "Jump Squats", sets: 3, reps: "15", type: "maintain" },
+        { name: "Stiff-Leg Deadlift", sets: 3, reps: "8-10", type: "maintain" },
+        { name: "Walking Lunges", sets: 3, reps: "12", type: "maintain" }
       ]}
     }
   },
   upperBody: {
-    name: "Upper Body",
-    description: "Full upper body in one workout",
-    icon: "👕",
+    name: "Upper Body", description: "Full upper body in one workout", icon: "👕",
     variations: {
       A: { name: "Upper A - Strength", focus: "Heavy compounds", exercises: [
-        { name: "Barbell Bench Press", sets: 4, reps: "5-6", suggestedWeight: 155, type: "buildup" },
-        { name: "Barbell Row", sets: 4, reps: "5-6", suggestedWeight: 135, type: "buildup" },
-        { name: "Barbell Overhead Press", sets: 3, reps: "6-8", suggestedWeight: 95, type: "buildup" },
-        { name: "Pull-Ups", sets: 3, reps: "8-12", suggestedWeight: 0, type: "maintain" },
-        { name: "Dumbbell Lateral Raises", sets: 3, reps: "12-15", suggestedWeight: 20, type: "maintain" }
+        { name: "Barbell Bench Press", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Barbell Row", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Barbell Overhead Press", sets: 3, reps: "6-8", type: "buildup" },
+        { name: "Pull-Ups", sets: 3, reps: "8-12", type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 3, reps: "12-15", type: "maintain" }
       ]},
       B: { name: "Upper B - Hypertrophy", focus: "Volume work", exercises: [
-        { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55, type: "buildup" },
-        { name: "Seated Cable Row", sets: 4, reps: "10-12", suggestedWeight: 110, type: "maintain" },
-        { name: "Seated Dumbbell Press", sets: 3, reps: "8-10", suggestedWeight: 45, type: "maintain" },
-        { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120, type: "maintain" },
-        { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30, type: "maintain" },
-        { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" }
+        { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", type: "buildup" },
+        { name: "Seated Cable Row", sets: 4, reps: "10-12", type: "maintain" },
+        { name: "Seated Dumbbell Press", sets: 3, reps: "8-10", type: "maintain" },
+        { name: "Lat Pulldown", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Cable Fly", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Hammer Curls", sets: 3, reps: "10-12", type: "maintain" }
       ]},
       C: { name: "Upper C - Push/Pull", focus: "Balanced push & pull", exercises: [
-        { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25, type: "buildup" },
-        { name: "Dumbbell Bench Press", sets: 4, reps: "8-10", suggestedWeight: 65, type: "buildup" },
-        { name: "Cable Row (V-Bar)", sets: 3, reps: "10-12", suggestedWeight: 110, type: "maintain" },
-        { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
-        { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40, type: "maintain" },
-        { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" }
+        { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", type: "buildup" },
+        { name: "Dumbbell Bench Press", sets: 4, reps: "8-10", type: "buildup" },
+        { name: "Cable Row (V-Bar)", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Arnold Press", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Face Pulls", sets: 3, reps: "15-20", type: "maintain" },
+        { name: "Cable Curl", sets: 3, reps: "12-15", type: "maintain" }
       ]},
       D: { name: "Upper D - Aesthetics", focus: "Shoulders, chest, arms", exercises: [
-        { name: "Incline Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
-        { name: "T-Bar Row", sets: 4, reps: "8-10", suggestedWeight: 90, type: "maintain" },
-        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", suggestedWeight: 20, type: "maintain" },
-        { name: "Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 90, type: "maintain" },
-        { name: "EZ-Bar Curl", sets: 3, reps: "8-10", suggestedWeight: 55, type: "maintain" },
-        { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" }
+        { name: "Incline Barbell Press", sets: 4, reps: "6-8", type: "buildup" },
+        { name: "T-Bar Row", sets: 4, reps: "8-10", type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", type: "maintain" },
+        { name: "Pec Deck", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "EZ-Bar Curl", sets: 3, reps: "8-10", type: "maintain" },
+        { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", type: "maintain" }
       ]}
     }
   },
   arms: {
-    name: "Arms Day",
-    description: "Biceps and triceps focus",
-    icon: "💪",
+    name: "Arms Day", description: "Biceps and triceps focus", icon: "💪",
     variations: {
       A: { name: "Arms A - Heavy", focus: "Strength biceps & triceps", exercises: [
-        { name: "Close-Grip Bench Press", sets: 4, reps: "6-8", suggestedWeight: 115, type: "buildup" },
-        { name: "Barbell Curl", sets: 4, reps: "6-8", suggestedWeight: 65, type: "buildup" },
-        { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" },
-        { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55, type: "maintain" },
-        { name: "Weighted Tricep Dips", sets: 3, reps: "8-10", suggestedWeight: 25, type: "buildup" }
+        { name: "Close-Grip Bench Press", sets: 4, reps: "6-8", type: "buildup" },
+        { name: "Barbell Curl", sets: 4, reps: "6-8", type: "buildup" },
+        { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Weighted Tricep Dips", sets: 3, reps: "8-10", type: "buildup" }
       ]},
       B: { name: "Arms B - Volume", focus: "Pump & growth", exercises: [
-        { name: "EZ-Bar Curl", sets: 4, reps: "10-12", suggestedWeight: 55, type: "maintain" },
-        { name: "Cable Pushdown (Rope)", sets: 4, reps: "10-12", suggestedWeight: 50, type: "maintain" },
-        { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
-        { name: "Overhead Tricep Extension (Cable)", sets: 3, reps: "12-15", suggestedWeight: 50, type: "maintain" },
-        { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
-        { name: "Diamond Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" }
+        { name: "EZ-Bar Curl", sets: 4, reps: "10-12", type: "maintain" },
+        { name: "Cable Pushdown (Rope)", sets: 4, reps: "10-12", type: "maintain" },
+        { name: "Hammer Curls", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Overhead Tricep Extension (Cable)", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Cable Curl", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Diamond Push-Ups", sets: 3, reps: "12-15", type: "maintain" }
       ]},
       C: { name: "Arms C - Supersets", focus: "Density work", exercises: [
-        { name: "Dumbbell Curl", sets: 4, reps: "10-12", suggestedWeight: 25, type: "maintain" },
-        { name: "Cable Pushdown (Straight Bar)", sets: 4, reps: "10-12", suggestedWeight: 60, type: "maintain" },
-        { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
-        { name: "Skullcrusher (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
-        { name: "Spider Curl", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
-        { name: "Bench Dips", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" }
+        { name: "Dumbbell Curl", sets: 4, reps: "10-12", type: "maintain" },
+        { name: "Cable Pushdown (Straight Bar)", sets: 4, reps: "10-12", type: "maintain" },
+        { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Skullcrusher (Dumbbell)", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Spider Curl", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Bench Dips", sets: 3, reps: "12-15", type: "maintain" }
       ]},
       D: { name: "Arms D - Power", focus: "Strength & forearms", exercises: [
-        { name: "Barbell Curl", sets: 4, reps: "8-10", suggestedWeight: 65, type: "buildup" },
-        { name: "JM Press", sets: 4, reps: "8-10", suggestedWeight: 95, type: "buildup" },
-        { name: "Zottman Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
-        { name: "Reverse Grip Pushdown", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
-        { name: "Wrist Curl (Barbell)", sets: 3, reps: "12-15", suggestedWeight: 45, type: "maintain" },
-        { name: "Farmer's Walk", sets: 3, reps: "30s", suggestedWeight: 50, type: "maintain" }
+        { name: "Barbell Curl", sets: 4, reps: "8-10", type: "buildup" },
+        { name: "JM Press", sets: 4, reps: "8-10", type: "buildup" },
+        { name: "Zottman Curl", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Reverse Grip Pushdown", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Wrist Curl (Barbell)", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Farmer's Walk", sets: 3, reps: "30s", type: "maintain" }
       ]}
     }
   },
   shouldersAbs: {
-    name: "Shoulders + Abs",
-    description: "Wider shoulders & visible core",
-    icon: "🎯",
+    name: "Shoulders + Abs", description: "Wider shoulders & visible core", icon: "🎯",
     variations: {
       A: { name: "Shoulders A - Strength", focus: "OHP + core strength", exercises: [
-        { name: "Barbell Overhead Press", sets: 4, reps: "5-6", suggestedWeight: 95, type: "buildup" },
-        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20, type: "maintain" },
-        { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15, type: "maintain" },
-        { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40, type: "maintain" },
-        { name: "Cable Crunch", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" },
-        { name: "Hanging Leg Raise", sets: 3, reps: "10-12", suggestedWeight: 0, type: "maintain" }
+        { name: "Barbell Overhead Press", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", type: "maintain" },
+        { name: "Rear Delt Fly", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Face Pulls", sets: 3, reps: "15-20", type: "maintain" },
+        { name: "Cable Crunch", sets: 4, reps: "12-15", type: "maintain" },
+        { name: "Hanging Leg Raise", sets: 3, reps: "10-12", type: "maintain" }
       ]},
       B: { name: "Shoulders B - Width", focus: "Maximum shoulder width", exercises: [
-        { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45, type: "buildup" },
-        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", suggestedWeight: 20, type: "maintain" },
-        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
-        { name: "Reverse Pec Deck", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" },
-        { name: "Ab Wheel Rollout", sets: 4, reps: "10-12", suggestedWeight: 0, type: "maintain" },
-        { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0, type: "maintain" }
+        { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", type: "buildup" },
+        { name: "Dumbbell Lateral Raises", sets: 5, reps: "12-15", type: "maintain" },
+        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", type: "maintain" },
+        { name: "Reverse Pec Deck", sets: 4, reps: "12-15", type: "maintain" },
+        { name: "Ab Wheel Rollout", sets: 4, reps: "10-12", type: "maintain" },
+        { name: "Plank", sets: 3, reps: "45s", type: "maintain" }
       ]},
       C: { name: "Shoulders C - All-Around", focus: "3D shoulders + abs", exercises: [
-        { name: "Arnold Press", sets: 4, reps: "8-10", suggestedWeight: 35, type: "buildup" },
-        { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
-        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20, type: "maintain" },
-        { name: "Cable Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 20, type: "maintain" },
-        { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25, type: "maintain" },
-        { name: "Bicycle Crunches", sets: 3, reps: "25", suggestedWeight: 0, type: "maintain" }
+        { name: "Arnold Press", sets: 4, reps: "8-10", type: "buildup" },
+        { name: "Front Raises", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", type: "maintain" },
+        { name: "Cable Rear Delt Fly", sets: 3, reps: "12-15", type: "maintain" },
+        { name: "Russian Twist", sets: 3, reps: "20", type: "maintain" },
+        { name: "Bicycle Crunches", sets: 3, reps: "25", type: "maintain" }
       ]},
       D: { name: "Shoulders D - Push Power", focus: "Power & abs", exercises: [
-        { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115, type: "buildup" },
-        { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
-        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
-        { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65, type: "maintain" },
-        { name: "Weighted Cable Crunch", sets: 3, reps: "12", suggestedWeight: 90, type: "maintain" },
-        { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0, type: "maintain" }
+        { name: "Push Press", sets: 4, reps: "5-6", type: "buildup" },
+        { name: "Plate Front Raise", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Cable Lateral Raises", sets: 4, reps: "15-20", type: "maintain" },
+        { name: "Upright Row", sets: 3, reps: "10-12", type: "maintain" },
+        { name: "Weighted Cable Crunch", sets: 3, reps: "12", type: "maintain" },
+        { name: "Toes to Bar", sets: 3, reps: "10", type: "maintain" }
       ]}
     }
   }
 };
 
-const exerciseLibrary = {
+// ---- Built-in exercise library (expanded; suggestedWeight removed) ----
+const builtInLibrary = {
   legs: [
-    { name: "Barbell Back Squat", sets: 4, reps: "6-8", suggestedWeight: 185, type: "buildup" },
-    { name: "Front Squat", sets: 3, reps: "6-8", suggestedWeight: 135, type: "buildup" },
-    { name: "Pause Squat", sets: 4, reps: "5-6", suggestedWeight: 165, type: "buildup" },
-    { name: "Romanian Deadlift", sets: 3, reps: "8-10", suggestedWeight: 135, type: "maintain" },
-    { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225, type: "buildup" },
-    { name: "Stiff-Leg Deadlift", sets: 3, reps: "8-10", suggestedWeight: 155, type: "maintain" },
-    { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
-    { name: "Walking Lunges", sets: 3, reps: "12", suggestedWeight: 25, type: "maintain" },
-    { name: "Leg Press", sets: 3, reps: "10-12", suggestedWeight: 270, type: "maintain" },
-    { name: "Leg Curl", sets: 3, reps: "12-15", suggestedWeight: 70, type: "maintain" },
-    { name: "Leg Extension", sets: 3, reps: "12-15", suggestedWeight: 90, type: "maintain" },
-    { name: "Standing Calf Raise", sets: 4, reps: "15-20", suggestedWeight: 90, type: "maintain" },
-    { name: "Seated Calf Raise", sets: 4, reps: "12-15", suggestedWeight: 70, type: "maintain" },
-    { name: "Hip Thrust", sets: 3, reps: "10-12", suggestedWeight: 185, type: "maintain" },
-    { name: "Nordic Curls", sets: 3, reps: "6-8", suggestedWeight: 0, type: "maintain" },
-    { name: "Jump Squats", sets: 3, reps: "15", suggestedWeight: 0, type: "maintain" }
+    { name: "Barbell Back Squat", sets: 4, reps: "6-8", type: "buildup" },
+    { name: "Front Squat", sets: 3, reps: "6-8", type: "buildup" },
+    { name: "Pause Squat", sets: 4, reps: "5-6", type: "buildup" },
+    { name: "Box Squat", sets: 4, reps: "5-6", type: "buildup" },
+    { name: "Goblet Squat", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Hack Squat", sets: 3, reps: "8-12", type: "buildup" },
+    { name: "Smith Machine Squat", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Romanian Deadlift", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Conventional Deadlift", sets: 4, reps: "5-6", type: "buildup" },
+    { name: "Sumo Deadlift", sets: 4, reps: "5-6", type: "buildup" },
+    { name: "Trap Bar Deadlift", sets: 4, reps: "5-8", type: "buildup" },
+    { name: "Stiff-Leg Deadlift", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Bulgarian Split Squat", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Walking Lunges", sets: 3, reps: "12", type: "maintain" },
+    { name: "Reverse Lunges", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Step-Ups", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Leg Press", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Single-Leg Press", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Leg Curl", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Seated Leg Curl", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Leg Extension", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Standing Calf Raise", sets: 4, reps: "15-20", type: "maintain" },
+    { name: "Seated Calf Raise", sets: 4, reps: "12-15", type: "maintain" },
+    { name: "Leg Press Calf Raise", sets: 4, reps: "15-20", type: "maintain" },
+    { name: "Hip Thrust", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Glute Bridge", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Cable Pull-Through", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Nordic Curls", sets: 3, reps: "6-8", type: "maintain" },
+    { name: "Good Mornings", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Jump Squats", sets: 3, reps: "15", type: "maintain" },
+    { name: "Sissy Squat", sets: 3, reps: "10-12", type: "maintain" }
   ],
   shoulders: [
-    { name: "Barbell Overhead Press", sets: 4, reps: "6-8", suggestedWeight: 95, type: "buildup" },
-    { name: "Push Press", sets: 4, reps: "5-6", suggestedWeight: 115, type: "buildup" },
-    { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 45, type: "maintain" },
-    { name: "Arnold Press", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
-    { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", suggestedWeight: 20, type: "maintain" },
-    { name: "Cable Lateral Raises", sets: 4, reps: "15-20", suggestedWeight: 15, type: "maintain" },
-    { name: "Front Raises", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
-    { name: "Rear Delt Fly", sets: 3, reps: "12-15", suggestedWeight: 15, type: "maintain" },
-    { name: "Reverse Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 70, type: "maintain" },
-    { name: "Face Pulls", sets: 3, reps: "15-20", suggestedWeight: 40, type: "maintain" },
-    { name: "Upright Row", sets: 3, reps: "10-12", suggestedWeight: 65, type: "maintain" },
-    { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", suggestedWeight: 70, type: "maintain" },
-    { name: "Plate Front Raise", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" }
+    { name: "Barbell Overhead Press", sets: 4, reps: "6-8", type: "buildup" },
+    { name: "Seated Barbell Press", sets: 4, reps: "6-8", type: "buildup" },
+    { name: "Push Press", sets: 4, reps: "5-6", type: "buildup" },
+    { name: "Seated Dumbbell Press", sets: 4, reps: "8-10", type: "maintain" },
+    { name: "Standing Dumbbell Press", sets: 4, reps: "8-10", type: "maintain" },
+    { name: "Arnold Press", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Machine Shoulder Press", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Dumbbell Lateral Raises", sets: 4, reps: "12-15", type: "maintain" },
+    { name: "Cable Lateral Raises", sets: 4, reps: "15-20", type: "maintain" },
+    { name: "Machine Lateral Raise", sets: 4, reps: "12-15", type: "maintain" },
+    { name: "Leaning Cable Lateral Raise", sets: 3, reps: "15-20", type: "maintain" },
+    { name: "Front Raises", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Plate Front Raise", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Cable Front Raise", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Rear Delt Fly", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Cable Rear Delt Fly", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Reverse Pec Deck", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Face Pulls", sets: 3, reps: "15-20", type: "maintain" },
+    { name: "Upright Row", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Cable Upright Row", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Dumbbell Shrugs", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Barbell Shrugs", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Landmine Press", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Y-Raise", sets: 3, reps: "12-15", type: "maintain" }
   ],
   chest: [
-    { name: "Barbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 155, type: "buildup" },
-    { name: "Incline Barbell Press", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
-    { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", suggestedWeight: 55, type: "maintain" },
-    { name: "Dumbbell Bench Press", sets: 4, reps: "6-8", suggestedWeight: 65, type: "maintain" },
-    { name: "Cable Fly", sets: 3, reps: "12-15", suggestedWeight: 30, type: "maintain" },
-    { name: "Dumbbell Fly", sets: 3, reps: "10-12", suggestedWeight: 35, type: "maintain" },
-    { name: "Pec Deck", sets: 3, reps: "12-15", suggestedWeight: 90, type: "maintain" },
-    { name: "Dips", sets: 3, reps: "8-12", suggestedWeight: 0, type: "maintain" },
-    { name: "Weighted Dips", sets: 3, reps: "6-10", suggestedWeight: 25, type: "buildup" },
-    { name: "Push-Ups", sets: 3, reps: "15-20", suggestedWeight: 0, type: "maintain" },
-    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115, type: "buildup" },
-    { name: "Decline Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" }
+    { name: "Barbell Bench Press", sets: 4, reps: "6-8", type: "buildup" },
+    { name: "Incline Barbell Press", sets: 4, reps: "6-8", type: "buildup" },
+    { name: "Decline Barbell Press", sets: 4, reps: "6-8", type: "buildup" },
+    { name: "Incline Dumbbell Press", sets: 4, reps: "8-10", type: "maintain" },
+    { name: "Dumbbell Bench Press", sets: 4, reps: "6-8", type: "maintain" },
+    { name: "Decline Dumbbell Press", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Machine Chest Press", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Smith Machine Bench Press", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Cable Fly", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Low-to-High Cable Fly", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "High-to-Low Cable Fly", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Dumbbell Fly", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Incline Dumbbell Fly", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Pec Deck", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Dips", sets: 3, reps: "8-12", type: "maintain" },
+    { name: "Weighted Dips", sets: 3, reps: "6-10", type: "buildup" },
+    { name: "Push-Ups", sets: 3, reps: "15-20", type: "maintain" },
+    { name: "Decline Push-Ups", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", type: "buildup" },
+    { name: "Svend Press", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Cable Crossover", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Floor Press", sets: 3, reps: "6-8", type: "buildup" }
   ],
   back: [
-    { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", suggestedWeight: 25, type: "buildup" },
-    { name: "Pull-Ups", sets: 4, reps: "8-12", suggestedWeight: 0, type: "maintain" },
-    { name: "Lat Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120, type: "maintain" },
-    { name: "V-Bar Pulldown", sets: 3, reps: "10-12", suggestedWeight: 120, type: "maintain" },
-    { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", suggestedWeight: 140, type: "maintain" },
-    { name: "Barbell Row", sets: 4, reps: "6-8", suggestedWeight: 135, type: "buildup" },
-    { name: "Pendlay Row", sets: 4, reps: "5-6", suggestedWeight: 155, type: "buildup" },
-    { name: "Dumbbell Row", sets: 4, reps: "8-10", suggestedWeight: 65, type: "maintain" },
-    { name: "T-Bar Row", sets: 3, reps: "8-10", suggestedWeight: 90, type: "maintain" },
-    { name: "Seated Cable Row", sets: 3, reps: "10-12", suggestedWeight: 110, type: "maintain" },
-    { name: "Chest Supported Row", sets: 3, reps: "10-12", suggestedWeight: 70, type: "maintain" },
-    { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
-    { name: "Conventional Deadlift", sets: 4, reps: "5-6", suggestedWeight: 225, type: "buildup" },
-    { name: "Shrugs", sets: 3, reps: "12-15", suggestedWeight: 135, type: "maintain" }
+    { name: "Weighted Pull-Ups", sets: 4, reps: "5-8", type: "buildup" },
+    { name: "Pull-Ups", sets: 4, reps: "8-12", type: "maintain" },
+    { name: "Chin-Ups", sets: 4, reps: "8-12", type: "maintain" },
+    { name: "Lat Pulldown", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Wide-Grip Pulldown", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "V-Bar Pulldown", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Neutral Grip Pulldown", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Behind-Neck Pulldown", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Barbell Row", sets: 4, reps: "6-8", type: "buildup" },
+    { name: "Pendlay Row", sets: 4, reps: "5-6", type: "buildup" },
+    { name: "Yates Row", sets: 4, reps: "6-8", type: "buildup" },
+    { name: "Dumbbell Row", sets: 4, reps: "8-10", type: "maintain" },
+    { name: "T-Bar Row", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Seated Cable Row", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Wide-Grip Cable Row", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Chest Supported Row", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Machine Row", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Meadows Row", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Straight-Arm Pulldown", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Conventional Deadlift", sets: 4, reps: "5-6", type: "buildup" },
+    { name: "Rack Pulls", sets: 4, reps: "5-6", type: "buildup" },
+    { name: "Shrugs", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Inverted Row", sets: 3, reps: "10-15", type: "maintain" },
+    { name: "Single-Arm Lat Pulldown", sets: 3, reps: "10-12", type: "maintain" }
   ],
   arms: [
-    { name: "Barbell Curl", sets: 3, reps: "8-10", suggestedWeight: 65, type: "buildup" },
-    { name: "EZ-Bar Curl", sets: 3, reps: "8-10", suggestedWeight: 55, type: "maintain" },
-    { name: "Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
-    { name: "Hammer Curls", sets: 3, reps: "10-12", suggestedWeight: 30, type: "maintain" },
-    { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", suggestedWeight: 55, type: "maintain" },
-    { name: "Cable Curl", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
-    { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
-    { name: "Zottman Curl", sets: 3, reps: "10-12", suggestedWeight: 20, type: "maintain" },
-    { name: "Spider Curl", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
-    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", suggestedWeight: 115, type: "buildup" },
-    { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" },
-    { name: "Skullcrusher (Dumbbell)", sets: 3, reps: "10-12", suggestedWeight: 25, type: "maintain" },
-    { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" },
-    { name: "Cable Pushdown (Straight Bar)", sets: 3, reps: "10-12", suggestedWeight: 60, type: "maintain" },
-    { name: "Overhead Tricep Extension (Cable)", sets: 3, reps: "10-12", suggestedWeight: 50, type: "maintain" },
-    { name: "Tricep Dips", sets: 3, reps: "8-12", suggestedWeight: 0, type: "maintain" },
-    { name: "Weighted Tricep Dips", sets: 3, reps: "6-10", suggestedWeight: 25, type: "buildup" },
-    { name: "Diamond Push-Ups", sets: 3, reps: "12-15", suggestedWeight: 0, type: "maintain" },
-    { name: "JM Press", sets: 3, reps: "8-10", suggestedWeight: 95, type: "buildup" },
-    { name: "Reverse Grip Pushdown", sets: 3, reps: "12-15", suggestedWeight: 40, type: "maintain" },
-    { name: "Wrist Curl (Barbell)", sets: 3, reps: "12-15", suggestedWeight: 45, type: "maintain" },
-    { name: "Farmer's Walk", sets: 3, reps: "30s", suggestedWeight: 50, type: "maintain" }
+    { name: "Barbell Curl", sets: 3, reps: "8-10", type: "buildup" },
+    { name: "EZ-Bar Curl", sets: 3, reps: "8-10", type: "maintain" },
+    { name: "Dumbbell Curl", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Hammer Curls", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Preacher Curl (Barbell)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Preacher Curl (Dumbbell)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Cable Curl", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Incline Dumbbell Curl", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Concentration Curl", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Zottman Curl", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Spider Curl", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Cable Hammer Curl (Rope)", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Reverse Curl", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Close-Grip Bench Press", sets: 3, reps: "8-10", type: "buildup" },
+    { name: "Skullcrusher (EZ-Bar)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Skullcrusher (Dumbbell)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Cable Pushdown (Rope)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Cable Pushdown (Straight Bar)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Cable Pushdown (V-Bar)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Overhead Tricep Extension (Cable)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Overhead Tricep Extension (Dumbbell)", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Tricep Dips", sets: 3, reps: "8-12", type: "maintain" },
+    { name: "Weighted Tricep Dips", sets: 3, reps: "6-10", type: "buildup" },
+    { name: "Bench Dips", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Diamond Push-Ups", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "JM Press", sets: 3, reps: "8-10", type: "buildup" },
+    { name: "Reverse Grip Pushdown", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Kickbacks", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Wrist Curl (Barbell)", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Reverse Wrist Curl", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Farmer's Walk", sets: 3, reps: "30s", type: "maintain" }
   ],
   abs: [
-    { name: "Cable Crunch", sets: 3, reps: "15", suggestedWeight: 70, type: "maintain" },
-    { name: "Weighted Cable Crunch", sets: 3, reps: "12", suggestedWeight: 90, type: "maintain" },
-    { name: "Hanging Leg Raise", sets: 3, reps: "12", suggestedWeight: 0, type: "maintain" },
-    { name: "Toes to Bar", sets: 3, reps: "10", suggestedWeight: 0, type: "maintain" },
-    { name: "Ab Wheel Rollout", sets: 3, reps: "10-12", suggestedWeight: 0, type: "maintain" },
-    { name: "Plank", sets: 3, reps: "45s", suggestedWeight: 0, type: "maintain" },
-    { name: "Side Plank", sets: 3, reps: "40s", suggestedWeight: 0, type: "maintain" },
-    { name: "Russian Twist", sets: 3, reps: "20", suggestedWeight: 25, type: "maintain" },
-    { name: "Mountain Climbers", sets: 3, reps: "30s", suggestedWeight: 0, type: "maintain" },
-    { name: "Bicycle Crunches", sets: 3, reps: "25", suggestedWeight: 0, type: "maintain" }
+    { name: "Cable Crunch", sets: 3, reps: "15", type: "maintain" },
+    { name: "Weighted Cable Crunch", sets: 3, reps: "12", type: "maintain" },
+    { name: "Hanging Leg Raise", sets: 3, reps: "12", type: "maintain" },
+    { name: "Hanging Knee Raise", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Toes to Bar", sets: 3, reps: "10", type: "maintain" },
+    { name: "Ab Wheel Rollout", sets: 3, reps: "10-12", type: "maintain" },
+    { name: "Plank", sets: 3, reps: "45s", type: "maintain" },
+    { name: "Side Plank", sets: 3, reps: "40s", type: "maintain" },
+    { name: "Russian Twist", sets: 3, reps: "20", type: "maintain" },
+    { name: "Mountain Climbers", sets: 3, reps: "30s", type: "maintain" },
+    { name: "Bicycle Crunches", sets: 3, reps: "25", type: "maintain" },
+    { name: "Decline Sit-Ups", sets: 3, reps: "15-20", type: "maintain" },
+    { name: "Reverse Crunch", sets: 3, reps: "15", type: "maintain" },
+    { name: "Dead Bug", sets: 3, reps: "12", type: "maintain" },
+    { name: "Cable Woodchopper", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Flutter Kicks", sets: 3, reps: "30s", type: "maintain" },
+    { name: "V-Ups", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Hollow Body Hold", sets: 3, reps: "30s", type: "maintain" },
+    { name: "Pallof Press", sets: 3, reps: "12-15", type: "maintain" },
+    { name: "Captain's Chair Leg Raise", sets: 3, reps: "12-15", type: "maintain" }
   ]
 };
 
@@ -1394,9 +1562,32 @@ function getData(key) {
   try { const item = localStorage.getItem(key); return item ? JSON.parse(item) : null; }
   catch (e) { return null; }
 }
-
 function setData(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch (e) {}
+}
+
+// ---- Custom exercises (user-added) merged into the library ----
+function getCustomExercises() { return getData('custom-exercises') || {}; }
+function getLibrary() {
+  const custom = getCustomExercises();
+  const merged = {};
+  Object.keys(builtInLibrary).forEach(cat => {
+    merged[cat] = [...builtInLibrary[cat], ...((custom[cat]) || []).map(e => ({...e, custom: true}))];
+  });
+  return merged;
+}
+
+// ---- Custom workouts (saved as variations inside a category) ----
+function getCustomWorkouts() { return getData('custom-workouts') || {}; }
+
+function getAllVariations(typeKey) {
+  const built = workoutTypes[typeKey] ? {...workoutTypes[typeKey].variations} : {};
+  const custom = getCustomWorkouts()[typeKey] || {};
+  return {...built, ...custom};
+}
+
+function getVariation(typeKey, vId) {
+  return getAllVariations(typeKey)[vId];
 }
 
 function toggleDarkMode() {
@@ -1405,7 +1596,6 @@ function toggleDarkMode() {
   localStorage.setItem('darkMode', isDark);
   document.getElementById('darkToggle').textContent = isDark ? '☀️' : '🌙';
 }
-
 function initDarkMode() {
   if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark');
@@ -1417,7 +1607,6 @@ function openMenu() {
   document.getElementById('sidebar').classList.add('open');
   document.getElementById('overlay').classList.add('active');
 }
-
 function closeMenu() {
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('overlay').classList.remove('active');
@@ -1446,34 +1635,26 @@ function switchSection(section) {
   if (section === 'measurements') renderMeasurements();
 }
 
-// Get recommendation based on workout history
+// ---- Active workout persistence ----
+function getActiveSession() { return getData('active-session'); }
+function setActiveSession(typeKey, vId) { setData('active-session', { typeKey, vId }); }
+function clearActiveSession() { localStorage.removeItem('active-session'); }
+
 function getRecommendation() {
   const history = getData('workout-history') || {};
   const dates = Object.keys(history).sort().reverse();
-  
-  // Get last 7 workouts
   const recentTypes = dates.slice(0, 7).map(d => history[d].workoutTypeKey).filter(Boolean);
-  
-  // Find what hasn't been done recently
   const allTypes = ['push', 'pull', 'legs', 'shouldersAbs', 'arms', 'upperBody'];
-  
-  // Count occurrences in last 4 workouts
   const recent4 = recentTypes.slice(0, 4);
   const typeCounts = {};
   allTypes.forEach(t => typeCounts[t] = recent4.filter(rt => rt === t).length);
   
-  // Recommend based on priority for user's goals
-  // Priority: Push (chest/shoulders), Pull (back), Legs, Shoulders+Abs
-  let recommended;
-  let reason;
-  
+  let recommended, reason;
   if (recentTypes.length === 0) {
     recommended = 'push';
     reason = "Let's start with Push Day to kick off your routine";
   } else {
     const lastType = recentTypes[0];
-    
-    // Don't do same type back-to-back
     if (lastType === 'push' || lastType === 'upperBody') {
       recommended = typeCounts.pull < typeCounts.legs ? 'pull' : 'legs';
       reason = lastType === 'push' ? "You hit push yesterday - time to pull" : "After upper body, let's hit pull or legs";
@@ -1495,12 +1676,10 @@ function getRecommendation() {
     }
   }
   
-  // Pick variation - one not done recently
   const recentVariations = dates.slice(0, 8)
     .filter(d => history[d].workoutTypeKey === recommended)
     .map(d => history[d].variationId);
-  
-  const allVariations = Object.keys(workoutTypes[recommended].variations);
+  const allVariations = Object.keys(getAllVariations(recommended));
   let variation = allVariations.find(v => !recentVariations.includes(v));
   if (!variation) variation = allVariations[0];
   
@@ -1508,29 +1687,41 @@ function getRecommendation() {
 }
 
 function renderToday() {
-  const rec = getRecommendation();
-  const workoutType = workoutTypes[rec.typeKey];
-  const variation = workoutType.variations[rec.variation];
-  
   const area = document.getElementById('recommendationArea');
-  area.innerHTML = `
-    <div class="today-card">
-      <div class="today-label">Recommended Next</div>
-      <div class="today-name">${variation.name}</div>
-      <div class="today-reason">${rec.reason}</div>
-      <button class="start-workout-btn" onclick="startWorkout('${rec.typeKey}', '${rec.variation}')">Start ${variation.name}</button>
-      <button class="pick-different-btn" onclick="switchSection('workouts')">Pick a different workout</button>
-    </div>
-  `;
+  const active = getActiveSession();
   
-  // Stats
+  // Auto-resume: if a session is in progress, show a resume card AND jump into it
+  if (active && getVariation(active.typeKey, active.vId)) {
+    const v = getVariation(active.typeKey, active.vId);
+    area.innerHTML = `
+      <div class="today-card resume">
+        <div class="today-label">Workout In Progress</div>
+        <div class="today-name">${v.name}</div>
+        <div class="today-reason">You have an unfinished workout — pick up where you left off.</div>
+        <button class="start-workout-btn" onclick="startWorkout('${active.typeKey}', '${active.vId}')">Resume Workout</button>
+        <button class="pick-different-btn" onclick="discardActiveSession()">Discard & start fresh</button>
+      </div>
+    `;
+  } else {
+    const rec = getRecommendation();
+    const variation = getVariation(rec.typeKey, rec.variation);
+    area.innerHTML = `
+      <div class="today-card">
+        <div class="today-label">Recommended Next</div>
+        <div class="today-name">${variation.name}</div>
+        <div class="today-reason">${rec.reason}</div>
+        <button class="start-workout-btn" onclick="startWorkout('${rec.typeKey}', '${rec.variation}')">Start ${variation.name}</button>
+        <button class="pick-different-btn" onclick="switchSection('workouts')">Pick a different workout</button>
+      </div>
+    `;
+  }
+  
   const history = getData('workout-history') || {};
   const dates = Object.keys(history);
   const thisWeekStart = new Date();
   thisWeekStart.setDate(thisWeekStart.getDate() - 7);
   const thisWeek = dates.filter(d => new Date(d) >= thisWeekStart).length;
   
-  // Streak calculation
   let streak = 0;
   const today = new Date();
   for (let i = 0; i < 30; i++) {
@@ -1547,41 +1738,44 @@ function renderToday() {
     <div class="stat-card"><div class="stat-value">${streak}</div><div class="stat-label">Day Streak</div></div>
   `;
   
-  // Recent
   const recentList = document.getElementById('recentWorkouts');
   recentList.innerHTML = '';
   const sortedDates = Object.keys(history).sort().reverse().slice(0, 5);
-  
   if (sortedDates.length === 0) {
     recentList.innerHTML = '<div style="text-align:center;padding:20px;color:#666;">No workouts yet - get started above!</div>';
     return;
   }
-  
   sortedDates.forEach(date => {
     const w = history[date];
     const div = document.createElement('div');
     div.className = 'variation-card';
-    div.innerHTML = `
-      <h4>${w.name}</h4>
-      <div class="meta">${date} • ${w.exercises.length} exercises</div>
-    `;
+    div.innerHTML = `<h4>${w.name}</h4><div class="meta">${date} • ${w.exercises.length} exercises</div>`;
     div.onclick = () => { switchSection('calendar'); setTimeout(() => showWorkoutDetail(date), 100); };
     recentList.appendChild(div);
   });
+}
+
+function discardActiveSession() {
+  if (!confirm('Discard the in-progress workout? Your logged sets for it will be cleared.')) return;
+  const active = getActiveSession();
+  if (active) clearWorkoutProgress(active.typeKey, active.vId);
+  clearActiveSession();
+  renderToday();
 }
 
 function renderWorkoutCategories() {
   document.getElementById('workoutListView').classList.remove('hidden');
   document.getElementById('variationListView').classList.add('hidden');
   document.getElementById('activeWorkoutView').classList.add('hidden');
+  document.getElementById('builderView').classList.add('hidden');
   
   const list = document.getElementById('workoutCategories');
   list.innerHTML = '';
-  
   Object.entries(workoutTypes).forEach(([key, type]) => {
+    const customCount = Object.keys(getCustomWorkouts()[key] || {}).length;
     const div = document.createElement('div');
     div.className = 'workout-category';
-    div.innerHTML = `<h3>${type.icon} ${type.name}</h3><p>${type.description}</p>`;
+    div.innerHTML = `<h3>${type.icon} ${type.name}</h3><p>${type.description}${customCount ? ' • ' + customCount + ' custom' : ''}</p>`;
     div.onclick = () => showVariations(key);
     list.appendChild(div);
   });
@@ -1592,86 +1786,82 @@ function showVariations(typeKey) {
   document.getElementById('workoutListView').classList.add('hidden');
   document.getElementById('variationListView').classList.remove('hidden');
   document.getElementById('activeWorkoutView').classList.add('hidden');
+  document.getElementById('builderView').classList.add('hidden');
   
   const type = workoutTypes[typeKey];
   document.getElementById('variationTitle').textContent = type.name;
   
   const history = getData('workout-history') || {};
   const dates = Object.keys(history).sort().reverse();
-  
-  // Find which variation was done most recently for this type
   const recentForType = dates.filter(d => history[d].workoutTypeKey === typeKey);
-  const lastVariation = recentForType.length > 0 ? history[recentForType[0]].variationId : null;
-  
-  // Find next recommended variation
-  const allVars = Object.keys(type.variations);
+  const allVars = Object.keys(getAllVariations(typeKey));
   const recent4ForType = recentForType.slice(0, 4).map(d => history[d].variationId);
   const recommendedVar = allVars.find(v => !recent4ForType.includes(v)) || allVars[0];
+  const customWorkouts = getCustomWorkouts()[typeKey] || {};
   
   const list = document.getElementById('variationsList');
   list.innerHTML = '';
   
-  Object.entries(type.variations).forEach(([vId, v]) => {
+  Object.entries(getAllVariations(typeKey)).forEach(([vId, v]) => {
+    const isCustom = !!customWorkouts[vId];
     const div = document.createElement('div');
     div.className = 'variation-card';
     if (vId === recommendedVar) div.classList.add('recommended');
     
-    // Find when this was last done
     const lastDone = recentForType.find(d => history[d].variationId === vId);
     const lastDoneText = lastDone ? `Last done: ${lastDone}` : 'Never done';
-    
     const preview = v.exercises.slice(0, 3).map(e => e.name).join(', ');
     
+    let badge = '';
+    if (vId === recommendedVar) badge = '<span class="recommended-badge">RECOMMENDED</span>';
+    else if (isCustom) badge = '<span class="custom-badge">CUSTOM</span>';
+    
     div.innerHTML = `
-      <h4>${v.name} ${vId === recommendedVar ? '<span class="recommended-badge">RECOMMENDED</span>' : ''}</h4>
+      <h4>${v.name} ${badge}</h4>
       <div class="meta">${v.focus} • ${v.exercises.length} exercises</div>
-      <div class="exercises-preview">${preview}...</div>
+      <div class="exercises-preview">${preview}${v.exercises.length > 3 ? '...' : ''}</div>
       <div class="meta" style="margin-top:6px;">${lastDoneText}</div>
+      ${isCustom ? '<button class="delete-btn" style="margin-top:8px;" onclick="event.stopPropagation(); deleteCustomWorkout(\'' + typeKey + '\',\'' + vId + '\')">Delete</button>' : ''}
     `;
     div.onclick = () => startWorkout(typeKey, vId);
     list.appendChild(div);
   });
 }
 
+function deleteCustomWorkout(typeKey, vId) {
+  if (!confirm('Delete this custom workout?')) return;
+  const cw = getCustomWorkouts();
+  if (cw[typeKey]) { delete cw[typeKey][vId]; setData('custom-workouts', cw); }
+  showVariations(typeKey);
+}
+
 function startWorkout(typeKey, vId) {
   currentWorkoutType = typeKey;
   currentVariationId = vId;
+  setActiveSession(typeKey, vId);
   switchSection('workouts');
   
   document.getElementById('workoutListView').classList.add('hidden');
   document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('builderView').classList.add('hidden');
   document.getElementById('activeWorkoutView').classList.remove('hidden');
   
-  const variation = workoutTypes[typeKey].variations[vId];
+  const variation = getVariation(typeKey, vId);
   document.getElementById('activeWorkoutName').textContent = variation.name;
-  
   renderActiveWorkout();
 }
 
-// Get the in-progress key for tracking active workout
-function getProgressKey(typeKey, vId, exIdx, setIdx) {
-  return 'active-' + typeKey + '-' + vId + '-e' + exIdx + '-s' + setIdx;
-}
-
-function getActiveAddedKey(typeKey, vId) {
-  return 'active-added-' + typeKey + '-' + vId;
-}
-
-function getActiveSwapKey(typeKey, vId, exIdx) {
-  return 'active-swap-' + typeKey + '-' + vId + '-e' + exIdx;
-}
-
-function getActiveSetCountKey(typeKey, vId, exIdx) {
-  return 'active-setcount-' + typeKey + '-' + vId + '-e' + exIdx;
-}
+function getProgressKey(typeKey, vId, exIdx, setIdx) { return 'active-' + typeKey + '-' + vId + '-e' + exIdx + '-s' + setIdx; }
+function getActiveAddedKey(typeKey, vId) { return 'active-added-' + typeKey + '-' + vId; }
+function getActiveSwapKey(typeKey, vId, exIdx) { return 'active-swap-' + typeKey + '-' + vId + '-e' + exIdx; }
+function getActiveSetCountKey(typeKey, vId, exIdx) { return 'active-setcount-' + typeKey + '-' + vId + '-e' + exIdx; }
 
 function getActiveExercises() {
-  const variation = workoutTypes[currentWorkoutType].variations[currentVariationId];
+  const variation = getVariation(currentWorkoutType, currentVariationId);
   const baseExercises = variation.exercises;
   const added = getData(getActiveAddedKey(currentWorkoutType, currentVariationId)) || [];
   return [...baseExercises, ...added];
 }
-
 function getActiveExercise(eIdx) {
   const swapped = getData(getActiveSwapKey(currentWorkoutType, currentVariationId, eIdx));
   if (swapped) return swapped;
@@ -1681,7 +1871,6 @@ function getActiveExercise(eIdx) {
 function getPreviousWeightForExercise(exerciseName) {
   const history = getData('workout-history') || {};
   const dates = Object.keys(history).sort().reverse();
-  
   for (const date of dates) {
     const w = history[date];
     for (const ex of w.exercises) {
@@ -1729,18 +1918,15 @@ function renderActiveWorkout() {
     header.appendChild(swapBtn);
     exDiv.appendChild(header);
     
-    if (ex.suggestedWeight > 0) {
-      const isBuildup = ex.type === 'buildup';
-      const instruction = isBuildup 
-        ? 'Build up: warmups then ' + actualSets + ' working sets'
-        : 'Start at this weight, maintain all sets';
-      const banner = document.createElement('div');
-      banner.className = 'suggested-banner' + (isBuildup ? ' buildup' : '');
-      banner.innerHTML = '<div><div class="label">' + (isBuildup ? 'Top Working Set' : 'Working Weight') + '</div><div class="value">' + ex.suggestedWeight + ' lbs</div></div><div class="instruction">' + instruction + '</div>';
-      exDiv.appendChild(banner);
-    }
+    // Build-up vs maintain instruction (no weight numbers)
+    const isBuildup = ex.type === 'buildup';
+    const instr = document.createElement('div');
+    instr.className = 'instruction-banner' + (isBuildup ? ' buildup' : '');
+    instr.textContent = isBuildup
+      ? 'Build-up lift: warm up gradually, then your working sets'
+      : 'Maintain: start at your working weight, keep it across all sets';
+    exDiv.appendChild(instr);
     
-    // Previous workout comparison
     const prev = getPreviousWeightForExercise(ex.name);
     if (prev) {
       const prevBanner = document.createElement('div');
@@ -1751,48 +1937,31 @@ function renderActiveWorkout() {
     
     const setsGrid = document.createElement('div');
     setsGrid.className = 'sets-grid';
-    
     for (let s = 0; s < actualSets; s++) {
       const setKey = getProgressKey(currentWorkoutType, currentVariationId, eIdx, s);
       const savedSet = getData(setKey) || {};
-      
       const setRow = document.createElement('div');
       setRow.className = 'set-row';
       
       const label = document.createElement('label');
       label.textContent = 'Set ' + (s + 1) + ':';
-      
       const weightInput = document.createElement('input');
       weightInput.type = 'number';
       weightInput.placeholder = 'lbs';
       weightInput.value = savedSet.weight || '';
-      weightInput.onchange = function() {
-        const c = getData(setKey) || {};
-        c.weight = this.value;
-        setData(setKey, c);
-      };
-      
+      weightInput.onchange = function() { const c = getData(setKey) || {}; c.weight = this.value; setData(setKey, c); };
       const x = document.createElement('span');
-      x.className = 'x';
-      x.textContent = '×';
-      
+      x.className = 'x'; x.textContent = '×';
       const repsInput = document.createElement('input');
       repsInput.type = 'number';
       repsInput.placeholder = ex.reps;
       repsInput.value = savedSet.reps || '';
-      repsInput.onchange = function() {
-        const c = getData(setKey) || {};
-        c.reps = this.value;
-        setData(setKey, c);
-      };
-      
+      repsInput.onchange = function() { const c = getData(setKey) || {}; c.reps = this.value; setData(setKey, c); };
       const cb = document.createElement('input');
       cb.type = 'checkbox';
       cb.checked = savedSet.completed || false;
       cb.onchange = function() {
-        const c = getData(setKey) || {};
-        c.completed = this.checked;
-        setData(setKey, c);
+        const c = getData(setKey) || {}; c.completed = this.checked; setData(setKey, c);
         let allDone = true;
         for (let si = 0; si < actualSets; si++) {
           const sd = getData(getProgressKey(currentWorkoutType, currentVariationId, eIdx, si));
@@ -1800,7 +1969,6 @@ function renderActiveWorkout() {
         }
         exDiv.classList.toggle('completed', allDone);
       };
-      
       setRow.appendChild(label);
       setRow.appendChild(weightInput);
       setRow.appendChild(x);
@@ -1814,20 +1982,10 @@ function renderActiveWorkout() {
     setControls.className = 'set-controls';
     const removeBtn = document.createElement('button');
     removeBtn.textContent = '− Remove Set';
-    removeBtn.onclick = (e) => {
-      e.stopPropagation();
-      if (actualSets > 1) {
-        setData(setCountKey, actualSets - 1);
-        renderActiveWorkout();
-      }
-    };
+    removeBtn.onclick = (e) => { e.stopPropagation(); if (actualSets > 1) { setData(setCountKey, actualSets - 1); renderActiveWorkout(); } };
     const addBtn = document.createElement('button');
     addBtn.textContent = '+ Add Set';
-    addBtn.onclick = (e) => {
-      e.stopPropagation();
-      setData(setCountKey, actualSets + 1);
-      renderActiveWorkout();
-    };
+    addBtn.onclick = (e) => { e.stopPropagation(); setData(setCountKey, actualSets + 1); renderActiveWorkout(); };
     setControls.appendChild(removeBtn);
     setControls.appendChild(addBtn);
     exDiv.appendChild(setControls);
@@ -1852,14 +2010,13 @@ function startSwap(eIdx) {
   document.getElementById('swapBanner').classList.remove('hidden');
   switchSection('library');
 }
-
 function cancelSwap() {
   swapMode = null;
   addExerciseMode = null;
+  builderAddMode = false;
   document.getElementById('swapBanner').classList.add('hidden');
   renderLibrary();
 }
-
 function swapExercise(newEx) {
   if (!swapMode) return;
   setData(getActiveSwapKey(currentWorkoutType, currentVariationId, swapMode.eIdx), newEx);
@@ -1867,10 +2024,10 @@ function swapExercise(newEx) {
   switchSection('workouts');
   document.getElementById('workoutListView').classList.add('hidden');
   document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('builderView').classList.add('hidden');
   document.getElementById('activeWorkoutView').classList.remove('hidden');
   renderActiveWorkout();
 }
-
 function addExerciseFromLibrary(ex) {
   const added = getData(getActiveAddedKey(currentWorkoutType, currentVariationId)) || [];
   added.push(ex);
@@ -1879,13 +2036,29 @@ function addExerciseFromLibrary(ex) {
   switchSection('workouts');
   document.getElementById('workoutListView').classList.add('hidden');
   document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('builderView').classList.add('hidden');
   document.getElementById('activeWorkoutView').classList.remove('hidden');
   renderActiveWorkout();
 }
 
+function clearWorkoutProgress(typeKey, vId) {
+  const keysToRemove = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && (
+      key.startsWith('active-' + typeKey + '-' + vId) ||
+      key.startsWith('active-setcount-' + typeKey + '-' + vId) ||
+      key.startsWith('active-swap-' + typeKey + '-' + vId) ||
+      key === 'active-added-' + typeKey + '-' + vId ||
+      key.startsWith('active-notes-' + typeKey + '-' + vId)
+    )) keysToRemove.push(key);
+  }
+  keysToRemove.forEach(k => localStorage.removeItem(k));
+}
+
 function completeWorkout() {
   const today = new Date().toISOString().split('T')[0];
-  const variation = workoutTypes[currentWorkoutType].variations[currentVariationId];
+  const variation = getVariation(currentWorkoutType, currentVariationId);
   const exercises = getActiveExercises();
   
   const workoutData = {
@@ -1900,8 +2073,7 @@ function completeWorkout() {
       const actualSets = customSetCount !== null ? customSetCount : ex.sets;
       const sets = [];
       for (let s = 0; s < actualSets; s++) {
-        const setData = getData(getProgressKey(currentWorkoutType, currentVariationId, eIdx, s)) || {};
-        sets.push(setData);
+        sets.push(getData(getProgressKey(currentWorkoutType, currentVariationId, eIdx, s)) || {});
       }
       return { name: ex.name, sets: sets };
     })
@@ -1911,50 +2083,134 @@ function completeWorkout() {
   history[today] = workoutData;
   setData('workout-history', history);
   
-  // Clear active workout data
-  const keysToRemove = [];
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (key && (
-      key.startsWith('active-' + currentWorkoutType + '-' + currentVariationId) ||
-      key.startsWith('active-setcount-' + currentWorkoutType + '-' + currentVariationId) ||
-      key.startsWith('active-swap-' + currentWorkoutType + '-' + currentVariationId) ||
-      key === 'active-added-' + currentWorkoutType + '-' + currentVariationId ||
-      key.startsWith('active-notes-' + currentWorkoutType + '-' + currentVariationId)
-    )) {
-      keysToRemove.push(key);
-    }
-  }
-  keysToRemove.forEach(k => localStorage.removeItem(k));
+  clearWorkoutProgress(currentWorkoutType, currentVariationId);
+  clearActiveSession();
   
   alert('Workout saved to ' + today + '! 💪');
   switchSection('today');
+}
+
+// ---- Custom workout builder ----
+function openBuilder() {
+  builderDraft = { name: '', category: Object.keys(workoutTypes)[0], exercises: [] };
+  document.getElementById('workoutListView').classList.add('hidden');
+  document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('activeWorkoutView').classList.add('hidden');
+  document.getElementById('builderView').classList.remove('hidden');
+  
+  const sel = document.getElementById('builderCategory');
+  sel.innerHTML = '';
+  Object.entries(workoutTypes).forEach(([key, t]) => {
+    const opt = document.createElement('option');
+    opt.value = key; opt.textContent = t.icon + ' ' + t.name;
+    sel.appendChild(opt);
+  });
+  document.getElementById('builderName').value = '';
+  renderBuilderExercises();
+}
+
+function renderBuilderExercises() {
+  const wrap = document.getElementById('builderExercises');
+  wrap.innerHTML = '';
+  if (!builderDraft.exercises.length) {
+    wrap.innerHTML = '<div style="color:#666;font-size:13px;padding:8px 0;">No exercises yet. Add some from the library below.</div>';
+    return;
+  }
+  builderDraft.exercises.forEach((ex, idx) => {
+    const div = document.createElement('div');
+    div.className = 'builder-exercise';
+    const head = document.createElement('div');
+    head.className = 'be-head';
+    const nm = document.createElement('div');
+    nm.className = 'be-name'; nm.textContent = ex.name;
+    const del = document.createElement('button');
+    del.className = 'delete-btn'; del.textContent = 'Remove';
+    del.onclick = () => { builderDraft.exercises.splice(idx, 1); renderBuilderExercises(); };
+    head.appendChild(nm); head.appendChild(del);
+    div.appendChild(head);
+    
+    const row = document.createElement('div');
+    row.className = 'builder-row';
+    const setsLabel = document.createElement('label'); setsLabel.textContent = 'Sets';
+    const setsInput = document.createElement('input');
+    setsInput.type = 'number'; setsInput.value = ex.sets;
+    setsInput.onchange = function() { ex.sets = parseInt(this.value) || 1; };
+    const repsLabel = document.createElement('label'); repsLabel.textContent = 'Reps';
+    const repsInput = document.createElement('input');
+    repsInput.type = 'text'; repsInput.value = ex.reps;
+    repsInput.onchange = function() { ex.reps = this.value; };
+    row.appendChild(setsLabel); row.appendChild(setsInput);
+    row.appendChild(repsLabel); row.appendChild(repsInput);
+    div.appendChild(row);
+    wrap.appendChild(div);
+  });
+}
+
+function builderAddExercise() {
+  builderDraft.name = document.getElementById('builderName').value;
+  builderDraft.category = document.getElementById('builderCategory').value;
+  builderAddMode = true;
+  document.getElementById('swapBannerText').textContent = 'Pick an exercise for your workout';
+  document.getElementById('swapBanner').classList.remove('hidden');
+  switchSection('library');
+}
+
+function addExerciseToBuilder(ex) {
+  builderDraft.exercises.push({ name: ex.name, sets: ex.sets, reps: ex.reps, type: ex.type });
+  builderAddMode = false;
+  document.getElementById('swapBanner').classList.add('hidden');
+  switchSection('workouts');
+  document.getElementById('workoutListView').classList.add('hidden');
+  document.getElementById('variationListView').classList.add('hidden');
+  document.getElementById('activeWorkoutView').classList.add('hidden');
+  document.getElementById('builderView').classList.remove('hidden');
+  // restore name/category into the form
+  document.getElementById('builderName').value = builderDraft.name;
+  const sel = document.getElementById('builderCategory');
+  sel.innerHTML = '';
+  Object.entries(workoutTypes).forEach(([key, t]) => {
+    const opt = document.createElement('option');
+    opt.value = key; opt.textContent = t.icon + ' ' + t.name;
+    if (key === builderDraft.category) opt.selected = true;
+    sel.appendChild(opt);
+  });
+  renderBuilderExercises();
+}
+
+function saveBuilderWorkout() {
+  const name = document.getElementById('builderName').value.trim();
+  const category = document.getElementById('builderCategory').value;
+  if (!name) { alert('Give your workout a name.'); return; }
+  if (!builderDraft.exercises.length) { alert('Add at least one exercise.'); return; }
+  
+  const cw = getCustomWorkouts();
+  if (!cw[category]) cw[category] = {};
+  const vId = 'custom-' + Date.now();
+  cw[category][vId] = {
+    name: name,
+    focus: 'Custom workout',
+    exercises: builderDraft.exercises
+  };
+  setData('custom-workouts', cw);
+  builderDraft = null;
+  alert('Saved! "' + name + '" is now in ' + workoutTypes[category].name + '.');
+  showVariations(category);
 }
 
 function renderGoals() {
   const list = document.getElementById('goalsList');
   list.innerHTML = '';
   let goals = getData('goals');
-  if (!goals) {
-    goals = defaultGoals.map(text => ({ text, completed: false }));
-    setData('goals', goals);
-  }
+  if (!goals) { goals = defaultGoals.map(text => ({ text, completed: false })); setData('goals', goals); }
   goals.forEach((goal, idx) => {
     const div = document.createElement('div');
     div.className = 'goal-item' + (goal.completed ? ' completed' : '');
     const cb = document.createElement('input');
-    cb.type = 'checkbox';
-    cb.checked = goal.completed;
-    cb.onchange = () => {
-      goals[idx].completed = cb.checked;
-      setData('goals', goals);
-      div.classList.toggle('completed', cb.checked);
-    };
+    cb.type = 'checkbox'; cb.checked = goal.completed;
+    cb.onchange = () => { goals[idx].completed = cb.checked; setData('goals', goals); div.classList.toggle('completed', cb.checked); };
     const text = document.createElement('div');
-    text.className = 'goal-text';
-    text.textContent = goal.text;
-    div.appendChild(cb);
-    div.appendChild(text);
+    text.className = 'goal-text'; text.textContent = goal.text;
+    div.appendChild(cb); div.appendChild(text);
     list.appendChild(div);
   });
 }
@@ -1962,30 +2218,85 @@ function renderGoals() {
 function renderLibrary() {
   const list = document.getElementById('libraryList');
   list.innerHTML = '';
-  const exercises = currentCategory === 'all' ? Object.values(exerciseLibrary).flat() : exerciseLibrary[currentCategory] || [];
+  const library = getLibrary();
+  let exercises = currentCategory === 'all' ? Object.values(library).flat() : (library[currentCategory] || []);
+  
+  if (librarySearchTerm) {
+    const term = librarySearchTerm.toLowerCase();
+    exercises = exercises.filter(ex => ex.name.toLowerCase().includes(term));
+  }
+  
+  if (!exercises.length) {
+    list.innerHTML = '<div style="text-align:center;color:#666;padding:20px;">No exercises found</div>';
+    return;
+  }
+  
+  const picking = swapMode || addExerciseMode || builderAddMode;
+  
   exercises.forEach(ex => {
     const div = document.createElement('div');
     div.className = 'exercise-lib-item';
+    const info = document.createElement('div');
+    info.className = 'lib-info';
     const h4 = document.createElement('h4');
-    h4.textContent = ex.name;
+    h4.innerHTML = ex.name + (ex.custom ? '<span class="custom-tag">CUSTOM</span>' : '');
     const p = document.createElement('p');
-    p.textContent = ex.sets + ' sets x ' + ex.reps + ' reps' + (ex.suggestedWeight > 0 ? ' @ ' + ex.suggestedWeight + ' lbs' : '');
-    div.appendChild(h4);
-    div.appendChild(p);
-    if (swapMode) {
-      div.onclick = () => swapExercise(ex);
-    } else if (addExerciseMode) {
-      div.onclick = () => addExerciseFromLibrary(ex);
+    p.textContent = ex.sets + ' sets × ' + ex.reps + ' reps';
+    info.appendChild(h4); info.appendChild(p);
+    div.appendChild(info);
+    
+    if (picking) {
+      div.onclick = () => {
+        if (swapMode) swapExercise(ex);
+        else if (addExerciseMode) addExerciseFromLibrary(ex);
+        else if (builderAddMode) addExerciseToBuilder(ex);
+      };
+    } else if (ex.custom) {
+      const del = document.createElement('button');
+      del.className = 'delete-btn';
+      del.textContent = 'Delete';
+      del.onclick = (e) => { e.stopPropagation(); deleteCustomExercise(ex); };
+      div.appendChild(del);
     }
     list.appendChild(div);
   });
 }
 
+function deleteCustomExercise(ex) {
+  if (!confirm('Delete "' + ex.name + '"?')) return;
+  const custom = getCustomExercises();
+  Object.keys(custom).forEach(cat => {
+    custom[cat] = (custom[cat] || []).filter(e => e.name !== ex.name);
+  });
+  setData('custom-exercises', custom);
+  renderLibrary();
+}
+
+function addCustomExerciseFlow() {
+  const name = prompt('Exercise name:');
+  if (!name || !name.trim()) return;
+  const cats = ['legs', 'shoulders', 'chest', 'back', 'arms', 'abs'];
+  const catInput = prompt('Category? Type one of: ' + cats.join(', '));
+  if (!catInput) return;
+  const cat = catInput.trim().toLowerCase();
+  if (!cats.includes(cat)) { alert('Unknown category. Use: ' + cats.join(', ')); return; }
+  const sets = parseInt(prompt('Number of sets:', '3')) || 3;
+  const reps = (prompt('Reps (e.g. 8-10 or 30s):', '10-12') || '10-12').trim();
+  const typeIn = (prompt('Type — "buildup" for heavy compounds, "maintain" for accessories:', 'maintain') || 'maintain').trim().toLowerCase();
+  const type = typeIn === 'buildup' ? 'buildup' : 'maintain';
+  
+  const custom = getCustomExercises();
+  if (!custom[cat]) custom[cat] = [];
+  custom[cat].push({ name: name.trim(), sets: sets, reps: reps, type: type });
+  setData('custom-exercises', custom);
+  renderLibrary();
+  alert('Added "' + name.trim() + '" to ' + cat + '.');
+}
+
 function renderCalendar() {
   const year = calendarDate.getFullYear();
   const month = calendarDate.getMonth();
-  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   document.getElementById('calendarMonthLabel').textContent = monthNames[month] + ' ' + year;
   
   const firstDay = new Date(year, month, 1).getDay();
@@ -1995,21 +2306,16 @@ function renderCalendar() {
   
   const grid = document.getElementById('calendarGrid');
   grid.innerHTML = '';
-  
-  const dayNames = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  dayNames.forEach(n => {
+  ['S','M','T','W','T','F','S'].forEach(n => {
     const div = document.createElement('div');
-    div.className = 'calendar-day-name';
-    div.textContent = n;
+    div.className = 'calendar-day-name'; div.textContent = n;
     grid.appendChild(div);
   });
-  
   for (let i = 0; i < firstDay; i++) {
     const div = document.createElement('div');
     div.className = 'calendar-day empty';
     grid.appendChild(div);
   }
-  
   for (let d = 1; d <= daysInMonth; d++) {
     const dateStr = year + '-' + String(month + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
     const div = document.createElement('div');
@@ -2020,7 +2326,6 @@ function renderCalendar() {
     div.onclick = () => showWorkoutDetail(dateStr);
     grid.appendChild(div);
   }
-  
   document.getElementById('workoutDetail').classList.add('hidden');
 }
 
@@ -2028,13 +2333,11 @@ function showWorkoutDetail(dateStr) {
   const history = getData('workout-history') || {};
   const workout = history[dateStr];
   const detail = document.getElementById('workoutDetail');
-  
   if (!workout) {
     detail.innerHTML = '<strong>' + dateStr + '</strong><br><em style="color:#666;">No workout logged</em>';
     detail.classList.remove('hidden');
     return;
   }
-  
   let html = '<strong>' + dateStr + ' - ' + workout.name + '</strong><br><br>';
   workout.exercises.forEach(ex => {
     html += '<div style="margin-bottom:8px;"><strong>' + ex.name + ':</strong><br>';
@@ -2045,7 +2348,6 @@ function showWorkoutDetail(dateStr) {
     });
     html += '</div>';
   });
-  
   detail.innerHTML = html;
   detail.classList.remove('hidden');
 }
@@ -2054,12 +2356,10 @@ function renderMeasurements() {
   const history = getData('measurement-history') || [];
   const list = document.getElementById('measurementHistory');
   list.innerHTML = '';
-  
   if (history.length === 0) {
     list.innerHTML = '<div style="text-align:center;color:#666;padding:20px;">No measurements logged yet</div>';
     return;
   }
-  
   [...history].reverse().forEach((m, idx) => {
     const realIdx = history.length - 1 - idx;
     const div = document.createElement('div');
@@ -2098,20 +2398,13 @@ function saveMeasurement() {
     arms: document.getElementById('m-arms').value,
     chest: document.getElementById('m-chest').value
   };
-  
   if (!m.weight && !m.muscle && !m.bmi && !m.bodyfat && !m.waist && !m.arms && !m.chest) {
-    alert('Please enter at least one measurement');
-    return;
+    alert('Please enter at least one measurement'); return;
   }
-  
   const history = getData('measurement-history') || [];
   history.push(m);
   setData('measurement-history', history);
-  
-  ['m-weight', 'm-muscle', 'm-bmi', 'm-bodyfat', 'm-waist', 'm-arms', 'm-chest'].forEach(id => {
-    document.getElementById(id).value = '';
-  });
-  
+  ['m-weight','m-muscle','m-bmi','m-bodyfat','m-waist','m-arms','m-chest'].forEach(id => { document.getElementById(id).value = ''; });
   alert('Measurement saved!');
   renderMeasurements();
 }
@@ -2136,9 +2429,21 @@ document.querySelectorAll('.category-btn').forEach(btn => {
   });
 });
 
+document.getElementById('librarySearch').addEventListener('input', function() {
+  librarySearchTerm = this.value;
+  renderLibrary();
+});
+
+document.getElementById('addCustomExerciseBtn').addEventListener('click', addCustomExerciseFlow);
+
 document.getElementById('backToCategoriesBtn').addEventListener('click', renderWorkoutCategories);
 document.getElementById('backFromActiveBtn').addEventListener('click', () => showVariations(currentWorkoutType));
 document.getElementById('completeActiveBtn').addEventListener('click', completeWorkout);
+
+document.getElementById('buildWorkoutBtn').addEventListener('click', openBuilder);
+document.getElementById('backFromBuilderBtn').addEventListener('click', () => { builderDraft = null; renderWorkoutCategories(); });
+document.getElementById('builderAddExerciseBtn').addEventListener('click', builderAddExercise);
+document.getElementById('builderSaveBtn').addEventListener('click', saveBuilderWorkout);
 
 document.getElementById('addExerciseToActiveBtn').addEventListener('click', () => {
   addExerciseMode = true;
@@ -2147,16 +2452,8 @@ document.getElementById('addExerciseToActiveBtn').addEventListener('click', () =
   switchSection('library');
 });
 
-document.getElementById('prevMonthBtn').addEventListener('click', () => {
-  calendarDate.setMonth(calendarDate.getMonth() - 1);
-  renderCalendar();
-});
-
-document.getElementById('nextMonthBtn').addEventListener('click', () => {
-  calendarDate.setMonth(calendarDate.getMonth() + 1);
-  renderCalendar();
-});
-
+document.getElementById('prevMonthBtn').addEventListener('click', () => { calendarDate.setMonth(calendarDate.getMonth() - 1); renderCalendar(); });
+document.getElementById('nextMonthBtn').addEventListener('click', () => { calendarDate.setMonth(calendarDate.getMonth() + 1); renderCalendar(); });
 document.getElementById('saveMeasurementBtn').addEventListener('click', saveMeasurement);
 
 initDarkMode();
